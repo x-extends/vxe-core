@@ -32,7 +32,7 @@ module.exports = defineConfig({
   productionSourceMap: false,
   pages: {
     index: {
-      title: 'Vxe PC UI',
+      title: 'Vxe Core',
       entry: 'examples/main.ts',
       template: 'public/index.html',
       filename: 'index.html'
