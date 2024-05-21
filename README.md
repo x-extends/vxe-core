@@ -4,7 +4,7 @@
 
 Vxe UI 核心库.
 
-## 安装
+## 使用
 
 ```shell
 npm install @vxe-ui/core

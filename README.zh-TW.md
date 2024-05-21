@@ -4,7 +4,7 @@
 
 Vxe UI core library.
 
-## Use
+## 使用
 
 ```shell
 npm install @vxe-ui/core
