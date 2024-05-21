@@ -1,5 +1,7 @@
 import XEUtils from 'xe-utils'
-import globalConfigStore from './globalStore'
+import { globalConfigStore } from './globalStore'
+
+import { VxeGlobalResize } from '../../types'
 
 /**
  * 监听 resize 事件
@@ -36,7 +38,7 @@ function eventListener () {
   resizeTimeout = setTimeout(eventHandle, globalConfigStore.resizeInterval || defaultInterval)
 }
 
-export class XEResizeObserver {
+class XEResizeObserver {
   tarList: {
     target: Element;
     width: number;
@@ -77,9 +79,11 @@ export class XEResizeObserver {
   }
 }
 
-export function createResizeEvent (callback: (...args: any[]) => void): any {
-  if (window.ResizeObserver) {
-    return new window.ResizeObserver(callback)
+export const globalResize: VxeGlobalResize = {
+  create (callback: (...args: any[]) => void) {
+    if (window.ResizeObserver) {
+      return new window.ResizeObserver(callback)
+    }
+    return new XEResizeObserver(callback)
   }
-  return new XEResizeObserver(callback)
 }

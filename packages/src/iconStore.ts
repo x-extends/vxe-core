@@ -1,5 +1,3 @@
 import { VxeGlobalIcon } from '../../types'
 
-const iconConfigStore: VxeGlobalIcon = {}
-
-export default iconConfigStore
+export const iconConfigStore: VxeGlobalIcon = {}

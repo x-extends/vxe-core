@@ -1,5 +1,5 @@
 import XEUtils from 'xe-utils'
-import { warnLog } from './log'
+import { log } from './log'
 
 import { VxeGlobalInterceptor, VxeGlobalInterceptorHandles } from '../../types'
 
@@ -23,9 +23,9 @@ export const interceptor: VxeGlobalInterceptor = {
       }
 
       // 检测重复
-      if (process.env.VUE_APP_VXE_TABLE_ENV === 'development') {
+      if (process.env.VUE_APP_VXE_ENV === 'development') {
         if (eList.indexOf(callback) > -1) {
-          warnLog('vxe.error.coverProp', ['Interceptor', type])
+          log.warn('vxe.error.coverProp', ['Interceptor', type])
         }
       }
 

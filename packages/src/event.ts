@@ -1,8 +1,8 @@
 import XEUtils from 'xe-utils'
 
-import { VxeComponentBase } from '../../types'
+import { VxeGlobalEvents, VxeComponentBase } from '../../types'
 
-export const EVENT_KEYS = {
+export const GLOBAL_EVENT_KEYS = {
   F2: 'F2',
   ESCAPE: 'Escape',
   ENTER: 'Enter',
@@ -23,12 +23,12 @@ const browse = XEUtils.browse()
 
 const convertEventKeys: { [key: string]: string } = {
   ' ': 'Spacebar',
-  Apps: EVENT_KEYS.CONTEXT_MENU,
-  Del: EVENT_KEYS.DELETE,
-  Up: EVENT_KEYS.ARROW_UP,
-  Down: EVENT_KEYS.ARROW_DOWN,
-  Left: EVENT_KEYS.ARROW_LEFT,
-  Right: EVENT_KEYS.ARROW_RIGHT
+  Apps: GLOBAL_EVENT_KEYS.CONTEXT_MENU,
+  Del: GLOBAL_EVENT_KEYS.DELETE,
+  Up: GLOBAL_EVENT_KEYS.ARROW_UP,
+  Down: GLOBAL_EVENT_KEYS.ARROW_DOWN,
+  Left: GLOBAL_EVENT_KEYS.ARROW_LEFT,
+  Right: GLOBAL_EVENT_KEYS.ARROW_RIGHT
 }
 
 // 监听全局事件
@@ -38,12 +38,6 @@ const eventStore: {
   type: string;
   cb: (evnt: Event) => void;
 }[] = []
-
-export const hasEventKey = (evnt: KeyboardEvent, targetKey: string) => {
-  const { key } = evnt
-  targetKey = targetKey.toLowerCase()
-  return key ? (targetKey === key.toLowerCase() || !!(convertEventKeys[key] && convertEventKeys[key].toLowerCase() === targetKey)) : false
-}
 
 function triggerEvent (evnt: Event) {
   const isWheel = evnt.type === wheelName
@@ -57,20 +51,17 @@ function triggerEvent (evnt: Event) {
   })
 }
 
-export const GlobalEvent = {
-  on (comp: VxeComponentBase, type: string, cb: (evnt: any) => void) {
+export const globalEvents: VxeGlobalEvents = {
+  on (comp, type, cb) {
     eventStore.push({ comp, type, cb })
   },
-  off (comp: VxeComponentBase, type: string) {
+  off (comp, type) {
     XEUtils.remove(eventStore, item => item.comp === comp && item.type === type)
   },
-  trigger: triggerEvent,
-  eqKeypad (evnt: KeyboardEvent, keyVal: string) {
+  hasKey (evnt, targetKey) {
     const { key } = evnt
-    if (keyVal.toLowerCase() === key.toLowerCase()) {
-      return true
-    }
-    return false
+    targetKey = targetKey.toLowerCase()
+    return key ? (targetKey === key.toLowerCase() || !!(convertEventKeys[key] && convertEventKeys[key].toLowerCase() === targetKey)) : false
   }
 }
 

@@ -1,16 +1,17 @@
 import { getI18n } from './i18n'
 
-export function getLog (message: string, params?: any) {
-  return `[vxe-table v${process.env.VUE_APP_VXE_TABLE_VERSION}] ${getI18n(message, params)}`
-}
+import { VxeGlobalLog } from '../../types'
 
-function outLog (type: 'log' | 'warn' | 'error') {
-  return function (message: string, params?: any) {
-    const msg = getLog(message, params)
+function createLog (type: 'log' | 'warn' | 'error', name?: string) {
+  return function (key: string, args?: any) {
+    const msg = `[${name || 'vxe'} v${process.env.VUE_APP_VXE_VERSION}] ${getI18n(key, args)}`
     console[type](msg)
     return msg
   }
 }
 
-export const warnLog = outLog('warn')
-export const errLog = outLog('error')
+export const log: VxeGlobalLog = {
+  create: createLog,
+  warn: createLog('warn'),
+  err: createLog('error')
+}

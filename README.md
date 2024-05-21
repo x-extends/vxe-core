@@ -7,12 +7,12 @@ Vxe UI 核心库.
 ## 安装
 
 ```shell
-npm install @vxe-ui/vxe-core
+npm install @vxe-ui/core
 ```
 
 ```javascript
 // ...
-import VxeCore from '@vxe-ui/vxe-core'
+import VxeCore from '@vxe-ui/core'
 // ...
 
 VxeCore.setConfig({

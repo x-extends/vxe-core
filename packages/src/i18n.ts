@@ -1,8 +1,6 @@
-import globalConfigStore from './globalStore'
+import XEUtils from 'xe-utils'
+import { i18nConfigStore } from './i18nStore'
 
 export function getI18n (key: string, args?: any) {
-  if (globalConfigStore.i18n) {
-    return globalConfigStore.i18n(key, args)
-  }
-  return key
+  return XEUtils.toFormatString(XEUtils.get(i18nConfigStore.langMaps[i18nConfigStore.language], key), args)
 }

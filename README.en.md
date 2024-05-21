@@ -7,12 +7,12 @@ Vxe UI core library.
 ## Install
 
 ```shell
-npm install @vxe-ui/vxe-core
+npm install @vxe-ui/core
 ```
 
 ```javascript
 // ...
-import VxeCore from '@vxe-ui/vxe-core'
+import VxeCore from '@vxe-ui/core'
 // ...
 
 VxeCore.setConfig({

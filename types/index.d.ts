@@ -1,8 +1,8 @@
-import { VxeCoreExport, VxeGlobalConfig } from './core'
+import { VxeUIExport } from './core'
 
 declare global {
   interface Window {
-    VxeCore: VxeCoreExport;
+    VxeUI: VxeUIExport;
   }
 }
 

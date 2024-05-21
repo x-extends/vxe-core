@@ -1,12 +1,12 @@
 import XEUtils from 'xe-utils'
-import { warnLog } from './log'
+import { log } from './log'
 
-import { VxeGlobalRenderer, RendererOptions } from '../../types'
+import { VxeGlobalRenderer, VxeGlobalRendererOptions } from '../../types'
 
 /**
  * 内置的组件渲染
  */
-const renderMap: Record<string, RendererOptions> = {}
+const renderMap: Record<string, VxeGlobalRendererOptions> = {}
 
 /**
  * 全局渲染器
@@ -24,10 +24,10 @@ export const renderer: VxeGlobalRenderer = {
       const renders: any = renderMap[name]
       if (renders) {
         // 检测是否覆盖
-        if (process.env.VUE_APP_VXE_TABLE_ENV === 'development') {
+        if (process.env.VUE_APP_VXE_ENV === 'development') {
           XEUtils.each(options, (val, key) => {
             if (!XEUtils.eqNull(renders[key]) && renders[key] !== val) {
-              warnLog('vxe.error.coverProp', [`Renderer.${name}`, key])
+              log.warn('vxe.error.coverProp', [`Renderer.${name}`, key])
             }
           })
         }

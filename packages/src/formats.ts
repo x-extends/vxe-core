@@ -1,5 +1,5 @@
 import XEUtils from 'xe-utils'
-import { warnLog } from './log'
+import { log } from './log'
 
 import { VxeGlobalFormats } from '../../types'
 
@@ -25,8 +25,8 @@ class VXEFormatsStore {
     const conf = this.store[name]
     // 兼容
     if (XEUtils.isFunction(render)) {
-      if (process.env.VUE_APP_VXE_TABLE_ENV === 'development') {
-        warnLog('vxe.error.delProp', ['formats -> callback', 'cellFormatMethod'])
+      if (process.env.VUE_APP_VXE_ENV === 'development') {
+        log.warn('vxe.error.delProp', ['formats -> callback', 'cellFormatMethod'])
       }
       render = {
         cellFormatMethod: render
@@ -34,11 +34,11 @@ class VXEFormatsStore {
     }
 
     // 检测是否覆盖
-    if (process.env.VUE_APP_VXE_TABLE_ENV === 'development') {
+    if (process.env.VUE_APP_VXE_ENV === 'development') {
       const confKeys = XEUtils.keys(conf)
       XEUtils.each(render, (item, key) => {
         if (confKeys.includes(key)) {
-          warnLog('vxe.error.coverProp', [name, key])
+          log.warn('vxe.error.coverProp', [name, key])
         }
       })
     }
@@ -57,6 +57,6 @@ class VXEFormatsStore {
 
 export const formats = new VXEFormatsStore() as VxeGlobalFormats
 
-if (process.env.VUE_APP_VXE_TABLE_ENV === 'development') {
+if (process.env.VUE_APP_VXE_ENV === 'development') {
   Object.assign(formats, { _name: 'Formats' })
 }

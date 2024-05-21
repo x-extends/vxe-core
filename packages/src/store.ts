@@ -1,4 +1,4 @@
-import { warnLog } from './log'
+import { log } from './log'
 import XEUtils from 'xe-utils'
 
 /**
@@ -25,11 +25,11 @@ export class Store {
   add (name: string, options: any): Store {
     const conf = this.store[name]
     // 检测是否覆盖
-    if (process.env.VUE_APP_VXE_TABLE_ENV === 'development') {
+    if (process.env.VUE_APP_VXE_ENV === 'development') {
       const confKeys = XEUtils.keys(conf)
       XEUtils.each(options, (item, key) => {
         if (confKeys.includes(key)) {
-          warnLog('vxe.error.coverProp', [name, key])
+          log.warn('vxe.error.coverProp', [name, key])
         }
       })
     }
