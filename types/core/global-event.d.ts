@@ -1,4 +1,4 @@
-import { VxeComponentBase } from '../tool'
+import { VxeComponentBaseOptions, VxeComponentEvent } from '../tool'
 
 export type VxeGlobalEventType = 'copy' | 'cut' | 'paste' | 'keydown' | 'contextmenu' | 'mousedown' | 'blur' | 'resize' | 'mousewheel'
 
@@ -19,8 +19,10 @@ export const GLOBAL_EVENT_KEYS: {
   PAGE_DOWN: 'PageDown'
 }
 
+export function createEvent<E, T, D = { [key: string]: any }>(evnt: E, params1: T, params2?: D): T & D & VxeComponentEvent<E>
+
 export interface VxeGlobalEvents {
-  on (comp: VxeComponentBase, type: VxeGlobalEventType, cb: (evnt: any) => void): void
-  off (comp: VxeComponentBase, type: VxeGlobalEventType): void
+  on (comp: VxeComponentBaseOptions, type: VxeGlobalEventType, cb: (evnt: any) => void): void
+  off (comp: VxeComponentBaseOptions, type: VxeGlobalEventType): void
   hasKey(evnt: KeyboardEvent, targetKey: string): boolean
 }

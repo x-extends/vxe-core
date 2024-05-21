@@ -19,43 +19,53 @@ export type defineVxeComponent<
 /**
  * 组件通用的基础参数
  */
-export interface VxeComponentBase {
+export interface VxeComponentBaseOptions {
   xID: string
 }
 
 /**
  * 组件事件参数
  */
-export interface VxeComponentEvent {
+export interface VxeComponentEventParams {
   $event: Event
+}
+
+/**
+ * 全局事件默认参数
+ */
+export interface VxeComponentEvent<E = Event> {
+  $event: E
+  stopPropagation(): void
+  preventDefault(): void
+  target: any
 }
 
 /**
  * 组件尺寸类型
  */
-export type VxeComponentSize = null | '' | 'medium' | 'small' | 'mini'
+export type VxeComponentSizeType = null | '' | 'medium' | 'small' | 'mini'
 
 /**
  * 组件对齐方式
  */
-export type VxeComponentAlign = null | '' | 'left' | 'right' | 'center'
+export type VxeComponentAlignType = null | '' | 'left' | 'right' | 'center'
 
 /**
  * 组件状态
  */
-export type VxeComponentStatus = null | '' | 'primary' | 'success' | 'info' | 'warning' | 'danger' | 'error'
+export type VxeComponentStatusType = null | '' | 'primary' | 'success' | 'info' | 'warning' | 'danger' | 'error'
 
 /**
  * 组件样式类型
  */
-export type VxeComponentStyle = Record<string, string | number>
+export type VxeComponentStyleType = Record<string, string | number>
 
 /**
  * 组件 className 类型
  */
-export type VxeComponentClassName = Record<string, boolean>
+export type VxeComponentClassNameType = Record<string, boolean>
 
 /**
  * 组件插槽类型
  */
-export type VxeComponentSlot = VNode | string | number
+export type VxeComponentSlotType = VNode | string | number

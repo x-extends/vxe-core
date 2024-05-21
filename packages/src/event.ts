@@ -1,6 +1,6 @@
 import XEUtils from 'xe-utils'
 
-import { VxeGlobalEvents, VxeComponentBase } from '../../types'
+import type { VxeGlobalEvents, VxeComponentBaseOptions } from '../../types'
 
 export const GLOBAL_EVENT_KEYS = {
   F2: 'F2',
@@ -34,7 +34,7 @@ const convertEventKeys: { [key: string]: string } = {
 // 监听全局事件
 const wheelName = browse.firefox ? 'DOMMouseScroll' : 'mousewheel'
 const eventStore: {
-  comp: VxeComponentBase;
+  comp: VxeComponentBaseOptions;
   type: string;
   cb: (evnt: Event) => void;
 }[] = []
@@ -63,6 +63,32 @@ export const globalEvents: VxeGlobalEvents = {
     targetKey = targetKey.toLowerCase()
     return key ? (targetKey === key.toLowerCase() || !!(convertEventKeys[key] && convertEventKeys[key].toLowerCase() === targetKey)) : false
   }
+}
+
+class VxeComponentEvent {
+  $event: Event
+  constructor (evnt: Event, params1: any, params2?: any) {
+    this.$event = evnt
+    Object.assign(this, params1, params2)
+  }
+
+  stopPropagation () {
+    const evnt = this.$event
+    if (evnt) {
+      evnt.stopPropagation()
+    }
+  }
+
+  preventDefault () {
+    const evnt = this.$event
+    if (evnt) {
+      evnt.preventDefault()
+    }
+  }
+}
+
+export function createEvent (evnt: Event, params1: any, params2?: any) {
+  return new VxeComponentEvent(evnt, params1, params2)
 }
 
 if (browse.isDoc) {

@@ -1,11 +1,12 @@
-import { VxeComponentSize } from '../tool'
+import { VxeComponentSizeType } from '../tool'
 
 /**
  * 全局参数对象
  */
 export interface VxeGlobalConfig {
+  authId?: string
   zIndex?: number
-  size?: VxeComponentSize
+  size?: VxeComponentSizeType
   version?: string | number
   resizeInterval?: number
 

@@ -32,7 +32,7 @@ export function setLanguage(locale: VxeGlobalI18nLocale): VxeUIExport
 export function setI18n(locale: VxeGlobalI18nLocale, data: Record<string, any>): VxeUIExport
 export function getI18n(key: string, args?: any): string
 
-export const version: string
+export const coreVersion: string
 
 export const renderer: VxeGlobalRenderer
 
