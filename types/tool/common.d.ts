@@ -53,7 +53,7 @@ export type VxeComponentAlignType = null | '' | 'left' | 'right' | 'center'
 /**
  * 组件状态
  */
-export type VxeComponentStatusType = null | '' | 'primary' | 'success' | 'info' | 'warning' | 'danger' | 'error'
+export type VxeComponentStatusType = null | '' | 'primary' | 'success' | 'info' | 'warning' | 'danger' | 'error' | 'perfect'
 
 /**
  * 组件样式类型
