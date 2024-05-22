@@ -4,8 +4,7 @@ export namespace VxeGlobalFormatsHandles {
   export interface FormatsOptions {
     cellFormatMethod?: (params: FormatMethodParams, ...args: any[]) => string | number
   }
-  export interface FormatMethodParams {
-  }
+  export interface FormatMethodParams {}
 }
 
 /**

@@ -6,7 +6,6 @@ export namespace VxeGlobalCommandsHandles {
   }
   export interface CommandMethodParams {
     code: string
-    button?: any
   }
 }
 

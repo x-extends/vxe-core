@@ -163,6 +163,7 @@ export * from './interceptor'
 export * from './clipboard'
 export * from './log'
 
+export * from './use'
 export * from './hooks'
 
 export default VxeUI

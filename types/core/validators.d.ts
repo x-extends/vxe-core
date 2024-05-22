@@ -2,9 +2,7 @@
 
 export namespace VxeGlobalValidatorsHandles {
   export interface ValidatorsOptions {
-    itemValidatorMethod?(params: ItemValidatorParams, ...args: any[]): void | Error | Promise<any>
   }
-  export interface ItemValidatorParams {}
 }
 
 /**

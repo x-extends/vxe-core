@@ -120,6 +120,7 @@ export * from './commands'
 export * from './interceptor'
 export * from './clipboard'
 
+export * from './use'
 export * from './log'
 export * from './hooks'
 
