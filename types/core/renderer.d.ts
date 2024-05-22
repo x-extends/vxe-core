@@ -1,7 +1,6 @@
 export interface VxeGlobalRendererOptions {}
 
-export namespace VxeGlobalRendererHandles {
-}
+export namespace VxeGlobalRendererHandles {}
 
 /**
  * 渲染器
