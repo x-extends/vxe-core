@@ -25,7 +25,7 @@ export function setTheme (name?: VxeGlobalThemeName) {
   if (typeof document !== 'undefined') {
     const documentElement = document.documentElement
     if (documentElement) {
-      documentElement.setAttribute('data-vxe-theme', theme)
+      documentElement.setAttribute('data-vxe-ui-theme', theme)
     }
   }
   return VxeUI
