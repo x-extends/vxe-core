@@ -20,7 +20,7 @@ import { hooks } from './hooks'
 import { VxeUIExport, VxeGlobalConfig, VxeGlobalThemeName, VxeGlobalIcon, VxeGlobalI18nLocale } from '../../types'
 
 export function setTheme (name?: VxeGlobalThemeName) {
-  const theme = name || 'default'
+  const theme = !name || name === 'default' ? 'light' : name
   themeConfigStore.theme = theme
   if (typeof document !== 'undefined') {
     const documentElement = document.documentElement

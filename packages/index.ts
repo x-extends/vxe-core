@@ -3,7 +3,7 @@ import zhCN from './language/zh-CN'
 
 // 默认中文
 setI18n('zh-CN', zhCN)
-setTheme('default')
+setTheme('light')
 
 export * from './src/core'
 export default VxeUI

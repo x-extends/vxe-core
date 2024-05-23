@@ -1,1 +1,1 @@
-export type VxeGlobalThemeName = null | '' | 'default' | 'dark'
+export type VxeGlobalThemeName = null | '' | 'default' | 'light' | 'dark'
