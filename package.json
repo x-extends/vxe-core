@@ -1,6 +1,6 @@
 {
   "name": "@vxe-ui/core",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "description": "Vxe UI core library",
   "scripts": {
     "update": "npm install --legacy-peer-deps",
@@ -19,7 +19,7 @@
   "module": "es/index.esm.js",
   "typings": "types/index.d.ts",
   "dependencies": {
-    "dom-zindex": "^1.0.3",
+    "dom-zindex": "^1.0.4",
     "xe-utils": "^3.5.26"
   },
   "devDependencies": {
