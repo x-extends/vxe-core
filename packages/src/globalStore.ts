@@ -6,6 +6,5 @@ export const globalConfigStore: Required<VxeGlobalConfig> = {
   version: 1,
   zIndex: 999,
   resizeInterval: 500,
-
-  i18n: (key: string) => key
+  translate: () => ''
 }
