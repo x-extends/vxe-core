@@ -6,7 +6,6 @@ export namespace VxeGlobalMenusHandles {
   }
   export interface MenuMethodParams {
     $event: MouseEvent
-    menu: any
   }
 }
 

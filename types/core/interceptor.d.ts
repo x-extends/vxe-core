@@ -1,7 +1,7 @@
 /* eslint-disable no-use-before-define */
 
 export namespace VxeGlobalInterceptorHandles {
-  export type InterceptorCallback = (params: InterceptorParams) => any
+  export type InterceptorCallback = (params: any) => any
   export interface InterceptorParams {}
 }
 
