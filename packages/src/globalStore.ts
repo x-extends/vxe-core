@@ -1,10 +1,8 @@
 import { VxeGlobalConfig } from '../../types'
 
-export const globalConfigStore: Required<VxeGlobalConfig> = {
-  authId: '',
+export const globalConfigStore: VxeGlobalConfig = {
   size: '',
   version: 1,
   zIndex: 999,
-  resizeInterval: 500,
-  translate: () => ''
+  resizeInterval: 500
 }
