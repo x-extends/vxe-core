@@ -56,6 +56,13 @@ export const log: VxeGlobalLog
 
 export const hooks: VxeGlobalHooks
 
+export interface VxeUIPluginObject {
+  install(vxeui: VxeUIExport, ...options: any[]): void
+  [key: string]: any
+}
+
+export function use (plugin: VxeUIPluginObject, ...options: any[]): VxeUIExport
+
 export interface VxeUIExport {
   /**
    * 版本号
@@ -141,8 +148,15 @@ export interface VxeUIExport {
    */
   log: VxeGlobalLog
 
-  // 扩展插件
+  /**
+   * 扩展插件
+   */
   hooks: VxeGlobalHooks
+
+  /**
+   * 安装插件
+   */
+  use: (plugin: VxeUIPluginObject, ...options: any[]) => VxeUIExport
 }
 
 export const VxeUI: VxeUIExport

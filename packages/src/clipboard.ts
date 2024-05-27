@@ -1,8 +1,14 @@
+import XEUtils from 'xe-utils'
+
 import { VxeGlobalClipboard } from '../../types'
 
 let copyElem: HTMLTextAreaElement
+const clipStore = {
+  text: '',
+  html: ''
+}
 
-function handleText (content: string | number) {
+function handleText (text: string) {
   if (!copyElem) {
     copyElem = document.createElement('textarea')
     copyElem.id = '$VxeCopy'
@@ -15,10 +21,16 @@ function handleText (content: string | number) {
     styles.top = '-500px'
     document.body.appendChild(copyElem)
   }
-  copyElem.value = content === null || content === undefined ? '' : ('' + content)
+  copyElem.value = text
 }
 
 export const clipboard: VxeGlobalClipboard = {
+  getStore () {
+    return clipStore
+  },
+  setStore (data) {
+    Object.assign(clipStore, data || {})
+  },
   /**
    * 复制内容到剪贴板
    *
@@ -27,11 +39,14 @@ export const clipboard: VxeGlobalClipboard = {
   copy (content: string | number) {
     let result = false
     try {
-      handleText(content)
+      const text = XEUtils.toValueString(content)
+      handleText(text)
       copyElem.select()
       copyElem.setSelectionRange(0, copyElem.value.length)
       result = document.execCommand('copy')
       copyElem.blur()
+      clipStore.text = text
+      clipStore.html = ''
     } catch (e) {}
     return result
   }

@@ -1,6 +1,6 @@
 {
   "name": "@vxe-ui/core",
-  "version": "0.10.1",
+  "version": "0.10.2",
   "description": "Vxe UI core library",
   "scripts": {
     "update": "npm install --legacy-peer-deps",
@@ -23,6 +23,7 @@
     "xe-utils": "^3.5.26"
   },
   "devDependencies": {
+    "@types/node": "^20.12.12",
     "@types/resize-observer-browser": "^0.1.11",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "@typescript-eslint/parser": "^6.21.0",

@@ -5,9 +5,22 @@ import { VxeComponentSizeType } from '../tool'
  */
 export interface VxeGlobalConfig {
   /**
-   * 企业版的授权 ID
+   * 企业版 - 设置授权 ID
    */
   authId?: string
+  /**
+   * 企业版 - 是否在控制台打印授权信息
+   */
+  showAuthLog?: boolean
+  /**
+   * 企业版 - 授权状态监听
+   */
+  onAuth?(params: {
+    status: boolean
+    code: number
+    msg: string
+  }): void
+
   /**
    * 全局默认 z-index
    */

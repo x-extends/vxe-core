@@ -17,7 +17,7 @@ import { clipboard } from './clipboard'
 import { log } from './log'
 import { hooks } from './hooks'
 
-import { VxeUIExport, VxeGlobalConfig, VxeGlobalThemeName, VxeGlobalIcon, VxeGlobalI18nLocale } from '../../types'
+import { VxeUIExport, VxeGlobalConfig, VxeGlobalThemeName, VxeGlobalIcon, VxeUIPluginObject, VxeGlobalI18nLocale } from '../../types'
 
 export function setTheme (name?: VxeGlobalThemeName) {
   const theme = !name || name === 'default' ? 'light' : name
@@ -79,6 +79,18 @@ export function getIcon (key: keyof VxeGlobalIcon) {
 
 export const coreVersion = process.env.VUE_APP_VXE_VERSION as string
 
+const installedPlugins: VxeUIPluginObject[] = []
+
+export function use (Plugin: VxeUIPluginObject, options: any[]) {
+  if (Plugin && Plugin.install) {
+    if (installedPlugins.indexOf(Plugin) === -1) {
+      Plugin.install(VxeUI, options)
+      installedPlugins.push(Plugin)
+    }
+  }
+  return VxeUI
+}
+
 export const VxeUI: VxeUIExport = {
   coreVersion,
 
@@ -103,7 +115,8 @@ export const VxeUI: VxeUIExport = {
   clipboard,
   log,
 
-  hooks
+  hooks,
+  use
 }
 
 setTheme()
