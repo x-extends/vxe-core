@@ -299,12 +299,17 @@ export default {
           input: '输入框',
           textarea: '文本域',
           select: '下拉框',
-          row: '一行多列'
+          row: '一行多列',
+          title: '文本',
+          VxeSwitch: '是/否',
+          VxeInput: '输入框',
+          VxeTextarea: '文本域',
+          VxeSelect: '下拉框'
         }
       },
       widgetProp: {
         name: '控件名称',
-        placeholder: '控件提示',
+        placeholder: '提示语',
         required: '必填校验',
         displaySetting: {
           name: '显示设置',
@@ -328,6 +333,18 @@ export default {
           col4: '四列',
           col6: '六列',
           layout: '布局'
+        },
+        textProp: {
+          name: '内容',
+          alignTitle: '对齐方式',
+          alignLeft: '居左',
+          alignCenter: '居中',
+          alignRight: '居右',
+          colorTitle: '字体颜色',
+          sizeTitle: '字体大小',
+          boldTitle: '字体加粗',
+          fontNormal: '常规',
+          fontBold: '加粗'
         }
       }
     },

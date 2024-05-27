@@ -299,7 +299,12 @@ export default {
           input: 'Input',
           textarea: 'Textarea',
           select: 'Select',
-          row: 'Row/column'
+          row: 'Row/column',
+          title: 'Text',
+          VxeSwitch: 'Yes/no',
+          VxeInput: 'Input',
+          VxeTextarea: 'Textarea',
+          VxeSelect: 'Select'
         }
       },
       widgetProp: {
@@ -328,6 +333,18 @@ export default {
           col4: 'Four columns',
           col6: 'Six columns',
           layout: 'Layout'
+        },
+        textProp: {
+          name: 'Content',
+          alignTitle: 'Align',
+          alignLeft: 'Left',
+          alignCenter: 'Center',
+          alignRight: 'Right',
+          colorTitle: 'Color',
+          sizeTitle: 'Font size',
+          boldTitle: 'Font bold',
+          fontNormal: 'Normal',
+          fontBold: 'Bold'
         }
       }
     },
