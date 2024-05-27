@@ -266,16 +266,68 @@ export default {
       }
     },
     formDesign: {
+      widgetPropTab: '控件属性',
+      widgetFormTab: '表单属性',
+      styleSetting: {
+        btn: '样式设置',
+        title: '表单的样式设置',
+        layoutTitle: '控件布局',
+        verticalLayout: '上下布局',
+        horizontalLayout: '横向布局',
+        styleTitle: '标题样式',
+        boldTitle: '标题加粗',
+        fontBold: '加粗',
+        fontNormal: '常规',
+        colonTitle: '显示冒号',
+        colonVisible: '显示',
+        colonHidden: '隐藏',
+        alignTitle: '对齐方式',
+        widthTitle: '标题宽度',
+        alignLeft: '居左',
+        alignRight: '居右',
+        unitPx: '像素',
+        unitPct: '百分比'
+      },
       widget: {
-        baseGroup: '基礎控件',
-        layoutGroup: '佈局控件',
-        advancedGroup: '高級控件',
+        group: {
+          base: '基础控件',
+          layout: '布局控件',
+          advanced: '高级控件'
+        },
         copyTitle: '副本_{0}',
         component: {
-          input: '輸入框',
+          input: '输入框',
           textarea: '文本域',
           select: '下拉框',
           row: '一行多列'
+        }
+      },
+      widgetProp: {
+        name: '控件名称',
+        placeholder: '控件提示',
+        required: '必填校验',
+        displaySetting: {
+          name: '显示设置',
+          pc: '电脑端',
+          mobile: '手机端',
+          visible: '显示',
+          hidden: '隐藏'
+        },
+        dataSource: {
+          name: '数据源',
+          defValue: '选项{0}',
+          addOption: '添加选项',
+          batchEditOption: '批量编辑',
+          batchEditTip: '每行对应一个选项，如果是分组，子项可以是空格或制表键开头，可从 Excel 或 WPS 中复制。',
+          buildOption: '生成选项'
+        },
+        rowProp: {
+          colSize: '列数',
+          col2: '两列',
+          col3: '三列',
+          col4: '四列',
+          col6: '六列',
+          layout: '布局'
         }
       }
     },

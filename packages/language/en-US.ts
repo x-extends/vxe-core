@@ -266,16 +266,68 @@ export default {
       }
     },
     formDesign: {
+      widgetPropTab: 'Field property',
+      widgetFormTab: 'Form property',
+      styleSetting: {
+        btn: 'Style setting',
+        title: 'Form style setting',
+        layoutTitle: 'Field layout',
+        verticalLayout: 'Vertical layout',
+        horizontalLayout: 'Horizontal layout',
+        styleTitle: 'Title style',
+        boldTitle: 'Bold title',
+        fontBold: 'Bold',
+        fontNormal: 'Normal',
+        colonTitle: 'Display colon',
+        colonVisible: 'Visible',
+        colonHidden: 'Hidden',
+        alignTitle: 'Title align',
+        widthTitle: 'Title width',
+        alignLeft: 'Left',
+        alignRight: 'Right',
+        unitPx: 'Px',
+        unitPct: 'Pct'
+      },
       widget: {
-        baseGroup: 'Base control',
-        layoutGroup: 'Layout control',
-        advancedGroup: 'Advanced control',
+        group: {
+          base: 'Base control',
+          layout: 'Layout control',
+          advanced: 'Advanced control'
+        },
         copyTitle: 'Copy_{0}',
         component: {
           input: 'Input',
           textarea: 'Textarea',
           select: 'Select',
-          row: 'One-row multi-column'
+          row: 'Row/column'
+        }
+      },
+      widgetProp: {
+        name: 'Field name',
+        placeholder: 'Field placeholder',
+        required: 'Required',
+        displaySetting: {
+          name: 'Display setting',
+          pc: 'PC',
+          mobile: 'Mobile',
+          visible: 'Visible',
+          hidden: 'Hidden'
+        },
+        dataSource: {
+          name: 'Data source',
+          defValue: 'Option {0}',
+          addOption: 'Add option',
+          batchEditOption: 'Batch edit',
+          batchEditTip: 'Each row corresponds to an option. If grouped, the sub items can start with spaces or tab keys and can be copied from Excel or WPS.',
+          buildOption: 'Build option'
+        },
+        rowProp: {
+          colSize: 'Number of columns',
+          col2: 'Two columns',
+          col3: 'Three columns',
+          col4: 'Four columns',
+          col6: 'Six columns',
+          layout: 'Layout'
         }
       }
     },

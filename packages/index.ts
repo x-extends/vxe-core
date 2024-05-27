@@ -1,8 +1,10 @@
-import VxeUI, { setI18n, setTheme } from './src/core'
+import VxeUI, { setI18n, setLanguage, setTheme } from './src/core'
 import zhCN from './language/zh-CN'
 
 // 默认中文
-setI18n('zh-CN', zhCN)
+const defaultLanguage = 'zh-CN'
+setI18n(defaultLanguage, zhCN)
+setLanguage(defaultLanguage)
 setTheme('light')
 
 export * from './src/core'

@@ -36,13 +36,12 @@ export function getTheme () {
 }
 
 export function setLanguage (locale: VxeGlobalI18nLocale) {
-  i18nConfigStore.language = locale
+  i18nConfigStore.language = locale || 'zh-CN'
   return VxeUI
 }
 
 export function setI18n (locale: VxeGlobalI18nLocale, data: Record<string, any>) {
-  i18nConfigStore.language = locale
-  i18nConfigStore.langMaps[i18nConfigStore.language] = data || {}
+  i18nConfigStore.langMaps[locale] = Object.assign({}, data)
   return VxeUI
 }
 
