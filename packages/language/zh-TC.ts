@@ -266,6 +266,7 @@ export default {
       }
     },
     formDesign: {
+      formName: '表单名称',
       widgetPropTab: '控件属性',
       widgetFormTab: '表单属性',
       styleSetting: {
@@ -304,7 +305,9 @@ export default {
           VxeSwitch: '是/否',
           VxeInput: '输入框',
           VxeTextarea: '文本域',
-          VxeSelect: '下拉框'
+          VxeSelect: '下拉框',
+          VxeRadioGroup: '单选框',
+          VxeCheckboxGroup: '复选框'
         }
       },
       widgetProp: {

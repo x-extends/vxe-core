@@ -266,6 +266,7 @@ export default {
       }
     },
     formDesign: {
+      formName: 'Form name',
       widgetPropTab: 'Field property',
       widgetFormTab: 'Form property',
       styleSetting: {
@@ -304,7 +305,9 @@ export default {
           VxeSwitch: 'Yes/no',
           VxeInput: 'Input',
           VxeTextarea: 'Textarea',
-          VxeSelect: 'Select'
+          VxeSelect: 'Select',
+          VxeRadioGroup: 'Radio',
+          VxeCheckboxGroup: 'Checkbox'
         }
       },
       widgetProp: {
