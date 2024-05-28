@@ -267,6 +267,7 @@ export default {
     },
     formDesign: {
       formName: '表单名称',
+      defFormTitle: '未命名的表单',
       widgetPropTab: '控件属性',
       widgetFormTab: '表单属性',
       styleSetting: {

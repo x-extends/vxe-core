@@ -267,6 +267,7 @@ export default {
     },
     formDesign: {
       formName: 'Form name',
+      defFormTitle: 'Unnamed form',
       widgetPropTab: 'Field property',
       widgetFormTab: 'Form property',
       styleSetting: {
