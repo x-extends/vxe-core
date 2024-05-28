@@ -1,5 +1,7 @@
 import { VxeComponentSizeType } from '../tool'
 
+import { VxeGlobalThemeName } from '../../types'
+
 /**
  * 全局参数对象
  */
@@ -38,4 +40,10 @@ export interface VxeGlobalConfig {
    * @returns
    */
   translate?:(key: string, args?: any) => string
+
+  /**
+   * 已废弃，请使用 setTheme('dark')
+   * @deprecated
+   */
+  theme?: VxeGlobalThemeName
 }

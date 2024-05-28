@@ -53,6 +53,9 @@ export function setConfig (options?: VxeGlobalConfig) {
     if (options.zIndex) {
       DomZIndex.setCurrent(options.zIndex)
     }
+    if (options.theme) {
+      setTheme(options.theme)
+    }
     XEUtils.merge(globalConfigStore, options)
   }
   return VxeUI
