@@ -18,6 +18,7 @@ export const GLOBAL_EVENT_KEYS: {
   PAGE_UP: 'PageUp'
   PAGE_DOWN: 'PageDown'
   R: 'R'
+  P: 'P'
   Z: 'Z'
   X: 'X'
   C: 'C'
