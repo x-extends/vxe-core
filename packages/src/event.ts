@@ -16,7 +16,13 @@ export const GLOBAL_EVENT_KEYS = {
   ARROW_LEFT: 'ArrowLeft',
   ARROW_RIGHT: 'ArrowRight',
   PAGE_UP: 'PageUp',
-  PAGE_DOWN: 'PageDown'
+  PAGE_DOWN: 'PageDown',
+  R: 'R',
+  Z: 'Z',
+  X: 'X',
+  C: 'C',
+  V: 'V',
+  M: 'M'
 }
 
 const browse = XEUtils.browse()
