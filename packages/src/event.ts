@@ -58,20 +58,6 @@ function triggerEvent (evnt: Event) {
   })
 }
 
-export const globalEvents: VxeGlobalEvents = {
-  on (comp, type, cb) {
-    eventStore.push({ comp, type, cb })
-  },
-  off (comp, type) {
-    XEUtils.remove(eventStore, item => item.comp === comp && item.type === type)
-  },
-  hasKey (evnt, targetKey) {
-    const { key } = evnt
-    targetKey = targetKey.toLowerCase()
-    return key ? (targetKey === key.toLowerCase() || !!(convertEventKeys[key] && convertEventKeys[key].toLowerCase() === targetKey)) : false
-  }
-}
-
 class VxeComponentEvent {
   $event: Event
   constructor (evnt: Event, params1: any, params2?: any) {
@@ -96,6 +82,21 @@ class VxeComponentEvent {
 
 export function createEvent (evnt: Event, params1: any, params2?: any) {
   return new VxeComponentEvent(evnt, params1, params2)
+}
+
+export const globalEvents: VxeGlobalEvents = {
+  on (comp, type, cb) {
+    eventStore.push({ comp, type, cb })
+  },
+  off (comp, type) {
+    XEUtils.remove(eventStore, item => item.comp === comp && item.type === type)
+  },
+  hasKey (evnt, targetKey) {
+    const { key } = evnt
+    targetKey = targetKey.toLowerCase()
+    return key ? (targetKey === key.toLowerCase() || !!(convertEventKeys[key] && convertEventKeys[key].toLowerCase() === targetKey)) : false
+  },
+  createEvent: createEvent as any
 }
 
 if (browse.isDoc) {

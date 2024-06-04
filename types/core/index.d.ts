@@ -11,6 +11,7 @@ import { VxeGlobalFormats } from './formats'
 import { VxeGlobalCommands } from './commands'
 import { VxeGlobalInterceptor } from './interceptor'
 import { VxeGlobalClipboard } from './clipboard'
+import { VxeGlobalUseFns } from './useFn'
 import { VxeGlobalHooks } from './hooks'
 import { VxeGlobalLog } from './log'
 
@@ -53,6 +54,8 @@ export const globalEvents: VxeGlobalEvents
 export const globalResize: VxeGlobalResize
 
 export const log: VxeGlobalLog
+
+export const useFns: VxeGlobalUseFns
 
 export const hooks: VxeGlobalHooks
 
@@ -154,6 +157,11 @@ export interface VxeUIExport {
   hooks: VxeGlobalHooks
 
   /**
+   * 通用 Use API 函数
+   */
+  useFns: VxeGlobalUseFns
+
+  /**
    * 安装插件
    */
   use: (plugin: VxeUIPluginObject, ...options: any[]) => VxeUIExport
@@ -177,7 +185,7 @@ export * from './interceptor'
 export * from './clipboard'
 export * from './log'
 
-export * from './use'
+export * from './useFn'
 export * from './hooks'
 
 export default VxeUI

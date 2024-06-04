@@ -12,3 +12,7 @@ export function useSize (props: { size?: VxeComponentSizeType }) {
 
   return { computeSize }
 }
+
+export const useFns = {
+  useSize
+}

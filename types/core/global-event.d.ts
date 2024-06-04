@@ -31,5 +31,6 @@ export function createEvent<E, T, D = { [key: string]: any }>(evnt: E, params1: 
 export interface VxeGlobalEvents {
   on (comp: VxeComponentBaseOptions, type: VxeGlobalEventType, cb: (evnt: any) => void): void
   off (comp: VxeComponentBaseOptions, type: VxeGlobalEventType): void
-  hasKey(evnt: KeyboardEvent, targetKey: string): boolean
+  hasKey(evnt: KeyboardEvent, targetKey: string): boolean,
+  createEvent: typeof createEvent
 }

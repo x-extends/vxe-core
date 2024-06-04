@@ -16,6 +16,7 @@ import { interceptor } from './interceptor'
 import { clipboard } from './clipboard'
 import { log } from './log'
 import { hooks } from './hooks'
+import { useFns } from './useFns'
 
 import { VxeUIExport, VxeGlobalConfig, VxeGlobalThemeName, VxeGlobalIcon, VxeUIPluginObject, VxeGlobalI18nLocale } from '../../types'
 
@@ -118,6 +119,7 @@ export const VxeUI: VxeUIExport = {
   log,
 
   hooks,
+  useFns,
   use
 }
 
@@ -135,7 +137,7 @@ export * from './commands'
 export * from './interceptor'
 export * from './clipboard'
 
-export * from './use'
+export * from './useFns'
 export * from './log'
 export * from './hooks'
 
