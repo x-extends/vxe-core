@@ -4,7 +4,7 @@ import { globalConfigStore } from './globalStore'
 import { iconConfigStore } from './iconStore'
 import { themeConfigStore } from './themeStore'
 import { i18nConfigStore } from './i18nStore'
-import { globalEvents } from './event'
+import { globalEvents, GLOBAL_EVENT_KEYS, createEvent } from './event'
 import { globalResize } from './resize'
 import { getI18n } from './i18n'
 import { renderer } from './renderer'
@@ -108,6 +108,9 @@ export const VxeUI: VxeUIExport = {
   getI18n,
 
   globalEvents,
+  GLOBAL_EVENT_KEYS,
+  createEvent,
+
   globalResize,
   renderer,
   validators,

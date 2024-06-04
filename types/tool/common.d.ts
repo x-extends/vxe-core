@@ -37,7 +37,6 @@ export interface VxeComponentEvent<E = Event> {
   $event: E
   stopPropagation(): void
   preventDefault(): void
-  target: any
 }
 
 /**

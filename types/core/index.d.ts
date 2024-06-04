@@ -2,7 +2,7 @@ import { VxeGlobalConfig } from './global-config'
 import { VxeGlobalIcon } from './global-icon'
 import { VxeGlobalThemeName } from './global-theme'
 import { VxeGlobalI18nLocale } from './global-lang'
-import { VxeGlobalEvents } from './global-event'
+import { VxeGlobalEvents, VxeGlobalEventKey, VxeGlobalCreateEventMethod } from './global-event'
 import { VxeGlobalResize } from './global-resize'
 import { VxeGlobalRenderer } from './renderer'
 import { VxeGlobalValidators } from './validators'
@@ -137,10 +137,14 @@ export interface VxeUIExport {
    * 全局剪贴板
    */
   clipboard: VxeGlobalClipboard
+
   /**
    * 全局事件管理
    */
   globalEvents: VxeGlobalEvents
+  createEvent: VxeGlobalCreateEventMethod
+  GLOBAL_EVENT_KEYS: VxeGlobalEventKey
+
   /**
    * 全局观察者事件
    */

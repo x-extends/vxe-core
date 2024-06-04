@@ -1,8 +1,8 @@
 import XEUtils from 'xe-utils'
 
-import type { VxeGlobalEvents, VxeComponentBaseOptions } from '../../types'
+import type { VxeGlobalEvents, VxeComponentBaseOptions, VxeGlobalCreateEventMethod, VxeGlobalEventKey } from '../../types'
 
-export const GLOBAL_EVENT_KEYS = {
+export const GLOBAL_EVENT_KEYS: VxeGlobalEventKey = {
   F2: 'F2',
   ESCAPE: 'Escape',
   ENTER: 'Enter',
@@ -80,8 +80,8 @@ class VxeComponentEvent {
   }
 }
 
-export function createEvent (evnt: Event, params1: any, params2?: any) {
-  return new VxeComponentEvent(evnt, params1, params2)
+export const createEvent: VxeGlobalCreateEventMethod = (evnt, params1, params2) => {
+  return new VxeComponentEvent(evnt as Event, params1, params2)
 }
 
 export const globalEvents: VxeGlobalEvents = {
@@ -95,8 +95,7 @@ export const globalEvents: VxeGlobalEvents = {
     const { key } = evnt
     targetKey = targetKey.toLowerCase()
     return key ? (targetKey === key.toLowerCase() || !!(convertEventKeys[key] && convertEventKeys[key].toLowerCase() === targetKey)) : false
-  },
-  createEvent: createEvent as any
+  }
 }
 
 if (browse.isDoc) {

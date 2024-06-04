@@ -2,7 +2,7 @@ import { VxeComponentBaseOptions, VxeComponentEvent } from '../tool'
 
 export type VxeGlobalEventType = 'copy' | 'cut' | 'paste' | 'keydown' | 'contextmenu' | 'mousedown' | 'blur' | 'resize' | 'mousewheel'
 
-export const GLOBAL_EVENT_KEYS: {
+export type VxeGlobalEventKey = {
   F2: 'F2'
   ESCAPE: 'Escape'
   ENTER: 'Enter'
@@ -26,11 +26,14 @@ export const GLOBAL_EVENT_KEYS: {
   M: 'M'
 }
 
-export function createEvent<E, T, D = { [key: string]: any }>(evnt: E, params1: T, params2?: D): T & D & VxeComponentEvent<E>
+export const GLOBAL_EVENT_KEYS: VxeGlobalEventKey
+
+export type VxeGlobalCreateEventMethod = (evnt: Event | null, params1: any, params2?: any) => VxeComponentEvent
+
+export const createEvent: VxeGlobalCreateEventMethod
 
 export interface VxeGlobalEvents {
   on (comp: VxeComponentBaseOptions, type: VxeGlobalEventType, cb: (evnt: any) => void): void
   off (comp: VxeComponentBaseOptions, type: VxeGlobalEventType): void
   hasKey(evnt: KeyboardEvent, targetKey: string): boolean,
-  createEvent: typeof createEvent
 }
