@@ -21,18 +21,6 @@ const exportModuleName = 'VxeCore'
 const esmOutDir = 'es'
 const commOutDir = 'lib'
 
-const languages = [
-  'zh-CN',
-  'zh-TC',
-  'zh-HK',
-  'zh-MO',
-  'zh-TW',
-  'en-US',
-  'ja-JP',
-  'es-ES',
-  'pt-BR'
-]
-
 gulp.task('build_escode', function () {
   return gulp.src([
     'packages_temp/**.ts',
@@ -114,45 +102,6 @@ gulp.task('build_umdjs', () => {
 
 gulp.task('build_umd_all', gulp.parallel('build_umdjs'))
 
-gulp.task('build_i18n', () => {
-  languages.forEach(code => {
-    fs.writeFileSync(`lib/language/${code}.d.ts`, 'declare const langMsgs: { [key: string]: any }\nexport default langMsgs')
-    fs.writeFileSync(`es/language/${code}.d.ts`, 'declare const langMsgs: { [key: string]: any }\nexport default langMsgs')
-  })
-  const rest = languages.map(code => {
-    const name = XEUtils.camelCase(code).replace(/^[a-z]/, firstChat => firstChat.toUpperCase())
-    const isZHTC = ['zh-HK', 'zh-MO', 'zh-TW'].includes(code)
-    return gulp.src(`packages_temp/language/${isZHTC ? 'zh-TC' : code}.ts`)
-      .pipe(ts(tsSettings))
-      .pipe(babel({
-        moduleId: `vxe-language.${code}`,
-        presets: ['@babel/env'],
-        plugins: [
-          ['@babel/transform-modules-umd', {
-            globals: {
-              [`vxe-language.${code}`]: `VxeLanguage${name}`
-            },
-            exactGlobals: true
-          }]
-        ]
-      }))
-      .pipe(rename({
-        basename: code,
-        suffix: '.umd',
-        extname: '.js'
-      }))
-      .pipe(gulp.dest('lib/language'))
-      .pipe(uglify())
-      .pipe(rename({
-        basename: code,
-        suffix: '.min',
-        extname: '.js'
-      }))
-      .pipe(gulp.dest('lib/language'))
-  })
-  return merge(...rest)
-})
-
 gulp.task('copy_pack', () => {
   return gulp.src('packages/**')
     .pipe(gulp.dest('packages_temp'))
@@ -168,7 +117,7 @@ gulp.task('clear', () => {
 
 gulp.task('build_all', gulp.parallel('build_es_all', 'build_common_all', 'build_umd_all'))
 
-gulp.task('build', gulp.series('clear', 'copy_pack', 'build_all', 'build_i18n', () => {
+gulp.task('build', gulp.series('clear', 'copy_pack', 'build_all', () => {
   return del([
     'lib_temp',
     'packages_temp'
