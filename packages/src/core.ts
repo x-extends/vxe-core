@@ -1,4 +1,3 @@
-import { ComponentOptions } from 'vue'
 import XEUtils from 'xe-utils'
 import DomZIndex from 'dom-zindex'
 import { globalConfigStore } from './globalStore'
@@ -95,14 +94,14 @@ export function use (Plugin: VxeUIPluginObject, options: any[]) {
   return VxeUI
 }
 
-const components: VxeGlobalComponents = {}
+const components: Record<string, any> = {}
 
-export function getComponent (name: string) {
+export function getComponent (name: keyof VxeGlobalComponents) {
   return components[name] || null
 }
 
-export function component (comp: ComponentOptions) {
-  if (comp.name) {
+export function component (comp: any) {
+  if (comp && comp.name) {
     components[comp.name] = comp
   }
 }
