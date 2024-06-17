@@ -1,8 +1,7 @@
 /* eslint-disable no-use-before-define */
 
 export namespace VxeGlobalValidatorsHandles {
-  export interface ValidatorsOptions {
-  }
+  export interface ValidatorsOptions {}
 }
 
 /**

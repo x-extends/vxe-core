@@ -7,15 +7,26 @@ const storeMap: { [type: string]: VxeGlobalInterceptorHandles.InterceptorCallbac
 
 export const interceptor: VxeGlobalInterceptor = {
   mixin (options) {
-    XEUtils.each(options, (callback: VxeGlobalInterceptorHandles.InterceptorCallback, type) => {
-      interceptor.add(type, callback)
+    XEUtils.each(options, (render, type) => {
+      interceptor.add(type, render)
     })
     return interceptor
   },
   get (type) {
     return storeMap[type] || []
   },
-  add (type, callback) {
+  add (type, render) {
+    // 兼容
+    if (XEUtils.isFunction(render)) {
+      // if (process.env.VUE_APP_VXE_ENV === 'development') {
+      //   log.warn('vxe.error.delProp', ['interceptor -> callback', 'tableInterceptorMethod'])
+      // }
+      render = {
+        tableInterceptorMethod: render
+      }
+    }
+    const callback = render.tableInterceptorMethod
+
     if (callback) {
       let eList = storeMap[type]
       if (!eList) {
@@ -33,9 +44,17 @@ export const interceptor: VxeGlobalInterceptor = {
     }
     return interceptor
   },
-  delete (type, callback) {
+  delete (type, render) {
     const eList = storeMap[type]
     if (eList) {
+      // 兼容
+      if (XEUtils.isFunction(render)) {
+        render = {
+          tableInterceptorMethod: render
+        }
+      }
+      const callback = render ? render.tableInterceptorMethod : null
+
       if (callback) {
         XEUtils.remove(eList, fn => fn === callback)
       } else {

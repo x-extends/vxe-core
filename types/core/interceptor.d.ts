@@ -1,6 +1,10 @@
 /* eslint-disable no-use-before-define */
 
 export namespace VxeGlobalInterceptorHandles {
+  export interface InterceptorOptions {
+    tableInterceptorMethod?: (params: any) => any
+  }
+
   export type InterceptorCallback = (params: any) => any
   export interface InterceptorParams {}
 }
@@ -10,9 +14,9 @@ export namespace VxeGlobalInterceptorHandles {
  */
 export interface VxeGlobalInterceptor {
   mixin(options: {
-    [type: string]: VxeGlobalInterceptorHandles.InterceptorCallback
+    [type: string]: VxeGlobalInterceptorHandles.InterceptorOptions | VxeGlobalInterceptorHandles.InterceptorCallback
   }): VxeGlobalInterceptor
   get(type: string): VxeGlobalInterceptorHandles.InterceptorCallback[]
-  add(type: string, callback: VxeGlobalInterceptorHandles.InterceptorCallback): VxeGlobalInterceptor
-  delete(type: string, callback?: VxeGlobalInterceptorHandles.InterceptorCallback): void
+  add(type: string, callback: VxeGlobalInterceptorHandles.InterceptorOptions | VxeGlobalInterceptorHandles.InterceptorCallback): VxeGlobalInterceptor
+  delete(type: string, callback?: VxeGlobalInterceptorHandles.InterceptorOptions | VxeGlobalInterceptorHandles.InterceptorCallback): void
 }
