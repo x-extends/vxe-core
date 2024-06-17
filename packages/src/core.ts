@@ -98,7 +98,7 @@ export function use (Plugin: VxeUIPluginObject, options: any[]) {
 const components: VxeGlobalComponents = {}
 
 export function getComponent (name: string) {
-  return components[name] || null
+  return components[name] as any || null
 }
 
 export function component (comp: ComponentOptions) {
