@@ -30,6 +30,7 @@ export function setIcon(options?: VxeGlobalIcon): VxeUIExport
 export function getIcon(): Required<VxeGlobalIcon>
 export function getIcon(key: keyof VxeGlobalIcon): any
 
+export function hasLanguage(locale: VxeGlobalI18nLocale): boolean
 export function setLanguage(locale: VxeGlobalI18nLocale): VxeUIExport
 export function setI18n(locale: VxeGlobalI18nLocale, data: Record<string, any>): VxeUIExport
 export function getI18n(key: string, args?: any): string
@@ -95,6 +96,10 @@ export interface VxeUIExport {
    * 设置全局图标
    */
   setIcon: typeof setIcon
+  /**
+   * 判断是否支持该语言，安装语言包后返回 true
+   */
+  hasLanguage: typeof hasLanguage
   /**
    * 设置组件当前语言
    */

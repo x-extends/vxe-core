@@ -1,6 +1,6 @@
 {
   "name": "@vxe-ui/core",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Vxe UI core library",
   "scripts": {
     "update": "npm install --legacy-peer-deps",

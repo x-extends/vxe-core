@@ -6,7 +6,7 @@ import { themeConfigStore } from './themeStore'
 import { i18nConfigStore } from './i18nStore'
 import { globalEvents, GLOBAL_EVENT_KEYS, createEvent } from './event'
 import { globalResize } from './resize'
-import { getI18n } from './i18n'
+import { getI18n, hasLanguage } from './i18n'
 import { renderer } from './renderer'
 import { validators } from './validators'
 import { menus } from './menus'
@@ -116,6 +116,7 @@ export const VxeUI: VxeUIExport = {
   setIcon,
   getIcon: getIcon as any,
   setLanguage,
+  hasLanguage,
   setI18n,
   getI18n,
 
