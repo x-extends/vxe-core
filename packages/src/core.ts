@@ -1,3 +1,4 @@
+import { ComponentOptions } from 'vue'
 import XEUtils from 'xe-utils'
 import DomZIndex from 'dom-zindex'
 import { globalConfigStore } from './globalStore'
@@ -18,7 +19,7 @@ import { log } from './log'
 import { hooks } from './hooks'
 import { useFns } from './useFns'
 
-import { VxeUIExport, VxeGlobalConfig, VxeGlobalThemeName, VxeGlobalIcon, VxeUIPluginObject, VxeGlobalI18nLocale } from '../../types'
+import { VxeUIExport, VxeGlobalConfig, VxeGlobalThemeName, VxeGlobalComponents, VxeGlobalIcon, VxeUIPluginObject, VxeGlobalI18nLocale } from '../../types'
 
 export function setTheme (name?: VxeGlobalThemeName) {
   const theme = !name || name === 'default' ? 'light' : name
@@ -94,6 +95,14 @@ export function use (Plugin: VxeUIPluginObject, options: any[]) {
   return VxeUI
 }
 
+const components: VxeGlobalComponents = {}
+
+export function component (comp: ComponentOptions) {
+  if (comp.name) {
+    components[comp.name] = comp
+  }
+}
+
 export const VxeUI: VxeUIExport = {
   coreVersion,
 
@@ -122,7 +131,9 @@ export const VxeUI: VxeUIExport = {
   log,
 
   hooks,
+  components,
   useFns,
+
   use
 }
 
