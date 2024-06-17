@@ -97,6 +97,10 @@ export function use (Plugin: VxeUIPluginObject, options: any[]) {
 
 const components: VxeGlobalComponents = {}
 
+export function getComponent (name: string) {
+  return components[name] || null
+}
+
 export function component (comp: ComponentOptions) {
   if (comp.name) {
     components[comp.name] = comp
@@ -131,7 +135,8 @@ export const VxeUI: VxeUIExport = {
   log,
 
   hooks,
-  components,
+  component,
+  getComponent,
   useFns,
 
   use

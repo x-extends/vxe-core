@@ -11,7 +11,7 @@ import { VxeGlobalFormats } from './formats'
 import { VxeGlobalCommands } from './commands'
 import { VxeGlobalInterceptor } from './interceptor'
 import { VxeGlobalClipboard } from './clipboard'
-import { VxeGlobalComponents } from './components'
+import { VxeGlobalComponentMethod, VxeGlobalGetComponentMethod } from './components'
 import { VxeGlobalUseFns } from './useFn'
 import { VxeGlobalHooks } from './hooks'
 import { VxeGlobalLog } from './log'
@@ -34,6 +34,9 @@ export function setLanguage(locale: VxeGlobalI18nLocale): VxeUIExport
 export function setI18n(locale: VxeGlobalI18nLocale, data: Record<string, any>): VxeUIExport
 export function getI18n(key: string, args?: any): string
 
+export const component: VxeGlobalComponentMethod
+export const getComponent: VxeGlobalGetComponentMethod
+
 export const coreVersion: string
 
 export const renderer: VxeGlobalRenderer
@@ -55,8 +58,6 @@ export const globalEvents: VxeGlobalEvents
 export const globalResize: VxeGlobalResize
 
 export const log: VxeGlobalLog
-
-export const components: VxeGlobalComponents
 
 export const useFns: VxeGlobalUseFns
 
@@ -161,7 +162,8 @@ export interface VxeUIExport {
   /**
    * 已使用的组件
    */
-  components: VxeGlobalComponents
+  component: VxeGlobalComponentMethod
+  getComponent: VxeGlobalGetComponentMethod
 
   /**
    * 扩展插件
