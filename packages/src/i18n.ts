@@ -12,3 +12,8 @@ export function hasLanguage (language: VxeGlobalI18nLocale) {
   const { langMaps } = i18nConfigStore
   return !!langMaps[language]
 }
+
+export function getLanguage () {
+  const { language } = i18nConfigStore
+  return language
+}
