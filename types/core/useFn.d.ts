@@ -1,5 +1,5 @@
 import { ComputedRef } from 'vue'
-import { VxeComponentSizeType } from '../tool'
+import { VxeComponentSizeType, VxeComponentPermissionCodeType, VxeComponentPermissionMethod, VxeComponentPermissionInfo } from '../tool'
 
 export type VxeUseFnUseSize = (props: {
   size?: VxeComponentSizeType;
@@ -9,9 +9,19 @@ export type VxeUseFnUseSize = (props: {
 
 export const useSize: VxeUseFnUseSize
 
+export type VxeUsePermission = (props: {
+  permissionCode?: VxeComponentPermissionCodeType
+  permissionMethod?: VxeComponentPermissionMethod
+}) => {
+  computePermissionInfo: ComputedRef<VxeComponentPermissionInfo>;
+}
+
+export const usePermission: VxeUsePermission
+
 /**
  * 全局剪贴板
  */
 export interface VxeGlobalUseFns {
   useSize: VxeUseFnUseSize
+  usePermission: VxeUsePermission
 }

@@ -36,7 +36,7 @@ export const clipboard: VxeGlobalClipboard = {
    *
    * @param {String} content Text 内容
    */
-  copy (content: string | number) {
+  copy (content) {
     let result = false
     try {
       const text = XEUtils.toValueString(content)

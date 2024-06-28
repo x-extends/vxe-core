@@ -1,8 +1,11 @@
 import { computed, inject, provide, ComputedRef } from 'vue'
+import { handleCheckInfo } from './permission'
 
-import type { VxeComponentSizeType } from '../../types'
+import type { VxeComponentSizeType, VxeComponentPermissionCodeType, VxeComponentPermissionMethod } from '../../types'
 
-export function useSize (props: { size?: VxeComponentSizeType }) {
+export function useSize (props: {
+  size?: VxeComponentSizeType
+}) {
   // 组件尺寸上下文
   const xeSizeInfo = inject('xeSizeInfo', null as ComputedRef<VxeComponentSizeType> | null)
   const computeSize = computed(() => {
@@ -13,6 +16,19 @@ export function useSize (props: { size?: VxeComponentSizeType }) {
   return { computeSize }
 }
 
+export function usePermission (props: {
+  permissionCode?: VxeComponentPermissionCodeType
+  permissionMethod?: VxeComponentPermissionMethod
+}) {
+  const computePermissionInfo = computed(() => {
+    return handleCheckInfo(props.permissionCode, props.permissionMethod)
+  })
+  return {
+    computePermissionInfo
+  }
+}
+
 export const useFns = {
-  useSize
+  useSize,
+  usePermission
 }

@@ -11,6 +11,7 @@ import { VxeGlobalFormats } from './formats'
 import { VxeGlobalCommands } from './commands'
 import { VxeGlobalInterceptor } from './interceptor'
 import { VxeGlobalClipboard } from './clipboard'
+import { VxeGlobalPermission } from './permission'
 import { VxeGlobalComponentMethod, VxeGlobalGetComponentMethod } from './components'
 import { VxeGlobalUseFns } from './useFn'
 import { VxeGlobalHooks } from './hooks'
@@ -54,6 +55,8 @@ export const commands: VxeGlobalCommands
 export const interceptor: VxeGlobalInterceptor
 
 export const clipboard: VxeGlobalClipboard
+
+export const permission: VxeGlobalPermission
 
 export const globalEvents: VxeGlobalEvents
 
@@ -151,6 +154,10 @@ export interface VxeUIExport {
    * 全局剪贴板
    */
   clipboard: VxeGlobalClipboard
+  /**
+   * 全局权限控制
+   */
+  permission: VxeGlobalPermission
 
   /**
    * 全局事件管理
@@ -207,6 +214,7 @@ export * from './formats'
 export * from './commands'
 export * from './interceptor'
 export * from './clipboard'
+export * from './permission'
 export * from './log'
 
 export * from './components'

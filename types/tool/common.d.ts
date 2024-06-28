@@ -78,6 +78,22 @@ export type VxeComponentPermissionCodeType = string | number
  * 权限码判断结果
  */
 export type VxeComponentPermissionResult = boolean | {
-  visible?: boolean
-  disabled?: boolean
+  visible: boolean
+  disabled: boolean
+}
+
+/**
+ * 权限码判断方法
+ */
+export type VxeComponentPermissionMethod = (params: {
+  code: VxeComponentPermissionCodeType
+}) => VxeComponentPermissionResult
+
+/**
+ * 权限码信息
+ */
+export interface VxeComponentPermissionInfo {
+  code?: VxeComponentPermissionCodeType
+  visible: boolean
+  disabled: boolean
 }

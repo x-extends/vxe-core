@@ -14,6 +14,7 @@ import { formats } from './formats'
 import { commands } from './commands'
 import { interceptor } from './interceptor'
 import { clipboard } from './clipboard'
+import { permission } from './permission'
 import { log } from './log'
 import { hooks } from './hooks'
 import { useFns } from './useFns'
@@ -134,6 +135,7 @@ export const VxeUI: VxeUIExport = {
   interceptor,
   clipboard,
   log,
+  permission,
 
   hooks,
   component,
@@ -156,6 +158,7 @@ export * from './formats'
 export * from './commands'
 export * from './interceptor'
 export * from './clipboard'
+export * from './permission'
 
 export * from './useFns'
 export * from './log'
