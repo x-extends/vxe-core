@@ -1,6 +1,6 @@
 import { VxeComponentSizeType } from '../tool'
 
-import { VxeGlobalThemeName } from '../../types'
+import { VxeGlobalThemeName, VxeComponentPermissionCodeType, VxeComponentPermissionResult } from '../../types'
 
 /**
  * 全局参数对象
@@ -23,6 +23,12 @@ export interface VxeGlobalConfig {
     msg: string
   }): void
 
+  /**
+   * 权限码全局判断方法
+   */
+  permissionMethod?:(params: {
+    code: VxeComponentPermissionCodeType
+  }) => VxeComponentPermissionResult
   /**
    * 全局默认 z-index
    */
