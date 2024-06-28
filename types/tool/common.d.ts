@@ -68,3 +68,16 @@ export type VxeComponentClassNameType = Record<string, boolean>
  * 组件插槽类型
  */
 export type VxeComponentSlotType = VNode | string | number
+
+/**
+ * 权限码类型
+ */
+export type VxeComponentPermissionCodeType = string | number
+
+/**
+ * 权限码判断结果
+ */
+export type VxeComponentPermissionResult = boolean | {
+  visible?: boolean
+  disabled?: boolean
+}
