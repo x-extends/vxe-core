@@ -3,23 +3,45 @@ import XEUtils from 'xe-utils'
 
 import type { VxeGlobalPermission, VxeComponentPermissionCodeType, VxeComponentPermissionInfo, VxeComponentPermissionMethod } from '../../types'
 
-export function handleCheckInfo (code?: VxeComponentPermissionCodeType, permissionMethod?: VxeComponentPermissionMethod) {
-  let visible = true
-  let disabled = false
+export function handleCheckInfo (permissionCode?: VxeComponentPermissionCodeType, permissionMethod?: VxeComponentPermissionMethod) {
+  let checkVisible = true
+  let checkDisabled = false
   const checkMethod = permissionMethod || globalConfigStore.permissionMethod
-  if (code && checkMethod) {
-    const rest = checkMethod({ code })
-    if (XEUtils.isBoolean(rest)) {
-      visible = rest
-    } else if (rest) {
-      visible = !!rest.visible
-      disabled = !!rest.disabled
+  if (permissionCode && checkMethod) {
+    checkVisible = false
+    checkDisabled = true
+    let vDone = false
+    let dDone = false
+    // 或 使用 | 隔开：任意一个为可视，则可视；任意一个禁用，则禁用
+    const codeList = String(permissionCode).split('|')
+    for (let i = 0; i < codeList.length; i++) {
+      const code = codeList[i]
+      let visible = true
+      let disabled = false
+      const rest = checkMethod({ code })
+      if (XEUtils.isBoolean(rest)) {
+        visible = rest
+      } else if (rest) {
+        visible = !!rest.visible
+        disabled = !!rest.disabled
+      }
+      if (!disabled && !dDone) {
+        dDone = true
+        checkDisabled = disabled
+      }
+      if (visible && !vDone) {
+        vDone = true
+        checkVisible = visible
+      }
+      if (vDone && dDone) {
+        break
+      }
     }
   }
   const info: VxeComponentPermissionInfo = {
-    code,
-    visible,
-    disabled
+    code: permissionCode,
+    visible: checkVisible,
+    disabled: checkDisabled
   }
   return info
 }
