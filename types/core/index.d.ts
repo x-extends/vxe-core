@@ -101,7 +101,7 @@ export interface VxeUIExport {
    */
   setIcon: typeof setIcon
   /**
-   * 判断是否支持该语言，安装语言包后返回 true
+   * 判断是否已经安装了该语言包，如果已安装则返回 true
    */
   hasLanguage: typeof hasLanguage
   /**
