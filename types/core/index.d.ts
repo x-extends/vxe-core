@@ -13,7 +13,7 @@ import { VxeGlobalInterceptor } from './interceptor'
 import { VxeGlobalClipboard } from './clipboard'
 import { VxeGlobalPermission } from './permission'
 import { VxeGlobalComponentMethod, VxeGlobalGetComponentMethod } from './components'
-import { VxeGlobalUseFns } from './useFn'
+import { VxeGlobalUseMixins } from './mixins'
 import { VxeGlobalHooks } from './hooks'
 import { VxeGlobalLog } from './log'
 
@@ -64,7 +64,7 @@ export const globalResize: VxeGlobalResize
 
 export const log: VxeGlobalLog
 
-export const useFns: VxeGlobalUseFns
+export const mixins: VxeGlobalUseMixins
 
 export const hooks: VxeGlobalHooks
 
@@ -188,9 +188,9 @@ export interface VxeUIExport {
   hooks: VxeGlobalHooks
 
   /**
-   * 通用 Use API 函数
+   * 通用 Mixins
    */
-  useFns: VxeGlobalUseFns
+  mixins: VxeGlobalUseMixins
 
   /**
    * 安装插件
@@ -218,7 +218,7 @@ export * from './permission'
 export * from './log'
 
 export * from './components'
-export * from './useFn'
+export * from './mixins'
 export * from './hooks'
 
 export default VxeUI

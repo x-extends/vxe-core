@@ -1,4 +1,4 @@
-import { App, VNode } from 'vue'
+import { VueConstructor, VNode } from 'vue'
 
 /**
  * 定义组件
@@ -13,7 +13,7 @@ export type defineVxeComponent<
     $slots: S
   }
 } & {
-  install(app: App): void
+  install(app: VueConstructor): void
 })
 
 /**

@@ -17,7 +17,7 @@ import { clipboard } from './clipboard'
 import { permission } from './permission'
 import { log } from './log'
 import { hooks } from './hooks'
-import { useFns } from './useFns'
+import { mixins } from './mixins'
 
 import { VxeUIExport, VxeGlobalConfig, VxeGlobalThemeName, VxeGlobalComponents, VxeGlobalIcon, VxeUIPluginObject, VxeGlobalI18nLocale } from '../../types'
 
@@ -140,7 +140,7 @@ export const VxeUI: VxeUIExport = {
   hooks,
   component,
   getComponent,
-  useFns,
+  mixins,
 
   use
 }
@@ -160,7 +160,7 @@ export * from './interceptor'
 export * from './clipboard'
 export * from './permission'
 
-export * from './useFns'
+export * from './mixins'
 export * from './log'
 export * from './hooks'
 
