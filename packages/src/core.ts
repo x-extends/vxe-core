@@ -1,5 +1,6 @@
 import XEUtils from 'xe-utils'
 import DomZIndex from 'dom-zindex'
+import { createCommentVNode } from 'vue'
 import { globalConfigStore } from './globalStore'
 import { iconConfigStore } from './iconStore'
 import { themeConfigStore } from './themeStore'
@@ -107,8 +108,14 @@ export function component (comp: any) {
   }
 }
 
+export function renderHolderElement () {
+  return createCommentVNode()
+}
+
 export const VxeUI: VxeUIExport = {
   coreVersion,
+
+  renderHolderElement,
 
   setTheme,
   getTheme,

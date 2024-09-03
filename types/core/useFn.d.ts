@@ -19,7 +19,7 @@ export type VxeUsePermission = (props: {
 export const usePermission: VxeUsePermission
 
 /**
- * 全局剪贴板
+ * 通用方法
  */
 export interface VxeGlobalUseFns {
   useSize: VxeUseFnUseSize

@@ -1,3 +1,4 @@
+import { VNode } from 'vue'
 import { VxeGlobalConfig } from './global-config'
 import { VxeGlobalIcon } from './global-icon'
 import { VxeGlobalThemeName } from './global-theme'
@@ -42,6 +43,8 @@ export const getComponent: VxeGlobalGetComponentMethod
 
 export const coreVersion: string
 
+export function renderHolderElement(): VNode
+
 export const renderer: VxeGlobalRenderer
 
 export const validators: VxeGlobalValidators
@@ -80,6 +83,10 @@ export interface VxeUIExport {
    * 版本号
    */
   coreVersion: string
+  /**
+   * 渲染一个占位元素
+   */
+  renderHolderElement: typeof renderHolderElement
   /**
    * 设置全局主题
    */

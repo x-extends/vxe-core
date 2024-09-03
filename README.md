@@ -2,7 +2,7 @@
 
 简体中文 | [繁體中文](README.zh-TW.md) | [English](README.en.md)  
 
-Vxe UI 核心库.
+Vxe UI v4.x 核心库.
 
 ## 使用
 

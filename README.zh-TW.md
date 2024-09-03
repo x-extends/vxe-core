@@ -2,7 +2,7 @@
 
 [简体中文](README.md) | 繁體中文 | [English](README.en.md)  
 
-Vxe UI core library.
+Vxe UI v4.x core library.
 
 ## 使用
 
