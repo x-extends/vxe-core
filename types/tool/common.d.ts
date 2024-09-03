@@ -3,7 +3,7 @@ import { App, VNode } from 'vue'
 /**
  * 定义组件
  */
-export type defineVxeComponent<
+export type DefineVxeComponent<
   P = { [key: string]: any },
   E = { [key: string]: any },
   S = { [key: string]: (...args: any[]) => any }
@@ -15,6 +15,10 @@ export type defineVxeComponent<
 } & {
   install(app: App): void
 })
+/**
+ * @deprecated
+ */
+export type defineVxeComponent = DefineVxeComponent
 
 /**
  * 组件通用的基础参数
