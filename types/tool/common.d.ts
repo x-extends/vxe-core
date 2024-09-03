@@ -1,9 +1,16 @@
-import { App, VNode } from 'vue'
+import { App, VNode, ComponentPublicInstance, DefineComponent } from 'vue'
+
+/* eslint-disable no-use-before-define,@typescript-eslint/ban-types */
 
 /**
- * 定义组件
+ * @deprecated
  */
-export type DefineVxeComponent<
+export type defineVxeComponent = DefineVxeComponentApp
+
+/**
+ * 组件类型
+ */
+export type DefineVxeComponentApp<
   P = { [key: string]: any },
   E = { [key: string]: any },
   S = { [key: string]: (...args: any[]) => any }
@@ -15,10 +22,16 @@ export type DefineVxeComponent<
 } & {
   install(app: App): void
 })
+
 /**
- * @deprecated
+ * 组件配置
  */
-export type defineVxeComponent = DefineVxeComponent
+export type DefineVxeComponentOptions<P, E> = DefineComponent<P & E>
+
+/**
+ * 组件实例
+ */
+export type DefineVxeComponentInstance<P, M> = ComponentPublicInstance<P, M>
 
 /**
  * 组件通用的基础参数
