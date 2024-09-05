@@ -1,6 +1,9 @@
+import Vue from 'vue'
 import { handleCheckInfo } from './permission'
 
-export const sizeMixin = {
+import { VxeComponentSizeType } from '../../types'
+
+export const sizeMixin = Vue.extend({
   inject: {
     $xeSizeInfo: {
       default: null
@@ -9,30 +12,28 @@ export const sizeMixin = {
   provide (this: any) {
     return {
       $xeSizeInfo: {
-        size: this.vSize
+        size: this.computeSize
       }
     }
   },
   computed: {
-    vSize (this: any) {
-      const { $xeSizeInfo, size } = this
+    computeSize (this: any): VxeComponentSizeType {
+      const { size } = this
+      const $xeSizeInfo = this.$xeSizeInfo
       return size || ($xeSizeInfo ? $xeSizeInfo.size : null)
     }
   }
-}
+})
 
-export const permissionMixin = {
-  props: {
-    permissionCode: String
-  },
+export const permissionMixin = Vue.extend({
   computed: {
-    permissionInfo (this: any) {
+    computePermissionInfo (this: any) {
       return handleCheckInfo(this.permissionCode, this.permissionMethod)
     }
   }
-}
+})
 
-export const mixins = {
+export const globalMixins = {
   sizeMixin,
   permissionMixin
 }

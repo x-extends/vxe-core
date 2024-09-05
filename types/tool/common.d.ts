@@ -1,20 +1,26 @@
-import { VueConstructor, VNode } from 'vue'
+import Vue, { VueConstructor, VNode } from 'vue'
+import { ExtendedVue } from 'vue/types/vue'
+
+/* eslint-disable no-use-before-define,@typescript-eslint/ban-types */
 
 /**
  * 定义组件
  */
-export type defineVxeComponent<
-  P = { [key: string]: any },
+export type DefineVxeComponentApp<
+  P extends Vue = any,
   E = { [key: string]: any },
   S = { [key: string]: (...args: any[]) => any }
 > = ({
-  new (): {
-    $props: P & E,
+  new (): P & E & {
     $slots: S
   }
 } & {
   install(app: VueConstructor): void
 })
+
+export type DefineVxeComponentOptions<P, M> = ExtendedVue<Vue, P, M, object, object>
+
+export type DefineVxeComponentInstance<P, M> = P & M
 
 /**
  * 组件通用的基础参数

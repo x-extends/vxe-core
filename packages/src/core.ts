@@ -1,5 +1,6 @@
 import XEUtils from 'xe-utils'
 import DomZIndex from 'dom-zindex'
+import { VNode } from 'vue'
 import { globalConfigStore } from './globalStore'
 import { iconConfigStore } from './iconStore'
 import { themeConfigStore } from './themeStore'
@@ -17,7 +18,7 @@ import { clipboard } from './clipboard'
 import { permission } from './permission'
 import { log } from './log'
 import { hooks } from './hooks'
-import { mixins } from './mixins'
+import { globalMixins } from './mixins'
 
 import { VxeUIExport, VxeGlobalConfig, VxeGlobalThemeName, VxeGlobalComponents, VxeGlobalIcon, VxeUIPluginObject, VxeGlobalI18nLocale } from '../../types'
 
@@ -107,8 +108,14 @@ export function component (comp: any) {
   }
 }
 
+export function renderEmptyElement (_vm: any): VNode {
+  const { _e } = _vm
+  return _e()
+}
+
 export const VxeUI: VxeUIExport = {
   coreVersion,
+  renderEmptyElement,
 
   setTheme,
   getTheme,
@@ -140,7 +147,7 @@ export const VxeUI: VxeUIExport = {
   hooks,
   component,
   getComponent,
-  mixins,
+  globalMixins,
 
   use
 }

@@ -1,3 +1,5 @@
+import Vue, { VNode } from 'vue'
+import { CombinedVueInstance } from 'vue/types/vue'
 import { VxeGlobalConfig } from './global-config'
 import { VxeGlobalIcon } from './global-icon'
 import { VxeGlobalThemeName } from './global-theme'
@@ -42,6 +44,8 @@ export const getComponent: VxeGlobalGetComponentMethod
 
 export const coreVersion: string
 
+export function renderEmptyElement(_vm: CombinedVueInstance<Vue, object, object, object, object>): VNode
+
 export const renderer: VxeGlobalRenderer
 
 export const validators: VxeGlobalValidators
@@ -64,7 +68,7 @@ export const globalResize: VxeGlobalResize
 
 export const log: VxeGlobalLog
 
-export const mixins: VxeGlobalUseMixins
+export const globalMixins: VxeGlobalUseMixins
 
 export const hooks: VxeGlobalHooks
 
@@ -75,11 +79,18 @@ export interface VxeUIPluginObject {
 
 export function use (plugin: VxeUIPluginObject, ...options: any[]): VxeUIExport
 
+/**
+ * Vxe UI core library
+ */
 export interface VxeUIExport {
   /**
    * 版本号
    */
   coreVersion: string
+  /**
+   * 渲染一个空元素
+   */
+  renderEmptyElement: typeof renderEmptyElement
   /**
    * 设置全局主题
    */
@@ -190,7 +201,7 @@ export interface VxeUIExport {
   /**
    * 通用 Mixins
    */
-  mixins: VxeGlobalUseMixins
+  globalMixins: VxeGlobalUseMixins
 
   /**
    * 安装插件
@@ -198,6 +209,9 @@ export interface VxeUIExport {
   use: (plugin: VxeUIPluginObject, ...options: any[]) => VxeUIExport
 }
 
+/**
+ * Vxe UI core library
+ */
 export const VxeUI: VxeUIExport
 
 export * from './global-config'
