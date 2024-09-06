@@ -14,8 +14,3 @@ export interface VxeGlobalUseMixins {
     computePermissionInfo: VxeComponentPermissionInfo
   }, Record<string, any>>
 }
-
-export interface VxeBaseMixinsComputed {
-  computeSize: VxeComponentSizeType
-  computePermissionInfo: VxeComponentPermissionInfo
-}

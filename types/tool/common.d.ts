@@ -1,5 +1,6 @@
 import Vue, { VueConstructor, VNode } from 'vue'
-import { ExtendedVue } from 'vue/types/vue'
+import { extend } from 'vue/types/umd'
+import { CombinedVueInstance, ExtendedVue } from 'vue/types/vue'
 
 /* eslint-disable no-use-before-define,@typescript-eslint/ban-types */
 
@@ -18,9 +19,9 @@ export type DefineVxeComponentApp<
   install(app: VueConstructor): void
 })
 
-export type DefineVxeComponentOptions<P, M> = ExtendedVue<Vue, P, M, object, object>
+export type DefineVxeComponentOptions<Props> = ExtendedVue<Vue, object, object, object, Props>
 
-export type DefineVxeComponentInstance<P, M> = P & M
+export type DefineVxeComponentInstance<Data, Props, Computed, Methods> = CombinedVueInstance<Vue, VxeComponentBaseOptions & Data, Methods, Computed, Props>
 
 /**
  * 组件通用的基础参数
