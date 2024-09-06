@@ -108,14 +108,14 @@ export function component (comp: any) {
   }
 }
 
-export function renderHolderElement () {
+export function renderEmptyElement () {
   return createCommentVNode()
 }
 
 export const VxeUI: VxeUIExport = {
   coreVersion,
 
-  renderHolderElement,
+  renderEmptyElement,
 
   setTheme,
   getTheme,

@@ -84,7 +84,7 @@ export type VxeComponentClassNameType = Record<string, boolean>
 /**
  * 组件插槽类型
  */
-export type VxeComponentSlotType = VNode | string | number
+export type VxeComponentSlotType = VNode | string
 
 /**
  * 权限码类型
