@@ -1,5 +1,4 @@
 import Vue, { VueConstructor, VNode } from 'vue'
-import { extend } from 'vue/types/umd'
 import { CombinedVueInstance, ExtendedVue } from 'vue/types/vue'
 
 /* eslint-disable no-use-before-define,@typescript-eslint/ban-types */
