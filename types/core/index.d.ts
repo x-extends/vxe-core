@@ -186,7 +186,7 @@ export interface VxeUIExport {
   globalResize: VxeGlobalResize
 
   /**
-   * 全局数据仓库
+   * 全局数据对象
    */
   globalStore: VxeGlobalData
 
