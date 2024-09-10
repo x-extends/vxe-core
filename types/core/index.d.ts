@@ -1,6 +1,7 @@
 import Vue, { VNode } from 'vue'
 import { CombinedVueInstance } from 'vue/types/vue'
 import { VxeGlobalConfig } from './global-config'
+import { VxeGlobalData } from './global-data'
 import { VxeGlobalIcon } from './global-icon'
 import { VxeGlobalThemeName } from './global-theme'
 import { VxeGlobalI18nLocale } from './global-lang'
@@ -65,6 +66,8 @@ export const permission: VxeGlobalPermission
 export const globalEvents: VxeGlobalEvents
 
 export const globalResize: VxeGlobalResize
+
+export const globalStore: VxeGlobalData
 
 export const log: VxeGlobalLog
 
@@ -183,6 +186,11 @@ export interface VxeUIExport {
   globalResize: VxeGlobalResize
 
   /**
+   * 全局数据对象
+   */
+  globalStore: VxeGlobalData
+
+  /**
    * 全局日志
    */
   log: VxeGlobalLog
@@ -215,6 +223,7 @@ export interface VxeUIExport {
 export const VxeUI: VxeUIExport
 
 export * from './global-config'
+export * from './global-data'
 export * from './global-icon'
 export * from './global-theme'
 export * from './global-lang'
