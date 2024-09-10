@@ -3,11 +3,6 @@ import { App, VNode, ComponentPublicInstance, DefineComponent } from 'vue'
 /* eslint-disable no-use-before-define,@typescript-eslint/ban-types */
 
 /**
- * @deprecated
- */
-export type defineVxeComponent = DefineVxeComponentApp
-
-/**
  * 组件类型
  */
 export type DefineVxeComponentApp<

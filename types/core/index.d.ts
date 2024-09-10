@@ -1,5 +1,6 @@
 import { VNode } from 'vue'
 import { VxeGlobalConfig } from './global-config'
+import { VxeGlobalData } from './global-data'
 import { VxeGlobalIcon } from './global-icon'
 import { VxeGlobalThemeName } from './global-theme'
 import { VxeGlobalI18nLocale } from './global-lang'
@@ -17,6 +18,7 @@ import { VxeGlobalComponentMethod, VxeGlobalGetComponentMethod } from './compone
 import { VxeGlobalUseFns } from './useFn'
 import { VxeGlobalHooks } from './hooks'
 import { VxeGlobalLog } from './log'
+import { VxeComponentBaseOptions } from '../tool'
 
 /* eslint-disable no-use-before-define */
 
@@ -43,7 +45,7 @@ export const getComponent: VxeGlobalGetComponentMethod
 
 export const coreVersion: string
 
-export function renderEmptyElement(): VNode
+export function renderEmptyElement(_vm: VxeComponentBaseOptions): VNode
 
 export const renderer: VxeGlobalRenderer
 
@@ -64,6 +66,8 @@ export const permission: VxeGlobalPermission
 export const globalEvents: VxeGlobalEvents
 
 export const globalResize: VxeGlobalResize
+
+export const globalStore: VxeGlobalData
 
 export const log: VxeGlobalLog
 
@@ -182,6 +186,11 @@ export interface VxeUIExport {
   globalResize: VxeGlobalResize
 
   /**
+   * 全局数据仓库
+   */
+  globalStore: VxeGlobalData
+
+  /**
    * 全局日志
    */
   log: VxeGlobalLog
@@ -214,6 +223,7 @@ export interface VxeUIExport {
 export const VxeUI: VxeUIExport
 
 export * from './global-config'
+export * from './global-data'
 export * from './global-icon'
 export * from './global-theme'
 export * from './global-lang'

@@ -1,5 +1,5 @@
 import XEUtils from 'xe-utils'
-import { globalConfigStore } from './globalStore'
+import { globalConfigStore } from './configStore'
 
 import { VxeGlobalResize } from '../../types'
 

@@ -1,4 +1,4 @@
-import { globalConfigStore } from './globalStore'
+import { globalConfigStore } from './configStore'
 import XEUtils from 'xe-utils'
 
 import type { VxeGlobalPermission, VxeComponentPermissionCodeType, VxeComponentPermissionInfo, VxeComponentPermissionMethod } from '../../types'

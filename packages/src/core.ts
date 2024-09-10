@@ -1,7 +1,8 @@
 import XEUtils from 'xe-utils'
 import DomZIndex from 'dom-zindex'
 import { createCommentVNode } from 'vue'
-import { globalConfigStore } from './globalStore'
+import { globalConfigStore } from './configStore'
+import { globalStore } from './dataStore'
 import { iconConfigStore } from './iconStore'
 import { themeConfigStore } from './themeStore'
 import { i18nConfigStore } from './i18nStore'
@@ -143,6 +144,8 @@ export const VxeUI: VxeUIExport = {
   clipboard,
   log,
   permission,
+
+  globalStore,
 
   hooks,
   component,
