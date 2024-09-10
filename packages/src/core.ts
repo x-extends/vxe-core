@@ -170,6 +170,8 @@ export * from './interceptor'
 export * from './clipboard'
 export * from './permission'
 
+export * from './dataStore'
+
 export * from './useFns'
 export * from './log'
 export * from './hooks'
