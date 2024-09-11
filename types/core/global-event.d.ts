@@ -1,4 +1,3 @@
-import { CombinedVueInstance } from 'vue/types/vue'
 import { VxeComponentEvent, VxeComponentBaseOptions } from '../tool'
 
 export type VxeGlobalEventType = 'copy' | 'cut' | 'paste' | 'keydown' | 'contextmenu' | 'mousedown' | 'blur' | 'resize' | 'mousewheel'
@@ -34,7 +33,7 @@ export type VxeGlobalCreateEventMethod = (evnt: Event | null, params1: any, para
 export const createEvent: VxeGlobalCreateEventMethod
 
 export interface VxeGlobalEvents {
-  on (_vm: CombinedVueInstance<VxeComponentBaseOptions, object, object, object, object>, type: VxeGlobalEventType, cb: (evnt: any) => void): void
-  off (_vm: CombinedVueInstance<VxeComponentBaseOptions, object, object, object, object>, type: VxeGlobalEventType): void
+  on (_vm: VxeComponentBaseOptions, type: VxeGlobalEventType, cb: (evnt: any) => void): void
+  off (_vm: VxeComponentBaseOptions, type: VxeGlobalEventType): void
   hasKey(evnt: KeyboardEvent, targetKey: string): boolean,
 }

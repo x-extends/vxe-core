@@ -18,7 +18,6 @@ import { interceptor } from './interceptor'
 import { clipboard } from './clipboard'
 import { permission } from './permission'
 import { log } from './log'
-import { hooks } from './hooks'
 import { globalMixins } from './mixins'
 
 import { VxeUIExport, VxeGlobalConfig, VxeGlobalThemeName, VxeGlobalComponents, VxeGlobalIcon, VxeUIPluginObject, VxeGlobalI18nLocale } from '../../types'
@@ -147,7 +146,6 @@ export const VxeUI: VxeUIExport = {
 
   globalStore,
 
-  hooks,
   component,
   getComponent,
   globalMixins,
@@ -174,6 +172,5 @@ export * from './dataStore'
 
 export * from './mixins'
 export * from './log'
-export * from './hooks'
 
 export default VxeUI

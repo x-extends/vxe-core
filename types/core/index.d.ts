@@ -17,7 +17,6 @@ import { VxeGlobalClipboard } from './clipboard'
 import { VxeGlobalPermission } from './permission'
 import { VxeGlobalComponentMethod, VxeGlobalGetComponentMethod } from './components'
 import { VxeGlobalUseMixins } from './mixins'
-import { VxeGlobalHooks } from './hooks'
 import { VxeGlobalLog } from './log'
 
 /* eslint-disable no-use-before-define */
@@ -72,8 +71,6 @@ export const globalStore: VxeGlobalData
 export const log: VxeGlobalLog
 
 export const globalMixins: VxeGlobalUseMixins
-
-export const hooks: VxeGlobalHooks
 
 export interface VxeUIPluginObject {
   install(vxeui: VxeUIExport, ...options: any[]): void
@@ -200,11 +197,6 @@ export interface VxeUIExport {
    */
   component: VxeGlobalComponentMethod
   getComponent: VxeGlobalGetComponentMethod
-
-  /**
-   * 扩展插件
-   */
-  hooks: VxeGlobalHooks
 
   /**
    * 通用 Mixins

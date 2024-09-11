@@ -7,7 +7,7 @@ import { CombinedVueInstance, ExtendedVue } from 'vue/types/vue'
  * 定义组件
  */
 export type DefineVxeComponentApp<
-  P extends Vue = any,
+  P = any,
   E = { [key: string]: any },
   S = { [key: string]: (...args: any[]) => any }
 > = ({
