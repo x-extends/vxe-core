@@ -234,6 +234,5 @@ export * from './log'
 
 export * from './components'
 export * from './mixins'
-export * from './hooks'
 
 export default VxeUI
