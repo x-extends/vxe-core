@@ -46,6 +46,13 @@ export interface VxeGlobalConfig {
    * @returns
    */
   translate?:(key: string, args?: any) => string
+  /**
+   * 使用自定义的国际化
+   * @param key
+   * @param args
+   * @returns string
+   */
+  i18n?:(key: string, args?: any) => string | number
 
   /**
    * 已废弃，请使用 setTheme('dark')
