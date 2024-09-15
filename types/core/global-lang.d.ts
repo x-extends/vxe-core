@@ -1,5 +1,6 @@
 export type VxeGlobalI18nLocale = '' |
 'zh-CN' |
+'zh-CHT' |
 'zh-TC' |
 'zh-HK' |
 'zh-MO' |
