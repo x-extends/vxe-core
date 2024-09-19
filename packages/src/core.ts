@@ -44,7 +44,10 @@ export function setLanguage (locale: VxeGlobalI18nLocale) {
 }
 
 export function setI18n (locale: VxeGlobalI18nLocale, data: Record<string, any>) {
-  i18nConfigStore.langMaps[locale] = Object.assign({}, data)
+  const { langMaps } = i18nConfigStore
+  i18nConfigStore.langMaps = Object.assign({}, langMaps, {
+    [locale]: Object.assign({}, data)
+  })
   return VxeUI
 }
 
