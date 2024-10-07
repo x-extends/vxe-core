@@ -14,7 +14,7 @@ const tsconfig = require('./tsconfig.json')
 
 const tsSettings = {
   ...tsconfig.compilerOptions,
-  target: 'es2016'
+  target: 'es2015'
 }
 
 const exportModuleName = 'VxeCore'
