@@ -1,6 +1,6 @@
 {
   "name": "@vxe-ui/core",
-  "version": "3.0.12",
+  "version": "3.0.13",
   "description": "Vxe UI core library",
   "scripts": {
     "update": "npm install --legacy-peer-deps",
@@ -20,6 +20,9 @@
   "unpkg": "lib/index.umd.js",
   "jsdelivr": "lib/index.umd.js",
   "typings": "types/index.d.ts",
+  "peerDependencies": {
+    "vue": "^2.6.0"
+  },
   "dependencies": {
     "dom-zindex": "^1.0.6",
     "xe-utils": "^3.5.31"
