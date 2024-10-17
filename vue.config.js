@@ -48,7 +48,7 @@ module.exports = defineConfig({
       }
     },
     output: {
-      library: 'VxeCore'
+      library: 'VxeUI'
     },
     externals
   }

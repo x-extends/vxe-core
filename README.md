@@ -1,6 +1,6 @@
 # vxe-core
 
-Vxe UI v3.x 核心库.
+Vxe UI v3.x 运行核心库.
 
 ## 使用
 
@@ -10,10 +10,10 @@ npm install @vxe-ui/core
 
 ```javascript
 // ...
-import VxeCore from '@vxe-ui/core'
+import VxeUI from '@vxe-ui/core'
 // ...
 
-VxeCore.setConfig({
+VxeUI.setConfig({
   // ...
 })
 ```
