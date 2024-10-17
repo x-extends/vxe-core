@@ -17,7 +17,7 @@ const tsSettings = {
   target: 'es2016'
 }
 
-const exportModuleName = 'VxeCore'
+const exportModuleName = 'VxeUI'
 const esmOutDir = 'es'
 const commOutDir = 'lib'
 

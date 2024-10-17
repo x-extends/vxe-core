@@ -2,7 +2,7 @@
 
 简体中文 | [繁體中文](README.zh-TW.md) | [English](README.en.md)  
 
-Vxe UI v4.x 核心库.
+Vxe UI v4.x 运行核心库.
 
 ## 使用
 
@@ -12,10 +12,10 @@ npm install @vxe-ui/core
 
 ```javascript
 // ...
-import VxeCore from '@vxe-ui/core'
+import VxeUI from '@vxe-ui/core'
 // ...
 
-VxeCore.setConfig({
+VxeUI.setConfig({
   // ...
 })
 ```
