@@ -1,6 +1,6 @@
 # vxe-core
 
-Vxe UI v3.x 运行核心库.
+Vxe UI v3.x 核心库.
 
 ## 使用
 
