@@ -87,9 +87,17 @@ export function use (plugin: VxeUIPluginObject, ...options: any[]): VxeUIExport
  */
 export interface VxeUIExport {
   /**
-   * 版本号
+   * 核心版本号
    */
   coreVersion: string
+  /**
+   * UI 版本号
+   */
+  uiVersion: string
+  /**
+   * Table 版本号
+   */
+  tableVersion: string
   /**
    * 渲染一个空元素
    */
