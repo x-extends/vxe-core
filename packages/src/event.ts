@@ -60,10 +60,14 @@ function triggerEvent (evnt: Event) {
 
 class VxeComponentEvent {
   $event: Event
+  type = ''
   key = ''
   code = ''
   constructor (evnt: Event, params1: any, params2?: any) {
     this.$event = evnt
+    if ((evnt as KeyboardEvent).type) {
+      this.type = (evnt as KeyboardEvent).type
+    }
     if ((evnt as KeyboardEvent).key) {
       this.key = (evnt as KeyboardEvent).key
     }
