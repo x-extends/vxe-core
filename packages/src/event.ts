@@ -65,14 +65,16 @@ class VxeComponentEvent {
   code = ''
   constructor (evnt: Event, params1: any, params2?: any) {
     this.$event = evnt
-    if ((evnt as KeyboardEvent).type) {
-      this.type = (evnt as KeyboardEvent).type
-    }
-    if ((evnt as KeyboardEvent).key) {
-      this.key = (evnt as KeyboardEvent).key
-    }
-    if ((evnt as KeyboardEvent).code) {
-      this.code = (evnt as KeyboardEvent).code
+    if (evnt) {
+      if ((evnt as KeyboardEvent).type) {
+        this.type = (evnt as KeyboardEvent).type
+      }
+      if ((evnt as KeyboardEvent).key) {
+        this.key = (evnt as KeyboardEvent).key
+      }
+      if ((evnt as KeyboardEvent).code) {
+        this.code = (evnt as KeyboardEvent).code
+      }
     }
     Object.assign(this, params1, params2)
   }
