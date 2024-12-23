@@ -12,7 +12,7 @@ export const sizeMixin = Vue.extend({
   provide (this: any) {
     return {
       $xeSizeInfo: {
-        size: this.computeSize
+        getSize: () => this.computeSize
       }
     }
   },
@@ -20,7 +20,7 @@ export const sizeMixin = Vue.extend({
     computeSize (this: any): VxeComponentSizeType {
       const { size } = this
       const $xeSizeInfo = this.$xeSizeInfo
-      return size || ($xeSizeInfo ? $xeSizeInfo.size : null)
+      return size || ($xeSizeInfo ? $xeSizeInfo.getSize() : null)
     }
   }
 })
