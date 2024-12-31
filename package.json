@@ -1,6 +1,6 @@
 {
   "name": "@vxe-ui/core",
-  "version": "3.0.23",
+  "version": "3.0.24",
   "description": "Vxe UI core library",
   "scripts": {
     "update": "npm install --legacy-peer-deps",
@@ -58,7 +58,7 @@
     "postcss": "^8.4.38",
     "typescript": "~4.9.5",
     "vue-template-compiler": "2.6.14",
-    "vue": "2.6.14"
+    "vue": "~2.6.14"
   },
   "repository": {
     "type": "git",
