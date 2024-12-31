@@ -19,4 +19,6 @@ export type VxeGlobalI18nLocale = '' |
 'hy-AM' | // 亚美尼亚语
 'fr-FR' | // 法语(法国)
 'de-DE' | // 德语(德国)
-'ar-EG' // 阿拉伯语(埃及)
+'ar-EG' | // 阿拉伯语(埃及)
+'th-TH' | // 泰语
+'it-IT' // 意大利语(意大利)
