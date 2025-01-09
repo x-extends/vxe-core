@@ -49,5 +49,8 @@ export const clipboard: VxeGlobalClipboard = {
       clipStore.html = ''
     } catch (e) {}
     return result
+  },
+  getText () {
+    return clipStore.text || ''
   }
 }
