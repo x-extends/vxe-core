@@ -20,6 +20,7 @@ export type VxeGlobalI18nLocale = '' |
 'fr-FR' | // 法语(法国)
 'de-DE' | // 德语(德国)
 'ar-EG' | // 阿拉伯语(埃及)
+'uk-UA' | // 乌克兰语
 'th-TH' | // 泰语
 'it-IT' | // 意大利语(意大利)
 'id-ID' // 印度尼西亚语
