@@ -21,4 +21,5 @@ export type VxeGlobalI18nLocale = '' |
 'de-DE' | // 德语(德国)
 'ar-EG' | // 阿拉伯语(埃及)
 'th-TH' | // 泰语
-'it-IT' // 意大利语(意大利)
+'it-IT' | // 意大利语(意大利)
+'id-ID' // 印度尼西亚语
