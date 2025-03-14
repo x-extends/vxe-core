@@ -17,6 +17,7 @@ export const GLOBAL_EVENT_KEYS: VxeGlobalEventKey = {
   ARROW_RIGHT: 'ArrowRight',
   PAGE_UP: 'PageUp',
   PAGE_DOWN: 'PageDown',
+  Control: 'Control',
   R: 'R',
   P: 'P',
   Z: 'Z',
