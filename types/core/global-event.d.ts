@@ -17,6 +17,7 @@ export type VxeGlobalEventKey = {
   ARROW_RIGHT: 'ArrowRight'
   PAGE_UP: 'PageUp'
   PAGE_DOWN: 'PageDown'
+  Control: 'Control'
   R: 'R'
   P: 'P'
   Z: 'Z'
