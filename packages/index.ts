@@ -18,6 +18,7 @@ import { permission } from './src/permission'
 import { log } from './src/log'
 import { hooks } from './src/hooks'
 import { useFns } from './src/useFns'
+import XEUtils from 'xe-utils'
 
 import { VxeGlobalComponents, VxeUIPluginObject } from '../types'
 
@@ -42,6 +43,7 @@ export function getComponent (name: keyof VxeGlobalComponents) {
 export function component (comp: any) {
   if (comp && comp.name) {
     components[comp.name] = comp
+    components[XEUtils.kebabCase(comp.name)] = comp
   }
 }
 
