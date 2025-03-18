@@ -103,3 +103,13 @@ export interface VxeComponentPermissionInfo {
   visible: boolean
   disabled: boolean
 }
+
+type CamelToKebabRest<S extends string> = S extends `${infer First}${infer Rest}`? `${First extends Lowercase<First> ? '' : '-'}${Lowercase<First>}${CamelToKebabRest<Rest>}`: S
+type CamelToKebab<S extends string> = S extends `${infer First}${infer Rest}`? `${Lowercase<First>}${CamelToKebabRest<Rest>}`: S
+
+/**
+ * 将带驼峰字符串转成字符串,例如： ProjectName 转为 project-name
+ */
+export type VxeComponentKebabCaseKeys<T> = {
+  [K in keyof T as K extends string ? CamelToKebab<K> : K]: T[K]
+}
