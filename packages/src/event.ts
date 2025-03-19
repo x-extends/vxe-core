@@ -77,7 +77,24 @@ class VxeComponentEvent {
         this.code = (evnt as KeyboardEvent).code
       }
     }
-    Object.assign(this, params1, params2)
+    Object.assign(this, params1)
+    XEUtils.objectEach(params2, (val, key) => {
+      if (XEUtils.isFunction(val)) {
+        let rest: any = null
+        let isRun = false
+        Object.defineProperty(this, key, {
+          get () {
+            if (!isRun) {
+              isRun = true
+              rest = val()
+            }
+            return rest
+          }
+        })
+      } else {
+        (this as any)[key] = val
+      }
+    })
   }
 
   stopPropagation () {
