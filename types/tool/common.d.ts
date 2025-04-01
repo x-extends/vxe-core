@@ -54,7 +54,7 @@ export interface VxeComponentEvent<E = Event> {
 /**
  * 组件尺寸类型
  */
-export type VxeComponentSizeType = null | '' | 'medium' | 'small' | 'mini'
+export type VxeComponentSizeType = null | '' | 'large' | 'medium' | 'small' | 'mini'
 
 /**
  * 组件对齐方式
