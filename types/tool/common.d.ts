@@ -8,9 +8,10 @@ import { App, VNode, ComponentPublicInstance, DefineComponent } from 'vue'
 export type DefineVxeComponentApp<
   P = { [key: string]: any },
   E = { [key: string]: any },
-  S = { [key: string]: (...args: any[]) => any }
+  S = { [key: string]: (...args: any[]) => any },
+  M = { [key: string]: any }
 > = ({
-  new (): {
+  new (): M & {
     $props: P & E,
     $slots: S
   }
