@@ -9,9 +9,10 @@ import { CombinedVueInstance, ExtendedVue } from 'vue/types/vue'
 export type DefineVxeComponentApp<
   P = any,
   E = { [key: string]: any },
-  S = { [key: string]: (...args: any[]) => any }
+  S = { [key: string]: (...args: any[]) => any },
+  M = { [key: string]: any }
 > = ({
-  new (): P & E & {
+  new (): P & E & M & {
     $slots: S
   }
 } & {
