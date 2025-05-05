@@ -20,6 +20,22 @@ export type DefineVxeComponentApp<
 })
 
 /**
+ * 全局组件
+ */
+export type DefineVxeGlobalComponent<
+  P = { [key: string]: any },
+  E = { [key: string]: any },
+  S = { [key: string]: (...args: any[]) => any },
+> = ({
+  new (): {
+    $props: P & E,
+    $slots: S
+  }
+} & {
+  install(app: App): void
+})
+
+/**
  * 组件配置
  */
 export type DefineVxeComponentOptions<P, E> = DefineComponent<P & E>
