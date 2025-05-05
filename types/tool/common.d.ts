@@ -19,6 +19,21 @@ export type DefineVxeComponentApp<
   install(app: VueConstructor): void
 })
 
+/**
+ * 全局组件
+ */
+export type DefineVxeGlobalComponent<
+  P = any,
+  E = { [key: string]: any },
+  S = { [key: string]: (...args: any[]) => any }
+> = ({
+  new (): P & E & {
+    $slots: S
+  }
+} & {
+  install(app: VueConstructor): void
+})
+
 export type DefineVxeComponentOptions<Props> = ExtendedVue<Vue, object, object, object, Props>
 
 export type DefineVxeComponentInstance<Data, Props, Computed, Methods> = CombinedVueInstance<Vue, VxeComponentBaseOptions & Data, Methods, Computed, Props>
