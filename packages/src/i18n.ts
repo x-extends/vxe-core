@@ -6,6 +6,7 @@ import { globalConfigStore } from './configStore'
 import { VxeGlobalI18nLocale } from '../../types'
 
 let checkInstall = false
+let cacheMaps: Record<string, string> = {}
 
 export function getI18n (key: string, args?: any) {
   const { langMaps, language } = i18nConfigStore
@@ -19,11 +20,23 @@ export function getI18n (key: string, args?: any) {
     }
     checkInstall = true
   }
-  return XEUtils.toFormatString(XEUtils.get(langMaps[language], key, key), args)
+  if (!args && cacheMaps[key]) {
+    return cacheMaps[key]
+  }
+  const i18nLabel = XEUtils.toFormatString(XEUtils.get(langMaps[language], key, key), args)
+  if (!args) {
+    cacheMaps[key] = i18nLabel
+  }
+  return i18nLabel
 }
 
 export function setLanguage (locale: VxeGlobalI18nLocale) {
-  i18nConfigStore.language = locale || 'zh-CN'
+  const { language } = i18nConfigStore
+  const targetlang = locale || 'zh-CN'
+  if (language !== targetlang) {
+    i18nConfigStore.language = targetlang
+    cacheMaps = {}
+  }
   return VxeCore
 }
 
