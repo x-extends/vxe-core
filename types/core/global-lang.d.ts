@@ -4,7 +4,7 @@ export type VxeGlobalI18nLocale = '' |
 'zh-HK' | // 中文(香港)
 'zh-MO' | // 中文(澳门)
 'zh-TW' | // 中文(繁体)
-'zh-TC' | // !!!已废弃!!!
+// 'zh-TC' | // !!!已废弃!!!
 'en-US' | // 英语(美国)
 'ja-JP' | // 日语
 'es-ES' | // 西班牙语(国际)
@@ -23,4 +23,5 @@ export type VxeGlobalI18nLocale = '' |
 'uk-UA' | // 乌克兰语
 'th-TH' | // 泰语
 'it-IT' | // 意大利语(意大利)
-'id-ID' // 印度尼西亚语
+'id-ID' | // 印度尼西亚语
+'ms-MY' // 马来语(马来西亚)
