@@ -24,13 +24,11 @@ export const renderer: VxeGlobalRenderer = {
       const renders: any = renderMap[name]
       if (renders) {
         // 检测是否覆盖
-        if (process.env.VUE_APP_VXE_ENV === 'development') {
-          XEUtils.each(options, (val, key) => {
-            if (!XEUtils.eqNull(renders[key]) && renders[key] !== val) {
-              log.warn('vxe.error.coverProp', [`Renderer.${name}`, key])
-            }
-          })
-        }
+        XEUtils.each(options, (val, key) => {
+          if (!XEUtils.eqNull(renders[key]) && renders[key] !== val) {
+            log.warn('vxe.error.coverProp', [`Renderer.${name}`, key])
+          }
+        })
 
         Object.assign(renders, options)
       } else {
