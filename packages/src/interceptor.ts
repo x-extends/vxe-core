@@ -18,9 +18,7 @@ export const interceptor: VxeGlobalInterceptor = {
   add (type, render) {
     // 兼容
     if (XEUtils.isFunction(render)) {
-      // if (process.env.VUE_APP_VXE_ENV === 'development') {
       //   log.warn('vxe.error.delProp', ['interceptor -> callback', 'tableInterceptorMethod'])
-      // }
       render = {
         tableInterceptorMethod: render
       }
@@ -34,10 +32,8 @@ export const interceptor: VxeGlobalInterceptor = {
       }
 
       // 检测重复
-      if (process.env.VUE_APP_VXE_ENV === 'development') {
-        if (eList.indexOf(callback) > -1) {
-          log.warn('vxe.error.coverProp', ['Interceptor', type])
-        }
+      if (eList.indexOf(callback) > -1) {
+        log.warn('vxe.error.coverProp', ['Interceptor', type])
       }
 
       eList.push(callback)

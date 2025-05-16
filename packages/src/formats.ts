@@ -25,23 +25,19 @@ class VXEFormatsStore {
     const conf = this.store[name]
     // 兼容
     if (XEUtils.isFunction(render)) {
-      if (process.env.VUE_APP_VXE_ENV === 'development') {
-        log.warn('vxe.error.delProp', ['formats -> callback', 'cellFormatMethod'])
-      }
+      log.warn('vxe.error.delProp', ['formats -> callback', 'cellFormatMethod'])
       render = {
         cellFormatMethod: render
       }
     }
 
     // 检测是否覆盖
-    if (process.env.VUE_APP_VXE_ENV === 'development') {
-      const confKeys = XEUtils.keys(conf)
-      XEUtils.each(render, (item, key) => {
-        if (confKeys.includes(key)) {
-          log.warn('vxe.error.coverProp', [name, key])
-        }
-      })
-    }
+    const confKeys = XEUtils.keys(conf)
+    XEUtils.each(render, (item, key) => {
+      if (confKeys.includes(key)) {
+        log.warn('vxe.error.coverProp', [name, key])
+      }
+    })
     this.store[name] = conf ? XEUtils.merge(conf, render) : render
     return this
   }
@@ -57,6 +53,4 @@ class VXEFormatsStore {
 
 export const formats = new VXEFormatsStore() as VxeGlobalFormats
 
-if (process.env.VUE_APP_VXE_ENV === 'development') {
-  Object.assign(formats, { _name: 'Formats' })
-}
+Object.assign(formats, { _name: 'Formats' })
