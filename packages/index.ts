@@ -40,6 +40,10 @@ export function getComponent (name: keyof VxeGlobalComponents) {
   return components[name] || null
 }
 
+export function hasComponent (name: keyof VxeGlobalComponents) {
+  return !!components[name]
+}
+
 export function component (comp: any) {
   if (comp && comp.name) {
     components[comp.name] = comp
@@ -86,6 +90,7 @@ export const VxeUI = Object.assign(VxeCore, {
   hooks,
   component,
   getComponent,
+  hasComponent,
   useFns,
 
   use

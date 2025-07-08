@@ -14,7 +14,7 @@ import { VxeGlobalCommands } from './commands'
 import { VxeGlobalInterceptor } from './interceptor'
 import { VxeGlobalClipboard } from './clipboard'
 import { VxeGlobalPermission } from './permission'
-import { VxeGlobalComponentMethod, VxeGlobalGetComponentMethod } from './components'
+import { VxeGlobalComponentMethod, VxeGlobalGetComponentMethod, VxeGlobalHasComponentMethod } from './components'
 import { VxeGlobalUseFns } from './useFn'
 import { VxeGlobalHooks } from './hooks'
 import { VxeGlobalLog } from './log'
@@ -42,6 +42,7 @@ export function getI18n(key: string, args?: any): string
 
 export const component: VxeGlobalComponentMethod
 export const getComponent: VxeGlobalGetComponentMethod
+export const hasComponent: VxeGlobalHasComponentMethod
 
 export const coreVersion: string
 
@@ -204,10 +205,19 @@ export interface VxeUIExport {
   log: VxeGlobalLog
 
   /**
-   * 已使用的组件
+   * 注册的组件
    */
   component: VxeGlobalComponentMethod
+
+  /**
+   * 获取已注册的组件
+   */
   getComponent: VxeGlobalGetComponentMethod
+
+  /**
+   * 判断组件是否已注册
+   */
+  hasComponent: VxeGlobalHasComponentMethod
 
   /**
    * 扩展插件
