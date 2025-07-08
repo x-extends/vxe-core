@@ -46,6 +46,10 @@ export function component (comp: any) {
   }
 }
 
+export function hasComponent (name: keyof VxeGlobalComponents) {
+  return !!components[name]
+}
+
 export function renderEmptyElement (_vm: any): VNode {
   const { _e } = _vm
   return _e()
@@ -85,6 +89,7 @@ export const VxeUI = Object.assign(VxeCore, {
 
   component,
   getComponent,
+  hasComponent,
   globalMixins,
 
   use
