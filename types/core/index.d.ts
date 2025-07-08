@@ -100,6 +100,10 @@ export interface VxeUIExport {
    */
   tableVersion: string
   /**
+   * Design 版本号
+   */
+  designVersion: string
+  /**
    * 渲染一个空元素
    */
   renderEmptyElement: typeof renderEmptyElement
