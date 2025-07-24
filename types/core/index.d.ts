@@ -1,7 +1,7 @@
 import { VNode } from 'vue'
 import { VxeGlobalConfig } from './global-config'
 import { VxeGlobalData } from './global-data'
-import { VxeGlobalIcon } from './global-icon'
+import { VxeGlobalIcon, VxeGlobalIconConfig } from './global-icon'
 import { VxeGlobalThemeName } from './global-theme'
 import { VxeGlobalI18nLocale } from './global-lang'
 import { VxeGlobalEvents, VxeGlobalEventKey, VxeGlobalCreateEventMethod } from './global-event'
@@ -18,7 +18,7 @@ import { VxeGlobalComponentMethod, VxeGlobalGetComponentMethod, VxeGlobalHasComp
 import { VxeGlobalUseFns } from './useFn'
 import { VxeGlobalHooks } from './hooks'
 import { VxeGlobalLog } from './log'
-import { VxeComponentBaseOptions } from '../tool'
+import { VxeComponentBaseOptions, VxeComponentSlotType } from '../tool'
 
 /* eslint-disable no-use-before-define */
 
@@ -33,12 +33,16 @@ export function getConfig(key: keyof VxeGlobalConfig, defaultValue?: any): any
 export function setIcon(options?: VxeGlobalIcon): VxeUIExport
 export function getIcon(): Required<VxeGlobalIcon>
 export function getIcon(key: keyof VxeGlobalIcon): any
+export function renderGlobalIcon(name: keyof VxeGlobalIcon): VNode
+export function renderCustomIcon(icon: VxeGlobalIconConfig, name: string): VNode
 
 export function hasLanguage(locale: VxeGlobalI18nLocale): boolean
 export function getLanguage(): VxeGlobalI18nLocale
 export function setLanguage(locale: VxeGlobalI18nLocale): VxeUIExport
 export function setI18n(locale: VxeGlobalI18nLocale, data: Record<string, any>): VxeUIExport
 export function getI18n(key: string, args?: any): string
+
+export function getSlotVNs(vns: VxeComponentSlotType | VxeComponentSlotType[] | undefined): VxeComponentSlotType[]
 
 export const component: VxeGlobalComponentMethod
 export const getComponent: VxeGlobalGetComponentMethod
@@ -128,6 +132,14 @@ export interface VxeUIExport {
    */
   setIcon: typeof setIcon
   /**
+   * 渲染全局配置图标
+   */
+  renderGlobalIcon : typeof renderGlobalIcon
+  /**
+   * 渲染自定义图标
+   */
+  renderCustomIcon : typeof renderCustomIcon
+  /**
    * 判断是否已经安装了该语言包，如果已安装则返回 true
    */
   hasLanguage: typeof hasLanguage
@@ -207,6 +219,8 @@ export interface VxeUIExport {
    * 全局日志
    */
   log: VxeGlobalLog
+
+  getSlotVNs: typeof getSlotVNs
 
   /**
    * 注册的组件
