@@ -2,7 +2,7 @@ import { VNode } from 'vue'
 import { VxeCore } from './src/core'
 import { setConfig, getConfig } from './src/config'
 import { globalStore } from './src/dataStore'
-import { setIcon, getIcon } from './src/icon'
+import { setIcon, getIcon, renderGlobalIcon, renderCustomIcon } from './src/icon'
 import { setTheme, getTheme } from './src/theme'
 import { globalEvents, GLOBAL_EVENT_KEYS, createEvent } from './src/event'
 import { globalResize } from './src/resize'
@@ -62,8 +62,12 @@ export const VxeUI = Object.assign(VxeCore, {
   getTheme,
   setConfig,
   getConfig: getConfig as any,
+
   setIcon,
   getIcon: getIcon as any,
+  renderGlobalIcon,
+  renderCustomIcon,
+
   setLanguage,
   hasLanguage,
   getLanguage,
