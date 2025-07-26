@@ -113,6 +113,9 @@ class VxeComponentEvent {
 }
 
 export const createEvent: VxeGlobalCreateEventMethod = (evnt, params1, params2) => {
+  if (evnt instanceof VxeComponentEvent) {
+    evnt = evnt.$event
+  }
   return new VxeComponentEvent(evnt as Event, params1, params2)
 }
 
