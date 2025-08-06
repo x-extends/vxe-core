@@ -6,5 +6,6 @@ export const VxeCore = {
   coreVersion,
   uiVersion: '',
   tableVersion: '',
-  designVersion: ''
+  designVersion: '',
+  ganttVersion: ''
 } as VxeUIExport
