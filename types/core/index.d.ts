@@ -106,6 +106,10 @@ export interface VxeUIExport {
    */
   designVersion: string
   /**
+   * Gantt 版本号
+   */
+  ganttVersion: string
+  /**
    * 渲染一个空元素
    */
   renderEmptyElement: typeof renderEmptyElement
