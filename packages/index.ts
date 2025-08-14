@@ -55,6 +55,21 @@ export function renderEmptyElement (_vm: any): VNode {
   return _e()
 }
 
+export function checkVersion (version: string, pVersion: number, sVersion?: number) {
+  if (version) {
+    const vRest = `${version}`.match(/(\d+).(\d+).(\d+)/)
+    if (vRest) {
+      const pV = XEUtils.toNumber(vRest[1])
+      if (sVersion) {
+        const sV = XEUtils.toNumber(vRest[2])
+        return pV >= pVersion && sV >= sVersion
+      }
+      return pV >= pVersion
+    }
+  }
+  return false
+}
+
 export const VxeUI = Object.assign(VxeCore, {
   renderEmptyElement,
 
@@ -95,6 +110,8 @@ export const VxeUI = Object.assign(VxeCore, {
   getComponent,
   hasComponent,
   globalMixins,
+
+  checkVersion,
 
   use
 })
