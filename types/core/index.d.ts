@@ -52,6 +52,8 @@ export const coreVersion: string
 
 export function renderEmptyElement(_vm: VxeComponentBaseOptions): VNode
 
+export function checkVersion(version: string, pVersion: number, sVersion?: number): boolean
+
 export const renderer: VxeGlobalRenderer
 
 export const validators: VxeGlobalValidators
@@ -250,6 +252,11 @@ export interface VxeUIExport {
    * 通用 Use API 函数
    */
   useFns: VxeGlobalUseFns
+
+  /**
+   * 检查版本号是否匹配
+   */
+  checkVersion: typeof checkVersion
 
   /**
    * 安装插件
