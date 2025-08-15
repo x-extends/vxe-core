@@ -18,6 +18,7 @@ import { permission } from './src/permission'
 import { log } from './src/log'
 import { hooks } from './src/hooks'
 import { useFns } from './src/useFns'
+import { getSlotVNs } from './src/vm'
 import XEUtils from 'xe-utils'
 
 import { VxeGlobalComponents, VxeUIPluginObject } from '../types'
@@ -110,7 +111,9 @@ export const VxeUI = Object.assign(VxeCore, {
   component,
   getComponent,
   hasComponent,
+
   useFns,
+  getSlotVNs,
 
   checkVersion,
 
@@ -139,6 +142,7 @@ export * from './src/permission'
 export * from './src/dataStore'
 
 export * from './src/useFns'
+export * from './src/vm'
 export * from './src/log'
 export * from './src/hooks'
 
