@@ -3,7 +3,7 @@
 简体中文 | [繁體中文](README.zh-TW.md) | [English](README.en.md)  
 
 [![star](https://gitee.com/x-extends/vxe-core/badge/star.svg?theme=gvp)](https://gitee.com/x-extends/vxe-core/stargazers)
-[![npm version](https://img.shields.io/npm/v/vxe-core.svg?style=flat-square)](https://www.npmjs.com/package/vxe-core)
+[![npm version](https://img.shields.io/npm/v/@vxe-ui/core.svg?style=flat-square)](https://www.npmjs.com/package/@vxe-ui/core)
 [![NodeJS with Webpack](https://github.com/x-extends/vxe-core/actions/workflows/webpack.yml/badge.svg)](https://github.com/x-extends/vxe-core/actions/workflows/webpack.yml)
 [![issues](https://img.shields.io/github/issues/x-extends/vxe-core.svg)](https://github.com/x-extends/vxe-core/issues)
 [![issues closed](https://img.shields.io/github/issues-closed/x-extends/vxe-core.svg)](https://github.com/x-extends/vxe-core/issues?q=is%3Aissue+is%3Aclosed)
