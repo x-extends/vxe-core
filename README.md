@@ -5,6 +5,7 @@
 [![star](https://gitee.com/x-extends/vxe-core/badge/star.svg?theme=gvp)](https://gitee.com/x-extends/vxe-core/stargazers)
 [![npm version](https://img.shields.io/npm/v/@vxe-ui/core.svg?style=flat-square)](https://www.npmjs.com/package/@vxe-ui/core)
 [![NodeJS with Webpack](https://github.com/x-extends/vxe-core/actions/workflows/webpack.yml/badge.svg)](https://github.com/x-extends/vxe-core/actions/workflows/webpack.yml)
+[![gzip size: JS](http://img.badgesize.io/https://unpkg.com/@vxe-ui/core/lib/index.umd.min.js?compression=gzip&label=gzip%20size:%20JS)](https://unpkg.com/@vxe-ui/core/lib/index.umd.min.js)
 [![npm downloads](https://img.shields.io/npm/dt/@vxe-ui/core.svg?style=flat-square)](https://npm-stat.com/charts.html?package=@vxe-ui/core)
 [![issues](https://img.shields.io/github/issues/x-extends/vxe-core.svg)](https://github.com/x-extends/vxe-core/issues)
 [![issues closed](https://img.shields.io/github/issues-closed/x-extends/vxe-core.svg)](https://github.com/x-extends/vxe-core/issues?q=is%3Aissue+is%3Aclosed)
