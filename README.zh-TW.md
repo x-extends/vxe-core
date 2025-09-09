@@ -2,8 +2,8 @@
 
 [简体中文](README.md) | 繁體中文 | [English](README.en.md)  
 
-[![gitee star](https://gitee.com/x-extends/vxe-core/badge/star.svg?theme=gvp)](https://gitee.com/x-extends/vxe-core/stargazers)
-[![gitcode star](https://gitcode.com/x-extends/vxe-core/badge/star.svg?theme=gvp)](https://gitcode.com/x-extends/vxe-core/stargazers)
+[![gitee star](https://gitee.com/x-extends/vxe-core/badge/star.svg)](https://gitee.com/x-extends/vxe-core/stargazers)
+[![gitcode star](https://gitcode.com/x-extends/vxe-core/badge/star.svg)](https://gitcode.com/x-extends/vxe-core/stargazers)
 [![npm version](https://img.shields.io/npm/v/@vxe-ui/core.svg?style=flat-square)](https://www.npmjs.com/package/@vxe-ui/core)
 [![NodeJS with Webpack](https://github.com/x-extends/vxe-core/actions/workflows/webpack.yml/badge.svg)](https://github.com/x-extends/vxe-core/actions/workflows/webpack.yml)
 [![gzip size: JS](http://img.badgesize.io/https://unpkg.com/@vxe-ui/core/lib/index.umd.min.js?compression=gzip&label=gzip%20size:%20JS)](https://unpkg.com/@vxe-ui/core/lib/index.umd.min.js)
