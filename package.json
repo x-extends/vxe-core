@@ -8,7 +8,7 @@
     "lib:modules": "gulp build",
     "lib": "npm run lib:pack && npm run lib:modules"
   },
-  "files": [
+  "files": [git pull
     "lib",
     "es",
     "src",
