@@ -1,6 +1,6 @@
 {
   "name": "@vxe-ui/core",
-  "version": "3.2.12",
+  "version": "3.2.13",
   "description": "Vxe UI core library",
   "scripts": {
     "update": "npm install --legacy-peer-deps",
@@ -8,7 +8,7 @@
     "lib:modules": "gulp build",
     "lib": "npm run lib:pack && npm run lib:modules"
   },
-  "files": [git pull
+  "files": [
     "lib",
     "es",
     "src",
