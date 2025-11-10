@@ -11,9 +11,9 @@ export interface VxeGlobalMenus {
   mixin(opts: {
     [code: string]: VxeGlobalMenusHandles.MenusOption | ((params: any, event: Event) => any)
   }): VxeGlobalMenus
-  has(code: string): boolean
-  get(code: string): VxeGlobalMenusHandles.MenusOption
+  has(code: string | null | undefined): boolean
+  get(code: string | null | undefined): VxeGlobalMenusHandles.MenusOption
   add(code: string, options: VxeGlobalMenusHandles.MenusOption | ((params: any, event: Event) => any)): VxeGlobalMenus
-  delete(code: string): void
+  delete(code: string | null | undefined): void
   forEach(callback: (options: VxeGlobalMenusHandles.MenusOption, code: string) => void): void
 }
