@@ -59,6 +59,6 @@ export const interceptor: VxeGlobalInterceptor = {
       } else {
         delete storeMap[type]
       }
-  }
+    }
   }
 }
