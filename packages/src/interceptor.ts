@@ -14,7 +14,7 @@ export const interceptor: VxeGlobalInterceptor = {
   },
   get (type) {
     if (type) {
-    return storeMap[type] || []
+      return storeMap[type] || []
     }
     return []
   },
