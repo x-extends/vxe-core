@@ -13,7 +13,10 @@ export const interceptor: VxeGlobalInterceptor = {
     return interceptor
   },
   get (type) {
+    if (type) {
     return storeMap[type] || []
+    }
+    return []
   },
   add (type, render) {
     // 兼容
@@ -40,7 +43,7 @@ export const interceptor: VxeGlobalInterceptor = {
     }
     return interceptor
   },
-  delete (type, render) {
+  delete (type: string, render) {
     const eList = storeMap[type]
     if (eList) {
       // 兼容
@@ -56,6 +59,6 @@ export const interceptor: VxeGlobalInterceptor = {
       } else {
         delete storeMap[type]
       }
-    }
+  }
   }
 }

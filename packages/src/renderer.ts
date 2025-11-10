@@ -41,7 +41,7 @@ export const renderer: VxeGlobalRenderer = {
     XEUtils.objectEach(renderMap, callback)
     return renderer
   },
-  delete (name) {
+  delete (name: string) {
     delete renderMap[name]
     return renderer
   }
