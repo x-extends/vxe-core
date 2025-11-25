@@ -129,3 +129,10 @@ type CamelToKebab<S extends string> = S extends `${infer First}${infer Rest}`? `
 export type VxeComponentKebabCaseKeys<T> = {
   [K in keyof T as K extends string ? CamelToKebab<K> : K]: T[K]
 }
+
+/**
+ * 将指定的属性设置为必选类型
+ */
+export type VxeWithRequired<T, K extends keyof T> = T & {
+  [P in K]-?: T[P]
+}
