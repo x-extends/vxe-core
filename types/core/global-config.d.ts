@@ -38,6 +38,21 @@ export interface VxeGlobalConfig {
    */
   size?: VxeComponentSizeType
   /**
+   * 支持对组件中特定的字段进行翻译
+   * @param key
+   * @param args
+   * @returns
+   */
+  translate?:(key: string, args?: any) => string
+  /**
+   * 自定义方式对组件内置的语言进行翻译
+   * @param key
+   * @param args
+   * @returns string
+   */
+  i18n?:(key: string, args?: any) => string | number
+
+  /**
    * 已废弃，请使用 VxeUI.tableVersion
    * @deprecated
    */
@@ -47,21 +62,6 @@ export interface VxeGlobalConfig {
    * @deprecated
    */
   resizeInterval?: number
-  /**
-   * 支持对组件中特定的字段进行翻译
-   * @param key
-   * @param args
-   * @returns
-   */
-  translate?:(key: string, args?: any) => string
-  /**
-   * 使用自定义的国际化
-   * @param key
-   * @param args
-   * @returns string
-   */
-  i18n?:(key: string, args?: any) => string | number
-
   /**
    * 已废弃，请使用 VxeUI.setTheme('dark')
    * @deprecated
