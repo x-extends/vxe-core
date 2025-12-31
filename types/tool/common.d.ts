@@ -1,6 +1,10 @@
-import { App, VNode, ComponentPublicInstance, DefineComponent } from 'vue'
+import { App, VNode, ComponentPublicInstance, DefineComponent, Prop } from 'vue'
 
 /* eslint-disable no-use-before-define,@typescript-eslint/ban-types */
+
+type SafeProp<T> = {
+  [K in keyof T]: T[K] extends string ? T[K] : Prop<T[K]>
+}
 
 /**
  * 组件类型
@@ -16,6 +20,7 @@ export type DefineVxeComponentApp<
     $slots: S
   }
 } & {
+  props: SafeProp<Required<P>>
   install(app: App): void
 })
 
