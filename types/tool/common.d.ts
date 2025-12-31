@@ -3,6 +3,10 @@ import { CombinedVueInstance, ExtendedVue } from 'vue/types/vue'
 
 /* eslint-disable no-use-before-define,@typescript-eslint/ban-types */
 
+type SafeProp<T> = {
+  [K in keyof T]: T[K] extends string ? T[K] : any
+}
+
 /**
  * 定义组件
  */
@@ -16,6 +20,7 @@ export type DefineVxeComponentApp<
     $slots: S
   }
 } & {
+  props: SafeProp<Required<P>>
   install(app: VueConstructor): void
 })
 
