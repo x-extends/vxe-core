@@ -139,6 +139,7 @@ if (browse.isDoc) {
     window.addEventListener('cut', triggerEvent, false)
     window.addEventListener('paste', triggerEvent, false)
   }
+  document.addEventListener('scroll', triggerEvent, true)
   document.addEventListener('keydown', triggerEvent, false)
   document.addEventListener('contextmenu', triggerEvent, false)
   window.addEventListener('mousedown', triggerEvent, false)
