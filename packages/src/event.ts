@@ -142,6 +142,7 @@ if (browse.isDoc) {
   document.addEventListener('scroll', triggerEvent, true)
   document.addEventListener('keydown', triggerEvent, false)
   document.addEventListener('contextmenu', triggerEvent, false)
+  window.addEventListener('click', triggerEvent, false)
   window.addEventListener('mousedown', triggerEvent, false)
   window.addEventListener('blur', triggerEvent, false)
   window.addEventListener('resize', triggerEvent, false)

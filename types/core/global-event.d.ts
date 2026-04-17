@@ -1,6 +1,6 @@
 import { VxeComponentEvent, VxeComponentBaseOptions } from '../tool'
 
-export type VxeGlobalEventType = 'copy' | 'cut' | 'paste' | 'keydown' | 'contextmenu' | 'mousedown' | 'blur' | 'resize' | 'mousewheel' | 'scroll'
+export type VxeGlobalEventType = 'copy' | 'cut' | 'paste' | 'keydown' | 'contextmenu' | 'mousedown' | 'click' | 'blur' | 'resize' | 'mousewheel' | 'scroll'
 
 export type VxeGlobalEventKey = {
   F2: 'F2'
