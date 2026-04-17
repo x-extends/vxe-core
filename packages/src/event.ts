@@ -143,6 +143,7 @@ if (browse.isDoc) {
   document.addEventListener('keydown', triggerEvent, false)
   document.addEventListener('contextmenu', triggerEvent, false)
   window.addEventListener('mousedown', triggerEvent, false)
+  window.addEventListener('click', triggerEvent, false)
   window.addEventListener('blur', triggerEvent, false)
   window.addEventListener('resize', triggerEvent, false)
   window.addEventListener(wheelName, XEUtils.throttle(triggerEvent, 100, { leading: true, trailing: false }), { passive: true, capture: false })
