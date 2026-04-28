@@ -8,6 +8,13 @@ import { VxeGlobalI18nLocale } from '../../types'
 let checkInstall = false
 let cacheMaps: Record<string, string> = {}
 
+function getDefaultExport (mod: any) {
+  if (mod && mod.__esModule) {
+    return mod.default
+  }
+  return mod
+}
+
 export function getI18n (key: string, args?: any) {
   const { langMaps, language } = i18nConfigStore
   const { i18n } = globalConfigStore
@@ -41,7 +48,7 @@ export function setLanguage (locale: VxeGlobalI18nLocale) {
 }
 
 export function setI18n (locale: VxeGlobalI18nLocale, data: Record<string, any>) {
-  i18nConfigStore.langMaps[locale] = Object.assign({}, data)
+  i18nConfigStore.langMaps[locale] = Object.assign({}, getDefaultExport(data))
   return VxeCore
 }
 
