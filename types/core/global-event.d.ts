@@ -6,6 +6,8 @@ export type VxeGlobalEventKey = {
   F2: 'F2'
   F10: 'F10'
   TAB: 'Tab'
+  ESCAPE: 'Escape'
+  ENTER: 'Enter'
   DELETE: 'Delete'
   BACKSPACE: 'Backspace'
   SPACEBAR: ' '
