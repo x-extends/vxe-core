@@ -4,8 +4,7 @@ import type { VxeGlobalEvents, VxeComponentBaseOptions, VxeGlobalCreateEventMeth
 
 export const GLOBAL_EVENT_KEYS: VxeGlobalEventKey = {
   F2: 'F2',
-  ESCAPE: 'Escape',
-  ENTER: 'Enter',
+  F10: 'F10',
   TAB: 'Tab',
   DELETE: 'Delete',
   BACKSPACE: 'Backspace',
@@ -17,14 +16,20 @@ export const GLOBAL_EVENT_KEYS: VxeGlobalEventKey = {
   ARROW_RIGHT: 'ArrowRight',
   PAGE_UP: 'PageUp',
   PAGE_DOWN: 'PageDown',
-  Control: 'Control',
-  R: 'R',
-  P: 'P',
-  Z: 'Z',
+  HOME: 'Home',
+  END: 'End',
+  A: 'A',
   X: 'X',
   C: 'C',
   V: 'V',
-  M: 'M'
+  D: 'D',
+  F: 'F',
+  H: 'H',
+  M: 'M',
+  Y: 'Y',
+  Z: 'Z',
+  R: 'R',
+  P: 'P'
 }
 
 const browse = XEUtils.browse()

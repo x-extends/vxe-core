@@ -4,8 +4,7 @@ export type VxeGlobalEventType = 'copy' | 'cut' | 'paste' | 'keydown' | 'context
 
 export type VxeGlobalEventKey = {
   F2: 'F2'
-  ESCAPE: 'Escape'
-  ENTER: 'Enter'
+  F10: 'F10'
   TAB: 'Tab'
   DELETE: 'Delete'
   BACKSPACE: 'Backspace'
@@ -17,14 +16,20 @@ export type VxeGlobalEventKey = {
   ARROW_RIGHT: 'ArrowRight'
   PAGE_UP: 'PageUp'
   PAGE_DOWN: 'PageDown'
-  Control: 'Control'
-  R: 'R'
-  P: 'P'
-  Z: 'Z'
+  HOME: 'Home'
+  END: 'End'
+  A: 'A'
   X: 'X'
   C: 'C'
   V: 'V'
+  D: 'D'
+  F: 'F'
+  H: 'H'
   M: 'M'
+  Y: 'Y'
+  Z: 'Z'
+  R: 'R'
+  P: 'P'
 }
 
 export const GLOBAL_EVENT_KEYS: VxeGlobalEventKey
