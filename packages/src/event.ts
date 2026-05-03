@@ -134,6 +134,9 @@ export const globalEvents: VxeGlobalEvents = {
     XEUtils.remove(eventStore, item => item.comp === comp && item.type === type)
   },
   hasKey (evnt, targetKey) {
+    if (!targetKey) {
+      return false
+    }
     const { key } = evnt
     targetKey = targetKey.toLowerCase()
     return key ? (targetKey === key.toLowerCase() || !!(convertEventKeys[key] && convertEventKeys[key].toLowerCase() === targetKey)) : false
