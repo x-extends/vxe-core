@@ -1,6 +1,6 @@
 {
   "name": "@vxe-ui/core",
-  "version": "4.4.13",
+  "version": "4.4.14",
   "description": "Vxe UI core library",
   "scripts": {
     "update": "npm install --legacy-peer-deps",
@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "dom-zindex": "^1.0.7",
-    "xe-utils": "^4.0.8"
+    "xe-utils": "^4.0.9"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^29.0.0",
