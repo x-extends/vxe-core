@@ -74,9 +74,9 @@ export interface VxeComponentEvent<E = Event> {
 }
 
 /**
- * 组件尺寸类型
+ * 组件尺寸类型：特大xlarge，大号large，默认default，中号medium，小号small，最小mini
  */
-export type VxeComponentSizeType = null | '' | 'large' | 'medium' | 'small' | 'mini'
+export type VxeComponentSizeType = null | '' | 'xlarge' | 'large' | 'medium' | 'small' | 'mini'
 
 /**
  * 组件对齐方式
