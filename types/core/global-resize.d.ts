@@ -1,3 +1,3 @@
 export interface VxeGlobalResize {
-  create (callback: (...args: any[]) => void): ResizeObserver
+  create (callback: (entries: ResizeObserverEntry[]) => void): ResizeObserver
 }
