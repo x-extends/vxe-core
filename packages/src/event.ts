@@ -20,6 +20,7 @@ export const GLOBAL_EVENT_KEYS: VxeGlobalEventKey = {
   PAGE_DOWN: 'PageDown',
   HOME: 'Home',
   END: 'End',
+  PROCESS: 'Process',
   A: 'A',
   X: 'X',
   C: 'C',
