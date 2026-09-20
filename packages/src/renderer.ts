@@ -13,7 +13,9 @@ const renderMap: Record<string, VxeGlobalRendererOptions> = {}
  */
 export const renderer: VxeGlobalRenderer = {
   mixin (opts) {
-    XEUtils.each(opts, (options, name) => renderer.add(name, options))
+    XEUtils.each(opts, (options, name) => {
+      renderer.add(name, options)
+    })
     return renderer
   },
   get (name: string) {
