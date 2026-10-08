@@ -2,8 +2,8 @@
 export interface VxeDomUtils {
   /**
    * 生成 className
-   * @param staticClassName
+   * @param staticClassNames
    * @param mapClassName
    */
-  buildClass (staticClassName: string | null | undefined, mapClassName?: Record<string, boolean | string | null | undefined>): string
+  buildClass (staticClassNames: (string | null | undefined)[] | null | undefined, mapClassName?: Record<string, boolean | string | null | undefined>): string
 }
