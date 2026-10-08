@@ -15,6 +15,8 @@ import { commands } from './src/commands'
 import { interceptor } from './src/interceptor'
 import { clipboard } from './src/clipboard'
 import { permission } from './src/permission'
+import { baseUtils } from './src/base-utils'
+import { domUtils } from './src/dom-utils'
 import { log } from './src/log'
 import { hooks } from './src/hooks'
 import { useFns } from './src/useFns'
@@ -105,6 +107,9 @@ export const VxeUI = Object.assign(VxeCore, {
   log,
   permission,
 
+  baseUtils,
+  domUtils,
+
   globalStore,
 
   hooks,
@@ -138,6 +143,9 @@ export * from './src/commands'
 export * from './src/interceptor'
 export * from './src/clipboard'
 export * from './src/permission'
+
+export * from './src/base-utils'
+export * from './src/dom-utils'
 
 export * from './src/dataStore'
 
