@@ -15,6 +15,8 @@ import { VxeGlobalCommands } from './commands'
 import { VxeGlobalInterceptor } from './interceptor'
 import { VxeGlobalClipboard } from './clipboard'
 import { VxeGlobalPermission } from './permission'
+import { VxeBaseUtils } from './base-utils'
+import { VxeDomUtils } from './dom-utils'
 import { VxeGlobalComponentMethod, VxeGlobalGetComponentMethod, VxeGlobalHasComponentMethod } from './components'
 import { VxeGlobalUseMixins } from './mixins'
 import { VxeGlobalLog } from './log'
@@ -69,6 +71,9 @@ export const interceptor: VxeGlobalInterceptor
 export const clipboard: VxeGlobalClipboard
 
 export const permission: VxeGlobalPermission
+
+export const baseUtils: VxeBaseUtils
+export const domUtils: VxeDomUtils
 
 export const globalEvents: VxeGlobalEvents
 
@@ -203,6 +208,15 @@ export interface VxeUIExport {
   permission: VxeGlobalPermission
 
   /**
+   * 基础工具函数
+   */
+  baseUtils: VxeBaseUtils
+  /**
+   * Document 工具函数
+   */
+  domUtils: VxeDomUtils
+
+  /**
    * 全局事件管理
    */
   globalEvents: VxeGlobalEvents
@@ -278,6 +292,10 @@ export * from './commands'
 export * from './interceptor'
 export * from './clipboard'
 export * from './permission'
+
+export * from './base-utils'
+export * from './dom-utils'
+
 export * from './log'
 
 export * from './components'
