@@ -7,10 +7,15 @@ export const domUtils: VxeDomUtils = {
   /**
    * 生成 className
    */
-  buildClass (staticClassName, mapClassName) {
+  buildClass (staticClassNames, mapClassName) {
     const parts: string[] = []
-    if (staticClassName) {
-      parts.push(staticClassName)
+    if (staticClassNames) {
+      for (let i = 0; i < staticClassNames.length; i++) {
+        const val = staticClassNames[i]
+        if (val) {
+          parts.push(val)
+        }
+      }
     }
     XEUtils.each(mapClassName, (val, key) => {
       if (val) {
