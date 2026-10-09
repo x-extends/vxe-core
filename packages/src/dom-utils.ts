@@ -13,7 +13,7 @@ export const domUtils: VxeDomUtils = {
       for (let i = 0; i < staticClassNames.length; i++) {
         const val = staticClassNames[i]
         if (val) {
-          parts.push(val)
+          parts.push('' + val)
         }
       }
     }

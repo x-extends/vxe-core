@@ -5,5 +5,5 @@ export interface VxeDomUtils {
    * @param staticClassNames
    * @param mapClassName
    */
-  buildClass (staticClassNames: (string | null | undefined)[] | null | undefined, mapClassName?: Record<string, boolean | string | null | undefined>): string
+  buildClass (staticClassNames: (string | number | null | undefined)[] | null | undefined, mapClassName?: Record<string, boolean | string | number | null | undefined>): string
 }
