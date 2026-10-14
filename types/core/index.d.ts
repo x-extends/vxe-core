@@ -17,6 +17,7 @@ import { VxeGlobalClipboard } from './clipboard'
 import { VxeGlobalPermission } from './permission'
 import { VxeBaseUtils } from './base-utils'
 import { VxeDomUtils } from './dom-utils'
+import { VxeScrollbarUtils } from './scrollbar-utils'
 import { VxeGlobalComponentMethod, VxeGlobalGetComponentMethod, VxeGlobalHasComponentMethod } from './components'
 import { VxeGlobalUseMixins } from './mixins'
 import { VxeGlobalLog } from './log'
@@ -74,6 +75,7 @@ export const permission: VxeGlobalPermission
 
 export const baseUtils: VxeBaseUtils
 export const domUtils: VxeDomUtils
+export const scrollbarUtils: VxeScrollbarUtils
 
 export const globalEvents: VxeGlobalEvents
 
@@ -215,6 +217,10 @@ export interface VxeUIExport {
    * Document 工具函数
    */
   domUtils: VxeDomUtils
+  /**
+   * 滚动条工具函数
+   */
+  scrollbarUtils: VxeScrollbarUtils
 
   /**
    * 全局事件管理
@@ -295,6 +301,7 @@ export * from './permission'
 
 export * from './base-utils'
 export * from './dom-utils'
+export * from './scrollbar-utils'
 
 export * from './log'
 
