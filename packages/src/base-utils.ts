@@ -18,5 +18,11 @@ export const baseUtils: VxeBaseUtils = {
    */
   isEmpty (value) : value is VxeBaseEmptyValue {
     return value === null || value === undefined || value === ''
+  },
+  /**
+   * 获取配置值，如果存在则返回，如果不存在则使用默认值
+   */
+  getDefVal (value, defVal) {
+    return XEUtils.eqNull(value) ? defVal : value
   }
 }

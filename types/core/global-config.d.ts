@@ -38,6 +38,10 @@ export interface VxeGlobalConfig {
    */
   size?: VxeComponentSizeType
   /**
+   * 使用虚拟滚动条
+   */
+  useScrollbar?: boolean
+  /**
    * 支持对组件中特定的字段进行翻译
    * @param key
    * @param args
