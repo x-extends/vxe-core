@@ -13,4 +13,10 @@ export interface VxeBaseUtils {
    * @param value
    */
   isEmpty(value: any): value is VxeBaseEmptyValue
+  /**
+   * 获取配置值，如果存在则返回，如果不存在则使用默认值
+   * @param value
+   * @param defVal
+   */
+  getDefVal<T = any, D = any>(value: T, defVal: D): T | D
 }
