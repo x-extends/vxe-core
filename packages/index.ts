@@ -17,6 +17,7 @@ import { clipboard } from './src/clipboard'
 import { permission } from './src/permission'
 import { baseUtils } from './src/base-utils'
 import { domUtils } from './src/dom-utils'
+import { scrollbarUtils } from './src/scrollbar-utils'
 import { log } from './src/log'
 import { hooks } from './src/hooks'
 import { useFns } from './src/useFns'
@@ -109,6 +110,7 @@ export const VxeUI = Object.assign(VxeCore, {
 
   baseUtils,
   domUtils,
+  scrollbarUtils,
 
   globalStore,
 
@@ -146,6 +148,7 @@ export * from './src/permission'
 
 export * from './src/base-utils'
 export * from './src/dom-utils'
+export * from './src/scrollbar-utils'
 
 export * from './src/dataStore'
 
