@@ -17,6 +17,7 @@ import { VxeGlobalPermission } from './permission'
 import { VxeBaseUtils } from './base-utils'
 import { VxeDomUtils } from './dom-utils'
 import { VxeScrollbarUtils } from './scrollbar-utils'
+import { VxePopperUtils } from './popper-utils'
 import { VxeGlobalComponentMethod, VxeGlobalGetComponentMethod, VxeGlobalHasComponentMethod } from './components'
 import { VxeGlobalUseFns } from './useFn'
 import { VxeGlobalHooks } from './hooks'
@@ -76,6 +77,7 @@ export const permission: VxeGlobalPermission
 export const baseUtils: VxeBaseUtils
 export const domUtils: VxeDomUtils
 export const scrollbarUtils: VxeScrollbarUtils
+export const popperUtils: VxePopperUtils
 
 export const globalEvents: VxeGlobalEvents
 
@@ -223,6 +225,10 @@ export interface VxeUIExport {
    * 滚动条工具函数
    */
   scrollbarUtils: VxeScrollbarUtils
+  /**
+   * 弹出元素定位工具函数
+   */
+  popperUtils: VxePopperUtils
 
   /**
    * 全局事件管理
@@ -309,6 +315,7 @@ export * from './permission'
 export * from './base-utils'
 export * from './dom-utils'
 export * from './scrollbar-utils'
+export * from './popper-utils'
 
 export * from './log'
 
