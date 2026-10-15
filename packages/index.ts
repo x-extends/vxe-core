@@ -18,6 +18,7 @@ import { permission } from './src/permission'
 import { baseUtils } from './src/base-utils'
 import { domUtils } from './src/dom-utils'
 import { scrollbarUtils } from './src/scrollbar-utils'
+import { popperUtils } from './src/popper-utils'
 import { log } from './src/log'
 import { globalMixins } from './src/mixins'
 import { getSlotVNs } from './src/vm'
@@ -111,6 +112,7 @@ export const VxeUI = Object.assign(VxeCore, {
   baseUtils,
   domUtils,
   scrollbarUtils,
+  popperUtils,
 
   globalStore,
 
@@ -148,6 +150,7 @@ export * from './src/permission'
 export * from './src/base-utils'
 export * from './src/dom-utils'
 export * from './src/scrollbar-utils'
+export * from './src/popper-utils'
 
 export * from './src/dataStore'
 

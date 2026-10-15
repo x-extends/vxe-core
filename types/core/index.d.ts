@@ -18,6 +18,7 @@ import { VxeGlobalPermission } from './permission'
 import { VxeBaseUtils } from './base-utils'
 import { VxeDomUtils } from './dom-utils'
 import { VxeScrollbarUtils } from './scrollbar-utils'
+import { VxePopperUtils } from './popper-utils'
 import { VxeGlobalComponentMethod, VxeGlobalGetComponentMethod, VxeGlobalHasComponentMethod } from './components'
 import { VxeGlobalUseMixins } from './mixins'
 import { VxeGlobalLog } from './log'
@@ -76,6 +77,7 @@ export const permission: VxeGlobalPermission
 export const baseUtils: VxeBaseUtils
 export const domUtils: VxeDomUtils
 export const scrollbarUtils: VxeScrollbarUtils
+export const popperUtils: VxePopperUtils
 
 export const globalEvents: VxeGlobalEvents
 
@@ -302,6 +304,7 @@ export * from './permission'
 export * from './base-utils'
 export * from './dom-utils'
 export * from './scrollbar-utils'
+export * from './popper-utils'
 
 export * from './log'
 
