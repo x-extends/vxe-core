@@ -24,5 +24,20 @@ export const baseUtils: VxeBaseUtils = {
    */
   getDefVal (value, defVal) {
     return XEUtils.eqNull(value) ? defVal : value
+  },
+  /**
+   * 判断是否启用
+   */
+  isEnabled (conf: any) {
+    return !!(conf && conf.enabled !== false)
+  },
+  /**
+   * 用于开关类型的配置项
+   * 局部启用规则：conf={}
+   * 局部禁用规则：conf={enabled:false}
+   * 全局默认启用规则：conf.enabled=true
+   */
+  hasEnableConf (conf, opts) {
+    return !!(opts && (conf ? opts.enabled !== false : opts.enabled))
   }
 }
