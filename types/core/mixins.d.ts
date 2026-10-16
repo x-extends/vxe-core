@@ -1,5 +1,5 @@
 import { Vue, ExtendedVue } from 'vue/types/vue'
-import { VxeComponentSizeType, VxeComponentPermissionInfo } from '../tool'
+import { VxeComponentSizeType, VxeComponentIsVScrollbar, VxeComponentPermissionInfo } from '../tool'
 
 /* eslint-disable @typescript-eslint/ban-types */
 
@@ -9,6 +9,9 @@ import { VxeComponentSizeType, VxeComponentPermissionInfo } from '../tool'
 export interface VxeGlobalUseMixins {
   sizeMixin: ExtendedVue<Vue, {}, {}, {
     computeSize: VxeComponentSizeType
+  }, Record<string, any>>
+  vScrollbarMixin: ExtendedVue<Vue, {}, {}, {
+    computeIsVScrollbar: VxeComponentIsVScrollbar
   }, Record<string, any>>
   permissionMixin: ExtendedVue<Vue, {}, {}, {
     computePermissionInfo: VxeComponentPermissionInfo

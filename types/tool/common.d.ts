@@ -67,6 +67,11 @@ export interface VxeComponentEvent<E = Event> {
 }
 
 /**
+ * 组件虚拟滚动条
+ */
+export type VxeComponentIsVScrollbar = boolean | null
+
+/**
  * 组件尺寸类型：特大xlarge，大号large，默认default，中号medium，小号small，最小mini
  */
 export type VxeComponentSizeType = null | '' | 'xlarge' | 'large' | 'default' | 'medium' | 'small' | 'mini'
