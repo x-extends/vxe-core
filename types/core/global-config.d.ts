@@ -1,4 +1,4 @@
-import { VxeComponentSizeType } from '../tool'
+import { VxeComponentSizeType, VxeComponentIsVScrollbar } from '../tool'
 
 import { VxeGlobalThemeName, VxeComponentPermissionCodeType, VxeComponentPermissionResult } from '../../types'
 
@@ -40,7 +40,7 @@ export interface VxeGlobalConfig {
   /**
    * 全局启用虚拟滚动条
    */
-  useScrollbar?: boolean
+  useScrollbar?: VxeComponentIsVScrollbar
   /**
    * 支持对组件中特定的字段进行翻译
    * @param key

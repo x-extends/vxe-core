@@ -1,5 +1,5 @@
 import { ComputedRef } from 'vue'
-import { VxeComponentSizeType, VxeComponentPermissionCodeType, VxeComponentPermissionMethod, VxeComponentPermissionInfo } from '../tool'
+import { VxeComponentSizeType, VxeComponentIsVScrollbar, VxeComponentPermissionCodeType, VxeComponentPermissionMethod, VxeComponentPermissionInfo } from '../tool'
 
 export type VxeUseFnUseSize = (props: {
   size?: VxeComponentSizeType;
@@ -8,6 +8,14 @@ export type VxeUseFnUseSize = (props: {
 }
 
 export const useSize: VxeUseFnUseSize
+
+export type VxeUseVScrollbar = (props: {
+  useScrollbar?: VxeComponentIsVScrollbar;
+}) => {
+  computeIsVScrollbar: ComputedRef<VxeComponentIsVScrollbar>;
+}
+
+export const useVScrollbar: VxeUseVScrollbar
 
 export type VxeUsePermission = (props: {
   permissionCode?: VxeComponentPermissionCodeType
@@ -23,5 +31,6 @@ export const usePermission: VxeUsePermission
  */
 export interface VxeGlobalUseFns {
   useSize: VxeUseFnUseSize
+  useVScrollbar: VxeUseVScrollbar
   usePermission: VxeUsePermission
 }
