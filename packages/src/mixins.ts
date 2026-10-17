@@ -68,13 +68,13 @@ export const permissionMixin = Vue.extend({
  */
 export const vScrollbarMixin = Vue.extend({
   inject: {
-    $xeVmInfo: {
+    $xeScrollbarInfo: {
       default: null
     }
   },
   provide (this: any) {
     return {
-      $xeVmInfo: {
+      $xeScrollbarInfo: {
         getIsVScrollbar: () => this.computeIsVScrollbar
       }
     }
@@ -82,8 +82,8 @@ export const vScrollbarMixin = Vue.extend({
   computed: {
     computeIsVScrollbar (this: any): VxeComponentIsVScrollbar {
       const { useScrollbar } = this
-      const $xeVmInfo = this.$xeVmInfo
-      return XEUtils.isBoolean(useScrollbar) ? useScrollbar : ($xeVmInfo ? $xeVmInfo.getIsVScrollbar() : null)
+      const $xeScrollbarInfo = this.$xeScrollbarInfo
+      return XEUtils.isBoolean(useScrollbar) ? useScrollbar : ($xeScrollbarInfo ? $xeScrollbarInfo.getIsVScrollbar() : null)
     }
   }
 })
