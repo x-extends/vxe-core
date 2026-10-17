@@ -41,7 +41,7 @@ export const popperUtils: VxePopperUtils = {
     const { defaultTop, defaultLeft, placement, defaultPlacement, appendTo, teleportTo, marginSize, isMinWidth } = Object.assign({
       appendTo: '',
       teleportTo: false,
-      marginSize: 18,
+      marginSize: 12,
       isMinWidth: true
     }, options)
     let panelPlacement: 'top' | 'bottom' = 'bottom'
