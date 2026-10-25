@@ -15,6 +15,7 @@ import { commands } from './src/commands'
 import { interceptor } from './src/interceptor'
 import { clipboard } from './src/clipboard'
 import { permission } from './src/permission'
+import { zIndex } from './src/z-index'
 import { baseUtils } from './src/base-utils'
 import { domUtils } from './src/dom-utils'
 import { scrollbarUtils } from './src/scrollbar-utils'
@@ -109,6 +110,8 @@ export const VxeUI = Object.assign(VxeCore, {
   log,
   permission,
 
+  zIndex,
+
   baseUtils,
   domUtils,
   scrollbarUtils,
@@ -146,6 +149,8 @@ export * from './src/commands'
 export * from './src/interceptor'
 export * from './src/clipboard'
 export * from './src/permission'
+
+export * from './src/z-index'
 
 export * from './src/base-utils'
 export * from './src/dom-utils'

@@ -11,6 +11,7 @@ process.env.VUE_APP_VXE_ENV = 'development'
 
 const externalMaps = {
   'xe-utils': 'XEUtils'
+  // 'dom-zindex': 'domZindex'
 }
 
 const externals = {}
