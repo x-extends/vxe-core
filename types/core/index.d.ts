@@ -75,6 +75,8 @@ export const clipboard: VxeGlobalClipboard
 
 export const permission: VxeGlobalPermission
 
+export const zIndex: VxeZIndex
+
 export const baseUtils: VxeBaseUtils
 export const domUtils: VxeDomUtils
 export const scrollbarUtils: VxeScrollbarUtils
