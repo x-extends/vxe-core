@@ -9,6 +9,8 @@ const rename = require('gulp-rename')
 const replace = require('gulp-replace')
 const merge = require('merge-stream')
 const pack = require('./package.json')
+const { rollup } = require('rollup')
+const commonjs = require('@rollup/plugin-commonjs')
 const ts = require('gulp-typescript')
 const tsconfig = require('./tsconfig.json')
 
@@ -20,6 +22,7 @@ const tsSettings = {
 const exportModuleName = 'VxeUI'
 const esmOutDir = 'es'
 const commOutDir = 'lib'
+const distOutDir = 'dist'
 
 gulp.task('build_escode', function () {
   return gulp.src([
@@ -47,7 +50,27 @@ gulp.task('build_esjs', gulp.series('build_escode', function () {
     .pipe(gulp.dest(esmOutDir))
 }))
 
-gulp.task('build_es_all', gulp.series('build_esjs'))
+gulp.task('build_es_all', gulp.series('build_esjs', async () => {
+  const rollupConfig = {
+    input: `${esmOutDir}/index.esm.js`,
+    output: {
+      file: `${distOutDir}/all.esm.js`,
+      format: 'esm',
+      name: exportModuleName,
+      globals: {
+        vue: 'Vue',
+        'xe-utils': 'XEUtils'
+      }
+    },
+    plugins: [commonjs()],
+    external: ['vue', 'xe-utils']
+  }
+
+  fs.mkdirSync(distOutDir, { recursive: true })
+  const bundle = await rollup(rollupConfig)
+  const { output } = await bundle.generate(rollupConfig.output)
+  fs.writeFileSync(`${distOutDir}/all.esm.js`, output[0].code, 'utf-8')
+}))
 
 gulp.task('build_commoncode', function () {
   return gulp.src([
@@ -111,6 +134,7 @@ gulp.task('clear', () => {
   return del([
     commOutDir,
     esmOutDir,
+    distOutDir,
     'packages_temp'
   ])
 })
