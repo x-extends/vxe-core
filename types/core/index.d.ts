@@ -14,6 +14,7 @@ import { VxeGlobalCommands } from './commands'
 import { VxeGlobalInterceptor } from './interceptor'
 import { VxeGlobalClipboard } from './clipboard'
 import { VxeGlobalPermission } from './permission'
+import { VxeZIndex } from './z-index'
 import { VxeBaseUtils } from './base-utils'
 import { VxeDomUtils } from './dom-utils'
 import { VxeScrollbarUtils } from './scrollbar-utils'
@@ -73,6 +74,8 @@ export const interceptor: VxeGlobalInterceptor
 export const clipboard: VxeGlobalClipboard
 
 export const permission: VxeGlobalPermission
+
+export const zIndex: VxeZIndex
 
 export const baseUtils: VxeBaseUtils
 export const domUtils: VxeDomUtils
@@ -214,6 +217,11 @@ export interface VxeUIExport {
   permission: VxeGlobalPermission
 
   /**
+   * z-index 控制
+   */
+  zIndex: VxeZIndex
+
+  /**
    * 基础工具函数
    */
   baseUtils: VxeBaseUtils
@@ -311,6 +319,8 @@ export * from './commands'
 export * from './interceptor'
 export * from './clipboard'
 export * from './permission'
+
+export * from './z-index'
 
 export * from './base-utils'
 export * from './dom-utils'
