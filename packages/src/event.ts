@@ -50,12 +50,12 @@ const convertEventKeys: { [key: string]: string } = {
 // 监听全局事件
 const wheelName = browse.firefox ? 'DOMMouseScroll' : 'mousewheel'
 const eventStore: {
-  comp: VxeComponentBaseOptions;
-  type: string;
-  cb: (evnt: Event) => void;
+  comp: VxeComponentBaseOptions
+  type: string
+  cb: (evnt: Event) => void
 }[] = []
 
-function triggerEvent (evnt: Event) {
+function triggerEvent(evnt: Event) {
   const isWheel = evnt.type === wheelName
   eventStore.forEach(({ type, cb }) => {
     // 如果被取消冒泡，不再执行
@@ -72,7 +72,7 @@ class VxeComponentEvent {
   type = ''
   key = ''
   code = ''
-  constructor (evnt: Event, params1: any, params2?: any) {
+  constructor(evnt: Event, params1: any, params2?: any) {
     this.$event = evnt
     if (evnt) {
       if ((evnt as KeyboardEvent).type) {
@@ -91,7 +91,7 @@ class VxeComponentEvent {
         let rest: any = null
         let isRun = false
         Object.defineProperty(this, key, {
-          get () {
+          get() {
             if (!isRun) {
               isRun = true
               rest = val()
@@ -100,19 +100,19 @@ class VxeComponentEvent {
           }
         })
       } else {
-        (this as any)[key] = val
+        ;(this as any)[key] = val
       }
     })
   }
 
-  stopPropagation () {
+  stopPropagation() {
     const evnt = this.$event
     if (evnt) {
       evnt.stopPropagation()
     }
   }
 
-  preventDefault () {
+  preventDefault() {
     const evnt = this.$event
     if (evnt) {
       evnt.preventDefault()
@@ -128,19 +128,19 @@ export const createEvent: VxeGlobalCreateEventMethod = (evnt, params1, params2) 
 }
 
 export const globalEvents: VxeGlobalEvents = {
-  on (comp, type, cb) {
+  on(comp, type, cb) {
     eventStore.push({ comp, type, cb })
   },
-  off (comp, type) {
-    XEUtils.remove(eventStore, item => item.comp === comp && item.type === type)
+  off(comp, type) {
+    XEUtils.remove(eventStore, (item) => item.comp === comp && item.type === type)
   },
-  hasKey (evnt, targetKey) {
+  hasKey(evnt, targetKey) {
     if (!targetKey) {
       return false
     }
     const { key } = evnt
     targetKey = targetKey.toLowerCase()
-    return key ? (targetKey === key.toLowerCase() || !!(convertEventKeys[key] && convertEventKeys[key].toLowerCase() === targetKey)) : false
+    return key ? targetKey === key.toLowerCase() || !!(convertEventKeys[key] && convertEventKeys[key].toLowerCase() === targetKey) : false
   }
 }
 

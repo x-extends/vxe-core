@@ -7,21 +7,13 @@ import { VxeGlobalUseMixins, VxeComponentSizeType, VxeComponentIsVScrollbar, Vxe
 
 const { getThumbOffsetSize, getThumbSize, getScrollFromClick, getScrollFromDrag } = scrollbarUtils
 
-function getVmInternalData ($xeVm: {
-  reactData: VxeUseInitVScrollbarReactData
-  internalData: VxeUseInitVScrollbarInternalData
-  getScrollViewElem(): HTMLDivElement | null | undefined
-}) {
+function getVmInternalData($xeVm: { reactData: VxeUseInitVScrollbarReactData; internalData: VxeUseInitVScrollbarInternalData; getScrollViewElem(): HTMLDivElement | null | undefined }) {
   // 新版本 $xeVm.internalData
   // 老版本 $xeVm
   return $xeVm.internalData || $xeVm
 }
 
-function getVmReactData ($xeVm: {
-  reactData: VxeUseInitVScrollbarReactData
-  internalData: VxeUseInitVScrollbarInternalData
-  getScrollViewElem(): HTMLDivElement | null | undefined
-}) {
+function getVmReactData($xeVm: { reactData: VxeUseInitVScrollbarReactData; internalData: VxeUseInitVScrollbarInternalData; getScrollViewElem(): HTMLDivElement | null | undefined }) {
   // 新版本 $xeVm.reactData
   // 老版本 $xeVm
   return $xeVm.reactData || $xeVm
@@ -36,7 +28,7 @@ export const sizeMixin = Vue.extend({
       default: null
     }
   },
-  provide (this: any) {
+  provide(this: any) {
     return {
       $xeSizeInfo: {
         getSize: () => this.computeSize
@@ -44,7 +36,7 @@ export const sizeMixin = Vue.extend({
     }
   },
   computed: {
-    computeSize (this: any): VxeComponentSizeType {
+    computeSize(this: any): VxeComponentSizeType {
       const { size } = this
       const $xeSizeInfo = this.$xeSizeInfo
       return size || ($xeSizeInfo ? $xeSizeInfo.getSize() : null)
@@ -57,7 +49,7 @@ export const sizeMixin = Vue.extend({
  */
 export const permissionMixin = Vue.extend({
   computed: {
-    computePermissionInfo (this: any) {
+    computePermissionInfo(this: any) {
       return handleCheckInfo(this.permissionCode, this.permissionMethod)
     }
   }
@@ -72,7 +64,7 @@ export const vScrollbarMixin = Vue.extend({
       default: null
     }
   },
-  provide (this: any) {
+  provide(this: any) {
     return {
       $xeScrollbarInfo: {
         getIsVScrollbar: () => this.computeIsVScrollbar
@@ -80,10 +72,10 @@ export const vScrollbarMixin = Vue.extend({
     }
   },
   computed: {
-    computeIsVScrollbar (this: any): VxeComponentIsVScrollbar {
+    computeIsVScrollbar(this: any): VxeComponentIsVScrollbar {
       const { useScrollbar } = this
       const $xeScrollbarInfo = this.$xeScrollbarInfo
-      return XEUtils.isBoolean(useScrollbar) ? useScrollbar : ($xeScrollbarInfo ? $xeScrollbarInfo.getIsVScrollbar() : null)
+      return XEUtils.isBoolean(useScrollbar) ? useScrollbar : $xeScrollbarInfo ? $xeScrollbarInfo.getIsVScrollbar() : null
     }
   }
 })
@@ -97,7 +89,7 @@ export const initVScrollbarMixin = Vue.extend({
     }
   }),
   methods: {
-    updateThumbSize () {
+    updateThumbSize() {
       const $xeVm = this
       const reactData = getVmReactData($xeVm)
 
@@ -124,7 +116,7 @@ export const initVScrollbarMixin = Vue.extend({
       }
       reactData.yThumbHeight = yThumbHeight
     },
-    updateThumbOffset () {
+    updateThumbOffset() {
       const $xeVm = this
       const reactData = getVmReactData($xeVm)
       const internalData = getVmInternalData($xeVm)
@@ -155,7 +147,7 @@ export const initVScrollbarMixin = Vue.extend({
         thumbYElem.style.transform = `translateY(${yThumbTop}px)`
       }
     },
-    clickTrackXEvent (evnt: MouseEvent) {
+    clickTrackXEvent(evnt: MouseEvent) {
       const $xeVm = this
       const reactData = getVmReactData($xeVm)
 
@@ -174,7 +166,7 @@ export const initVScrollbarMixin = Vue.extend({
         behavior: 'auto'
       })
     },
-    clickTrackYEvent (evnt: MouseEvent) {
+    clickTrackYEvent(evnt: MouseEvent) {
       const $xeVm = this
       const reactData = getVmReactData($xeVm)
 
@@ -193,7 +185,7 @@ export const initVScrollbarMixin = Vue.extend({
         behavior: 'auto'
       })
     },
-    pointerdownThumbXEvent (evnt: PointerEvent) {
+    pointerdownThumbXEvent(evnt: PointerEvent) {
       const $xeVm = this
       const reactData = getVmReactData($xeVm)
       const internalData = getVmInternalData($xeVm)
@@ -214,7 +206,7 @@ export const initVScrollbarMixin = Vue.extend({
       const thumbOffset = getThumbOffsetSize(viewEl.scrollLeft, viewEl.clientWidth, viewEl.scrollWidth, trackEl.clientWidth, xThumbWidth)
       internalData.thumbDragOffset = pointerPosition - thumbOffset
     },
-    pointermoveThumbXEvent (evnt: PointerEvent) {
+    pointermoveThumbXEvent(evnt: PointerEvent) {
       const $xeVm = this
       const reactData = getVmReactData($xeVm)
       const internalData = getVmInternalData($xeVm)
@@ -233,7 +225,7 @@ export const initVScrollbarMixin = Vue.extend({
         viewEl.scrollLeft = getScrollFromDrag(evnt.clientX - trackRect.left, thumbDragOffset, viewEl.clientWidth, viewEl.scrollWidth, trackEl.clientWidth, xThumbWidth)
       }
     },
-    cleatPointerThumbEvent (evnt: PointerEvent) {
+    cleatPointerThumbEvent(evnt: PointerEvent) {
       const $xeVm = this
       const internalData = getVmInternalData($xeVm)
 
@@ -241,7 +233,7 @@ export const initVScrollbarMixin = Vue.extend({
       thumbEl.releasePointerCapture(evnt.pointerId)
       internalData.isThumbDrag = false
     },
-    pointerdownThumbYEvent (evnt: PointerEvent) {
+    pointerdownThumbYEvent(evnt: PointerEvent) {
       const $xeVm = this
       const reactData = getVmReactData($xeVm)
       const internalData = getVmInternalData($xeVm)
@@ -262,7 +254,7 @@ export const initVScrollbarMixin = Vue.extend({
       const thumbOffset = getThumbOffsetSize(viewEl.scrollTop, viewEl.clientHeight, viewEl.scrollHeight, trackEl.clientHeight, yThumbHeight)
       internalData.thumbDragOffset = pointerPosition - thumbOffset
     },
-    pointermoveThumbYEvent (evnt: PointerEvent) {
+    pointermoveThumbYEvent(evnt: PointerEvent) {
       const $xeVm = this
       const reactData = getVmReactData($xeVm)
       const internalData = getVmInternalData($xeVm)

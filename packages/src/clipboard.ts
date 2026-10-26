@@ -8,7 +8,7 @@ const clipStore = {
   html: ''
 }
 
-function handleText (text: string) {
+function handleText(text: string) {
   if (!copyElem) {
     copyElem = document.createElement('textarea')
     copyElem.id = '$VxeCopy'
@@ -25,10 +25,10 @@ function handleText (text: string) {
 }
 
 export const clipboard: VxeGlobalClipboard = {
-  getStore () {
+  getStore() {
     return clipStore
   },
-  setStore (data) {
+  setStore(data) {
     Object.assign(clipStore, data || {})
   },
   /**
@@ -36,7 +36,7 @@ export const clipboard: VxeGlobalClipboard = {
    *
    * @param {String} content Text 内容
    */
-  copy (content) {
+  copy(content) {
     let result = false
     try {
       const text = XEUtils.toValueString(content)
@@ -50,7 +50,7 @@ export const clipboard: VxeGlobalClipboard = {
     } catch (e) {}
     return result
   },
-  getText () {
+  getText() {
     return clipStore.text || ''
   }
 }

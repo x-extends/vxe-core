@@ -3,7 +3,7 @@ import XEUtils from 'xe-utils'
 
 import type { VxeGlobalPermission, VxeComponentPermissionCodeType, VxeComponentPermissionInfo, VxeComponentPermissionMethod } from '../../types'
 
-export function handleCheckInfo (permissionCode?: VxeComponentPermissionCodeType, permissionMethod?: VxeComponentPermissionMethod) {
+export function handleCheckInfo(permissionCode?: VxeComponentPermissionCodeType, permissionMethod?: VxeComponentPermissionMethod) {
   let checkVisible = true
   let checkDisabled = false
   const checkMethod = permissionMethod || globalConfigStore.permissionMethod
@@ -47,14 +47,14 @@ export function handleCheckInfo (permissionCode?: VxeComponentPermissionCodeType
 }
 
 export const permission: VxeGlobalPermission = {
-  getCheckInfo (code) {
+  getCheckInfo(code) {
     return handleCheckInfo(code)
   },
-  checkVisible (code) {
+  checkVisible(code) {
     const permissionInfo = handleCheckInfo(code)
     return permissionInfo.visible
   },
-  checkDisable (code) {
+  checkDisable(code) {
     const permissionInfo = handleCheckInfo(code)
     return permissionInfo.disabled
   }

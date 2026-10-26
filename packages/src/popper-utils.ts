@@ -5,7 +5,7 @@ import type { VxePopperUtils, VxePopperOptions } from '../../types'
 /**
  * 获取包裹容器的元素
  */
-function getWrapperElement (panelElem: HTMLElement | null | undefined) {
+function getWrapperElement(panelElem: HTMLElement | null | undefined) {
   if (!panelElem) {
     return null
   }
@@ -16,8 +16,8 @@ function getWrapperElement (panelElem: HTMLElement | null | undefined) {
 
 /**
  * 获取插入到指定容器的元素或字符串
-  */
-function getAppendSelector (appendTo: string | HTMLElement | ((params: any) => string | HTMLElement) | undefined) {
+ */
+function getAppendSelector(appendTo: string | HTMLElement | ((params: any) => string | HTMLElement) | undefined) {
   const selectElem = appendTo && XEUtils.isFunction(appendTo) ? appendTo({}) : appendTo
   return selectElem || 'body'
 }
@@ -25,7 +25,7 @@ function getAppendSelector (appendTo: string | HTMLElement | ((params: any) => s
 /**
  * 获取插入到指定容器的元素
  */
-function getAppendElement (appendTo: string | HTMLElement | ((params: any) => string | HTMLElement) | undefined) {
+function getAppendElement(appendTo: string | HTMLElement | ((params: any) => string | HTMLElement) | undefined) {
   const selectElem = getAppendSelector(appendTo)
   if (XEUtils.isString(selectElem)) {
     return document.querySelector<HTMLElement>(selectElem) || document.body
@@ -37,13 +37,16 @@ export const popperUtils: VxePopperUtils = {
   /**
    * 更新位置
    */
-  updatePlacement (targetElem: HTMLElement | null | undefined, panelElem: HTMLElement | null | undefined, options: VxePopperOptions) {
-    const { defaultTop, defaultLeft, placement, defaultPlacement, appendTo, teleportTo, marginSize, isMinWidth } = Object.assign({
-      appendTo: '',
-      teleportTo: false,
-      marginSize: 12,
-      isMinWidth: true
-    }, options)
+  updatePlacement(targetElem: HTMLElement | null | undefined, panelElem: HTMLElement | null | undefined, options: VxePopperOptions) {
+    const { defaultTop, defaultLeft, placement, defaultPlacement, appendTo, teleportTo, marginSize, isMinWidth } = Object.assign(
+      {
+        appendTo: '',
+        teleportTo: false,
+        marginSize: 12,
+        isMinWidth: true
+      },
+      options
+    )
     let panelPlacement: 'top' | 'bottom' = 'bottom'
     let top: number | '' = ''
     let bottom: number | '' = ''
@@ -76,8 +79,8 @@ export const popperUtils: VxePopperUtils = {
         minWidth = targetElem.offsetWidth
 
         if (teleportTo) {
-          left = (defaultLeft || (targetLeft - (panelWidth - targetWidth) / 2)) - parentWrapperScrollLeft
-          top = (defaultTop || (targetTop + targetHeight)) - parentWrapperScrollTop
+          left = (defaultLeft || targetLeft - (panelWidth - targetWidth) / 2) - parentWrapperScrollLeft
+          top = (defaultTop || targetTop + targetHeight) - parentWrapperScrollTop
           if (placement === 'top') {
             panelPlacement = 'top'
             top = targetTop - panelHeight
@@ -98,7 +101,7 @@ export const popperUtils: VxePopperUtils = {
                 top = targetTop - panelHeight
               }
             } else {
-            // 如果下面不够放，则向上
+              // 如果下面不够放，则向上
               if (top + panelHeight + marginSize > visibleHeight) {
                 panelPlacement = 'top'
                 top = targetTop - panelHeight
@@ -127,10 +130,10 @@ export const popperUtils: VxePopperUtils = {
             panelPlacement = 'top'
             bottom = targetHeight
           } else if (!placement) {
-          // 如果下面不够放，则向上
+            // 如果下面不够放，则向上
             top = targetHeight
             if (targetTop + targetHeight + panelHeight + marginSize > visibleHeight) {
-            // 如果上面不够放，则向下（优先）
+              // 如果上面不够放，则向下（优先）
               if (targetTop - targetHeight - panelHeight > marginSize) {
                 panelPlacement = 'top'
                 top = ''
@@ -163,9 +166,9 @@ export const popperUtils: VxePopperUtils = {
           }
         } else if (left < targetLeft) {
           if (left + panelWidth > targetLeft + targetWidth) {
-            arrowLeft = (targetLeft - left) + targetWidth / 2
+            arrowLeft = targetLeft - left + targetWidth / 2
           } else {
-            arrowLeft = (targetLeft - left) + (panelWidth - (targetLeft - left)) / 2
+            arrowLeft = targetLeft - left + (panelWidth - (targetLeft - left)) / 2
           }
         }
       }
