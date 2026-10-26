@@ -25,20 +25,20 @@ export interface VxePopperUtils {
    * @param panelElem
    * @param options
    */
-  updatePlacement (targetElem: HTMLElement | null | undefined, panelElem: HTMLElement | null | undefined, options: VxePopperOptions): VxePopperPlacementResult
+  updatePlacement(targetElem: HTMLElement | null | undefined, panelElem: HTMLElement | null | undefined, options: VxePopperOptions): VxePopperPlacementResult
   /**
    * 获取包裹容器的元素
    * @param panelElem
    */
-  getWrapperElement (panelElem: HTMLElement | null | undefined): HTMLElement | null
+  getWrapperElement(panelElem: HTMLElement | null | undefined): HTMLElement | null
   /**
    * 获取插入到指定容器的元素或字符串
    * @param appendTo
    */
-  getAppendSelector (appendTo: string | HTMLElement | ((params: any) => string | HTMLElement) | undefined): HTMLElement | string
+  getAppendSelector(appendTo: string | HTMLElement | ((params: any) => string | HTMLElement) | undefined): HTMLElement | string
   /**
    * 获取插入到指定容器的元素
    * @param appendTo
    */
-  getAppendElement (appendTo: string | HTMLElement | ((params: any) => string | HTMLElement) | undefined): HTMLElement | null
+  getAppendElement(appendTo: string | HTMLElement | ((params: any) => string | HTMLElement) | undefined): HTMLElement | null
 }

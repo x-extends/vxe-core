@@ -4,6 +4,11 @@
   "description": "Vxe UI core library",
   "scripts": {
     "update": "npm install --legacy-peer-deps",
+    "lint": "vue-cli-service lint",
+    "lint:es": "eslint packages/** types/**",
+    "lint:ox": "oxfmt --check packages/** types/**",
+    "esfix": "eslint --fix packages/** types/**",
+    "oxfix": "oxfmt packages/** types/** --write",
     "lib:pack": "vue-cli-service build --target lib --name index --dest lib_temp packages/index.ts",
     "lib:modules": "gulp build",
     "lib": "npm run lib:pack && npm run lib:modules"
@@ -58,6 +63,7 @@
     "gulp-sourcemaps": "^3.0.0",
     "gulp-typescript": "^5.0.1",
     "gulp-uglify": "^3.0.2",
+    "oxfmt": "~0.51.0",
     "postcss": "^8.4.38",
     "rollup": "^4.53.3",
     "typescript": "~5.9.3",

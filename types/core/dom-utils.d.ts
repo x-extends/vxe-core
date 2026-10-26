@@ -1,4 +1,3 @@
-
 export interface VxeDomUtils {
   /**
    * 判断是否像素px单位 '100px' | 100
@@ -33,5 +32,5 @@ export interface VxeDomUtils {
    * @param staticClassNames
    * @param mapClassName
    */
-  buildClass (staticClassNames: (string | number | null | undefined)[] | null | undefined, mapClassName?: Record<string, boolean | string | number | null | undefined>): string
+  buildClass(staticClassNames: (string | number | null | undefined)[] | null | undefined, mapClassName?: Record<string, boolean | string | number | null | undefined>): string
 }

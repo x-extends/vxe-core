@@ -1,4 +1,3 @@
 import { VxeGlobalData } from '../../types'
 
-export const globalStore: VxeGlobalData = {
-}
+export const globalStore: VxeGlobalData = {}

@@ -4,7 +4,7 @@ export const scrollbarUtils: VxeScrollbarUtils = {
   /**
    * 计算滚动条滑块的长度
    */
-  getThumbSize (viewportSize: number, contentSize: number, trackSize: number) {
+  getThumbSize(viewportSize: number, contentSize: number, trackSize: number) {
     if (contentSize <= viewportSize) {
       return 0
     }
@@ -15,7 +15,7 @@ export const scrollbarUtils: VxeScrollbarUtils = {
   /**
    * 计算滚动条滑块的偏移位置
    */
-  getThumbOffsetSize (offsetSize: number, viewportSize: number, contentSize: number, trackSize: number, thumbSize: number) {
+  getThumbOffsetSize(offsetSize: number, viewportSize: number, contentSize: number, trackSize: number, thumbSize: number) {
     const maxScroll = contentSize - viewportSize
     if (maxScroll <= 0) {
       return 0
@@ -31,7 +31,7 @@ export const scrollbarUtils: VxeScrollbarUtils = {
   /**
    * 根据点击轨道的位置，计算滑块的偏移位置
    */
-  getScrollFromClick (clickPosition: number, viewportSize: number, contentSize: number, trackSize: number, thumbSize: number) {
+  getScrollFromClick(clickPosition: number, viewportSize: number, contentSize: number, trackSize: number, thumbSize: number) {
     const maxThumbOffset = trackSize - thumbSize
     const maxScroll = contentSize - viewportSize
     if (maxScroll <= 0 || maxThumbOffset <= 0) {
@@ -45,7 +45,7 @@ export const scrollbarUtils: VxeScrollbarUtils = {
   /**
    * 拖拽 thumb 时，根据鼠标位置计算滑块的偏移位置
    */
-  getScrollFromDrag (pointerPosition: number, dragOffset: number, viewportSize: number, contentSize: number, trackSize: number, thumbSize: number) {
+  getScrollFromDrag(pointerPosition: number, dragOffset: number, viewportSize: number, contentSize: number, trackSize: number, thumbSize: number) {
     const maxScroll = contentSize - viewportSize
     const maxThumbOffset = trackSize - thumbSize
     if (maxScroll <= 0 || maxThumbOffset <= 0) {

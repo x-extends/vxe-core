@@ -42,7 +42,7 @@ export type VxeGlobalCreateEventMethod = (evnt: Event | null, params1: any, para
 export const createEvent: VxeGlobalCreateEventMethod
 
 export interface VxeGlobalEvents {
-  on (comp: VxeComponentBaseOptions, type: VxeGlobalEventType, cb: (evnt: any) => void): void
-  off (comp: VxeComponentBaseOptions, type: VxeGlobalEventType): void
-  hasKey(evnt: KeyboardEvent, targetKey: string): boolean,
+  on(comp: VxeComponentBaseOptions, type: VxeGlobalEventType, cb: (evnt: any) => void): void
+  off(comp: VxeComponentBaseOptions, type: VxeGlobalEventType): void
+  hasKey(evnt: KeyboardEvent, targetKey: string): boolean
 }

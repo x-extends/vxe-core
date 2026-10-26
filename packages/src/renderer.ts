@@ -12,16 +12,16 @@ const renderMap: Record<string, VxeGlobalRendererOptions> = {}
  * 全局渲染器
  */
 export const renderer: VxeGlobalRenderer = {
-  mixin (opts) {
+  mixin(opts) {
     XEUtils.each(opts, (options, name) => {
       renderer.add(name, options)
     })
     return renderer
   },
-  get (name: string) {
+  get(name: string) {
     return renderMap[name] || null
   },
-  add (name, options) {
+  add(name, options) {
     if (name && options) {
       const renders: any = renderMap[name]
       if (renders) {
@@ -39,11 +39,11 @@ export const renderer: VxeGlobalRenderer = {
     }
     return renderer
   },
-  forEach (callback) {
+  forEach(callback) {
     XEUtils.objectEach(renderMap, callback)
     return renderer
   },
-  delete (name: string) {
+  delete(name: string) {
     delete renderMap[name]
     return renderer
   }

@@ -17,18 +17,12 @@ export interface VxeGlobalConfig {
   /**
    * 企业版 - 授权状态监听
    */
-  onAuth?(params: {
-    status: boolean
-    code: number
-    msg: string
-  }): void
+  onAuth?(params: { status: boolean; code: number; msg: string }): void
 
   /**
    * 权限码全局判断方法，返回 { visible, disabled }
    */
-  permissionMethod?:(params: {
-    code: VxeComponentPermissionCodeType
-  }) => VxeComponentPermissionResult
+  permissionMethod?: (params: { code: VxeComponentPermissionCodeType }) => VxeComponentPermissionResult
   /**
    * 全局默认 z-index
    */
@@ -47,14 +41,14 @@ export interface VxeGlobalConfig {
    * @param args
    * @returns string
    */
-  translate?:(key: string, args?: any) => string
+  translate?: (key: string, args?: any) => string
   /**
    * 自定义方式对组件内置的语言进行翻译
    * @param key
    * @param args
    * @returns string
    */
-  i18n?:(key: string, args?: any) => string | number
+  i18n?: (key: string, args?: any) => string | number
 
   /**
    * 已废弃，请使用 VxeUI.setConfig({ table: { resizeInterval: 300 } })

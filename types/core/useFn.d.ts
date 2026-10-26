@@ -5,9 +5,7 @@ import { VxeComponentSizeType, VxeComponentIsVScrollbar, VxeComponentPermissionC
 export interface VxeUseSizeResult {
   computeSize: ComputedRef<VxeComponentSizeType>
 }
-export type VxeUseSize = (props: {
-  size?: VxeComponentSizeType;
-}) => VxeUseSizeResult
+export type VxeUseSize = (props: { size?: VxeComponentSizeType }) => VxeUseSizeResult
 
 /**
  * 组件尺寸上下文
@@ -17,10 +15,7 @@ export const useSize: VxeUseSize
 export interface VxeUsePermissionResult {
   computePermissionInfo: ComputedRef<VxeComponentPermissionInfo>
 }
-export type VxeUsePermission = (props: {
-  permissionCode?: VxeComponentPermissionCodeType
-  permissionMethod?: VxeComponentPermissionMethod
-}) => VxeUsePermissionResult
+export type VxeUsePermission = (props: { permissionCode?: VxeComponentPermissionCodeType; permissionMethod?: VxeComponentPermissionMethod }) => VxeUsePermissionResult
 
 /**
  * 权限码处理
@@ -30,9 +25,7 @@ export const usePermission: VxeUsePermission
 export interface VxeUseVScrollbarResult {
   computeIsVScrollbar: ComputedRef<VxeComponentIsVScrollbar>
 }
-export type VxeUseVScrollbar = (props: {
-  useScrollbar?: VxeComponentIsVScrollbar;
-}) => VxeUseVScrollbarResult
+export type VxeUseVScrollbar = (props: { useScrollbar?: VxeComponentIsVScrollbar }) => VxeUseVScrollbarResult
 
 /**
  * 虚拟滚动条是否启用
@@ -100,11 +93,13 @@ export interface VxeUseInitVScrollbarResult {
   pointermoveThumbYEvent(evnt: PointerEvent): void
 }
 
-export type VxeUseInitVScrollbar = ($xeVM: VxeComponentBaseOptions & {
-  reactData: VxeUseInitVScrollbarReactData
-  internalData: VxeUseInitVScrollbarInternalData
-  getScrollViewElem(): HTMLElement | null | undefined
-}) => VxeUseInitVScrollbarResult & {
+export type VxeUseInitVScrollbar = (
+  $xeVM: VxeComponentBaseOptions & {
+    reactData: VxeUseInitVScrollbarReactData
+    internalData: VxeUseInitVScrollbarInternalData
+    getScrollViewElem(): HTMLElement | null | undefined
+  }
+) => VxeUseInitVScrollbarResult & {
   refTrackXElem: Ref<HTMLDivElement | undefined>
   refTrackYElem: Ref<HTMLDivElement | undefined>
   refThumbXElem: Ref<HTMLDivElement | undefined>

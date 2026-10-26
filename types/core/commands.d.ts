@@ -8,9 +8,7 @@ export namespace VxeGlobalCommandsHandles {
  * 全局格式化
  */
 export interface VxeGlobalCommands {
-  mixin(opts: {
-    [name: string]: VxeGlobalCommandsHandles.CommandsOptions | ((params: any, ...args: any[]) => void)
-  }): VxeGlobalCommands
+  mixin(opts: { [name: string]: VxeGlobalCommandsHandles.CommandsOptions | ((params: any, ...args: any[]) => void) }): VxeGlobalCommands
   has(name: string | null | undefined): boolean
   get(name: string | null | undefined): VxeGlobalCommandsHandles.CommandsOptions
   add(name: string, options: VxeGlobalCommandsHandles.CommandsOptions | ((params: any, ...args: any[]) => void)): VxeGlobalCommands

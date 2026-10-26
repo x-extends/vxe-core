@@ -6,19 +6,19 @@ import { VxeGlobalInterceptor, VxeGlobalInterceptorHandles } from '../../types'
 const storeMap: { [type: string]: VxeGlobalInterceptorHandles.InterceptorCallback[] } = {}
 
 export const interceptor: VxeGlobalInterceptor = {
-  mixin (options) {
+  mixin(options) {
     XEUtils.each(options, (render, type) => {
       interceptor.add(type, render)
     })
     return interceptor
   },
-  get (type) {
+  get(type) {
     if (type) {
       return storeMap[type] || []
     }
     return []
   },
-  add (type, render) {
+  add(type, render) {
     // 兼容
     if (XEUtils.isFunction(render)) {
       //   log.warn('vxe.error.delProp', ['interceptor -> callback', 'tableInterceptorMethod'])
@@ -43,7 +43,7 @@ export const interceptor: VxeGlobalInterceptor = {
     }
     return interceptor
   },
-  delete (type: string, render) {
+  delete(type: string, render) {
     const eList = storeMap[type]
     if (eList) {
       // 兼容
@@ -55,7 +55,7 @@ export const interceptor: VxeGlobalInterceptor = {
       const callback = render ? render.tableInterceptorMethod : null
 
       if (callback) {
-        XEUtils.remove(eList, fn => fn === callback)
+        XEUtils.remove(eList, (fn) => fn === callback)
       } else {
         delete storeMap[type]
       }

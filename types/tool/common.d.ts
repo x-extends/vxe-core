@@ -9,36 +9,27 @@ type SafeProp<T> = {
 /**
  * 组件类型
  */
-export type DefineVxeComponentApp<
-  P = { [key: string]: any },
-  E = { [key: string]: any },
-  S = { [key: string]: (...args: any[]) => any },
-  M = { [key: string]: any }
-> = ({
+export type DefineVxeComponentApp<P = { [key: string]: any }, E = { [key: string]: any }, S = { [key: string]: (...args: any[]) => any }, M = { [key: string]: any }> = {
   new (): M & {
-    $props: P & E,
+    $props: P & E
     $slots: S
   }
 } & {
   props: SafeProp<Required<P>>
   install(app: App): void
-})
+}
 
 /**
  * 全局组件
  */
-export type DefineVxeGlobalComponent<
-  P = { [key: string]: any },
-  E = { [key: string]: any },
-  S = { [key: string]: (...args: any[]) => any },
-> = ({
+export type DefineVxeGlobalComponent<P = { [key: string]: any }, E = { [key: string]: any }, S = { [key: string]: (...args: any[]) => any }> = {
   new (): {
-    $props: P & E,
+    $props: P & E
     $slots: S
   }
 } & {
   install(app: App): void
-})
+}
 
 /**
  * 组件配置
@@ -116,17 +107,17 @@ export type VxeComponentPermissionCodeType = string | number
 /**
  * 权限码判断结果
  */
-export type VxeComponentPermissionResult = boolean | {
-  visible: boolean
-  disabled: boolean
-}
+export type VxeComponentPermissionResult =
+  | boolean
+  | {
+      visible: boolean
+      disabled: boolean
+    }
 
 /**
  * 权限码判断方法
  */
-export type VxeComponentPermissionMethod = (params: {
-  code: VxeComponentPermissionCodeType
-}) => VxeComponentPermissionResult
+export type VxeComponentPermissionMethod = (params: { code: VxeComponentPermissionCodeType }) => VxeComponentPermissionResult
 
 /**
  * 权限码信息
@@ -137,8 +128,8 @@ export interface VxeComponentPermissionInfo {
   disabled: boolean
 }
 
-type CamelToKebabRest<S extends string> = S extends `${infer First}${infer Rest}`? `${First extends Lowercase<First> ? '' : '-'}${Lowercase<First>}${CamelToKebabRest<Rest>}`: S
-type CamelToKebab<S extends string> = S extends `${infer First}${infer Rest}`? `${Lowercase<First>}${CamelToKebabRest<Rest>}`: S
+type CamelToKebabRest<S extends string> = S extends `${infer First}${infer Rest}` ? `${First extends Lowercase<First> ? '' : '-'}${Lowercase<First>}${CamelToKebabRest<Rest>}` : S
+type CamelToKebab<S extends string> = S extends `${infer First}${infer Rest}` ? `${Lowercase<First>}${CamelToKebabRest<Rest>}` : S
 
 /**
  * 将带驼峰字符串转成字符串,例如： ProjectName 转为 project-name

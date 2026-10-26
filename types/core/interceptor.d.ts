@@ -13,9 +13,7 @@ export namespace VxeGlobalInterceptorHandles {
  * 全局事件拦截器
  */
 export interface VxeGlobalInterceptor {
-  mixin(options: {
-    [type: string]: VxeGlobalInterceptorHandles.InterceptorOptions | VxeGlobalInterceptorHandles.InterceptorCallback
-  }): VxeGlobalInterceptor
+  mixin(options: { [type: string]: VxeGlobalInterceptorHandles.InterceptorOptions | VxeGlobalInterceptorHandles.InterceptorCallback }): VxeGlobalInterceptor
   get(type: string | null | undefined): VxeGlobalInterceptorHandles.InterceptorCallback[]
   add(type: string, callback: VxeGlobalInterceptorHandles.InterceptorOptions | VxeGlobalInterceptorHandles.InterceptorCallback): VxeGlobalInterceptor
   delete(type: string | null | undefined, callback?: VxeGlobalInterceptorHandles.InterceptorOptions | VxeGlobalInterceptorHandles.InterceptorCallback): void

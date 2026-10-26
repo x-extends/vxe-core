@@ -5,7 +5,7 @@ declare global {
     /**
      * Vxe UI core library
      */
-    VxeUI: VxeUIExport;
+    VxeUI: VxeUIExport
   }
 }
 

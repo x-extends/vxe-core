@@ -12,9 +12,7 @@ const { getThumbOffsetSize, getThumbSize, getScrollFromClick, getScrollFromDrag 
  * @param props
  * @returns
  */
-export function useSize (props: {
-  size?: VxeComponentSizeType
-}): VxeUseSizeResult {
+export function useSize(props: { size?: VxeComponentSizeType }): VxeUseSizeResult {
   const xeSizeInfo = inject('xeSizeInfo', null as ComputedRef<VxeComponentSizeType> | null)
   const computeSize = computed(() => {
     const { size } = props
@@ -30,10 +28,7 @@ export function useSize (props: {
  * @param props
  * @returns
  */
-export function usePermission (props: {
-  permissionCode?: VxeComponentPermissionCodeType
-  permissionMethod?: VxeComponentPermissionMethod
-}): VxeUsePermissionResult {
+export function usePermission(props: { permissionCode?: VxeComponentPermissionCodeType; permissionMethod?: VxeComponentPermissionMethod }): VxeUsePermissionResult {
   const computePermissionInfo = computed(() => {
     return handleCheckInfo(props.permissionCode, props.permissionMethod)
   })
@@ -47,13 +42,11 @@ export function usePermission (props: {
  * @param props
  * @returns
  */
-export function useVScrollbar (props: {
-  useScrollbar?: VxeComponentIsVScrollbar
-}): VxeUseVScrollbarResult {
+export function useVScrollbar(props: { useScrollbar?: VxeComponentIsVScrollbar }): VxeUseVScrollbarResult {
   const xeScrollbarInfo = inject('xeScrollbarInfo', null as ComputedRef<VxeComponentIsVScrollbar> | null)
   const computeIsVScrollbar = computed(() => {
     const { useScrollbar } = props
-    return XEUtils.isBoolean(useScrollbar) ? useScrollbar : (xeScrollbarInfo ? xeScrollbarInfo.value : null)
+    return XEUtils.isBoolean(useScrollbar) ? useScrollbar : xeScrollbarInfo ? xeScrollbarInfo.value : null
   })
   provide('xeScrollbarInfo', computeIsVScrollbar)
 
@@ -67,7 +60,9 @@ export function useVScrollbar (props: {
  * @param refViewElem
  * @returns
  */
-export const useInitVScrollbar: VxeUseInitVScrollbar = ($xeVM): VxeUseInitVScrollbarResult & {
+export const useInitVScrollbar: VxeUseInitVScrollbar = (
+  $xeVM
+): VxeUseInitVScrollbarResult & {
   refTrackXElem: Ref<HTMLDivElement | undefined>
   refTrackYElem: Ref<HTMLDivElement | undefined>
   refThumbXElem: Ref<HTMLDivElement | undefined>

@@ -12,7 +12,7 @@ let resizeTimeout: any
 const eventStore: XEResizeObserver[] = []
 const defaultInterval = 500
 
-function eventHandle () {
+function eventHandle() {
   if (eventStore.length) {
     eventStore.forEach((item) => {
       item.tarList.forEach((observer) => {
@@ -33,28 +33,28 @@ function eventHandle () {
   }
 }
 
-function eventListener () {
+function eventListener() {
   clearTimeout(resizeTimeout)
   resizeTimeout = setTimeout(eventHandle, globalConfigStore.resizeInterval || defaultInterval)
 }
 
 class XEResizeObserver {
   tarList: {
-    target: Element;
-    width: number;
-    heighe: number;
+    target: Element
+    width: number
+    heighe: number
   }[] = []
 
   callback: (...args: any[]) => void
 
-  constructor (callback: (...args: any[]) => void) {
+  constructor(callback: (...args: any[]) => void) {
     this.callback = callback
   }
 
-  observe (target: Element): void {
+  observe(target: Element): void {
     if (target) {
       const { tarList } = this
-      if (!tarList.some(observer => observer.target === target)) {
+      if (!tarList.some((observer) => observer.target === target)) {
         tarList.push({
           target,
           width: target.clientWidth,
@@ -70,17 +70,17 @@ class XEResizeObserver {
     }
   }
 
-  unobserve (target: Element): void {
-    XEUtils.remove(eventStore, item => item.tarList.some(observer => observer.target === target))
+  unobserve(target: Element): void {
+    XEUtils.remove(eventStore, (item) => item.tarList.some((observer) => observer.target === target))
   }
 
-  disconnect (): void {
-    XEUtils.remove(eventStore, item => item === this)
+  disconnect(): void {
+    XEUtils.remove(eventStore, (item) => item === this)
   }
 }
 
 export const globalResize: VxeGlobalResize = {
-  create (callback: (...args: any[]) => void) {
+  create(callback: (...args: any[]) => void) {
     if (window.ResizeObserver) {
       return new window.ResizeObserver(callback)
     }

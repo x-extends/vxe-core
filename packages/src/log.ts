@@ -2,7 +2,7 @@ import { getI18n } from './i18n'
 
 import { VxeGlobalLog } from '../../types'
 
-function createLog (type: 'log' | 'warn' | 'error', name?: string) {
+function createLog(type: 'log' | 'warn' | 'error', name?: string) {
   return function (key: string, args?: any) {
     const msg = `[vxe ${name || ''}] ${getI18n(key, args)}`
     console[type](msg)

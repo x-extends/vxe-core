@@ -6,22 +6,22 @@ import { VxeGlobalCommands } from '../../types'
 class VXECommandsStore {
   private store: any = {}
 
-  mixin (options: any): VXECommandsStore {
+  mixin(options: any): VXECommandsStore {
     XEUtils.each(options, (item, key) => {
       this.add(key, item)
     })
     return this
   }
 
-  has (name: string): boolean {
+  has(name: string): boolean {
     return !!this.get(name)
   }
 
-  get (name: string): any {
+  get(name: string): any {
     return this.store[name]
   }
 
-  add (name: string, render: any): VXECommandsStore {
+  add(name: string, render: any): VXECommandsStore {
     const conf = this.store[name]
     // 兼容
     if (XEUtils.isFunction(render)) {
@@ -42,11 +42,11 @@ class VXECommandsStore {
     return this
   }
 
-  delete (name: string): void {
+  delete(name: string): void {
     delete this.store[name]
   }
 
-  forEach (callback: any): void {
+  forEach(callback: any): void {
     XEUtils.objectEach(this.store, callback)
   }
 }

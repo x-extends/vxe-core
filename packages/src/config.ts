@@ -7,9 +7,9 @@ import { setTheme } from './theme'
 import { VxeGlobalConfig } from '../../types'
 
 /**
-* 全局参数设置
-*/
-export function setConfig (options?: VxeGlobalConfig) {
+ * 全局参数设置
+ */
+export function setConfig(options?: VxeGlobalConfig) {
   if (options) {
     if (options.zIndex) {
       DomZIndex.setCurrent(options.zIndex)
@@ -23,8 +23,8 @@ export function setConfig (options?: VxeGlobalConfig) {
 }
 
 /**
-* 获取全局参数
-*/
-export function getConfig (key: keyof VxeGlobalConfig, defaultValue?: any) {
+ * 获取全局参数
+ */
+export function getConfig(key: keyof VxeGlobalConfig, defaultValue?: any) {
   return arguments.length ? XEUtils.get(globalConfigStore, key, defaultValue) : globalConfigStore
 }

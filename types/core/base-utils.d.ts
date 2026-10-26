@@ -1,4 +1,3 @@
-
 type Nullish = null | undefined
 export type VxeBaseEmptyValue = '' | Nullish
 
@@ -11,7 +10,7 @@ export interface VxeBaseUtils {
    * 转成字符串
    * @param value
    */
-  toString(value: string | number | boolean | null | undefined): string,
+  toString(value: string | number | boolean | null | undefined): string
   /**
    * 判断值为：'' | null | undefined 时都属于空值
    * @param value
@@ -29,10 +28,10 @@ export interface VxeBaseUtils {
    */
   isEnabled(conf: EnableConfOptions): boolean
   /**
-  * 用于判断开关类型的配置项
-  * 局部启用规则：conf={}
-  * 局部禁用规则：conf={enabled:false}
-  * 全局默认启用规则：conf.enabled=true
+   * 用于判断开关类型的配置项
+   * 局部启用规则：conf={}
+   * 局部禁用规则：conf={enabled:false}
+   * 全局默认启用规则：conf.enabled=true
    * @param conf
    * @param opts
    */

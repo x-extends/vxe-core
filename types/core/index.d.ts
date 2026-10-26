@@ -99,7 +99,7 @@ export interface VxeUIPluginObject {
   [key: string]: any
 }
 
-export function use (plugin: VxeUIPluginObject, ...options: any[]): VxeUIExport
+export function use(plugin: VxeUIPluginObject, ...options: any[]): VxeUIExport
 
 /**
  * Vxe UI core library
@@ -152,11 +152,11 @@ export interface VxeUIExport {
   /**
    * 渲染全局配置图标
    */
-  renderGlobalIcon : typeof renderGlobalIcon
+  renderGlobalIcon: typeof renderGlobalIcon
   /**
    * 渲染自定义图标
    */
-  renderCustomIcon : typeof renderCustomIcon
+  renderCustomIcon: typeof renderCustomIcon
   /**
    * 判断是否已经安装了该语言包，如果已安装则返回 true
    */
@@ -181,7 +181,7 @@ export interface VxeUIExport {
   /**
    * 获取全局图标
    */
-  getIcon: typeof getIcon,
+  getIcon: typeof getIcon
 
   /**
    * 全局渲染器

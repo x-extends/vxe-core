@@ -8,9 +8,7 @@ export namespace VxeGlobalValidatorsHandles {
  * 全局快捷菜单
  */
 export interface VxeGlobalValidators {
-  mixin(options: {
-    [code: string]: VxeGlobalValidatorsHandles.ValidatorsOptions
-  }): VxeGlobalValidators
+  mixin(options: { [code: string]: VxeGlobalValidatorsHandles.ValidatorsOptions }): VxeGlobalValidators
   has(code: string): boolean
   get(code: string): VxeGlobalValidatorsHandles.ValidatorsOptions
   add(code: string, callback: VxeGlobalValidatorsHandles.ValidatorsOptions): VxeGlobalValidators

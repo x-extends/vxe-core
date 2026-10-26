@@ -30,7 +30,7 @@ import { VxeGlobalComponents, VxeUIPluginObject } from '../types'
 
 const installedPlugins: VxeUIPluginObject[] = []
 
-export function use (Plugin: VxeUIPluginObject, options: any[]) {
+export function use(Plugin: VxeUIPluginObject, options: any[]) {
   if (Plugin && Plugin.install) {
     if (installedPlugins.indexOf(Plugin) === -1) {
       Plugin.install(VxeUI, options)
@@ -42,26 +42,26 @@ export function use (Plugin: VxeUIPluginObject, options: any[]) {
 
 const components: Record<string, any> = {}
 
-export function getComponent (name: keyof VxeGlobalComponents) {
+export function getComponent(name: keyof VxeGlobalComponents) {
   return components[name] || null
 }
 
-export function hasComponent (name: keyof VxeGlobalComponents) {
+export function hasComponent(name: keyof VxeGlobalComponents) {
   return !!components[name]
 }
 
-export function component (comp: any) {
+export function component(comp: any) {
   if (comp && comp.name) {
     components[comp.name] = comp
     components[XEUtils.kebabCase(comp.name)] = comp
   }
 }
 
-export function renderEmptyElement () {
+export function renderEmptyElement() {
   return createCommentVNode()
 }
 
-export function checkVersion (version: string, pVersion: number, sVersion?: number) {
+export function checkVersion(version: string, pVersion: number, sVersion?: number) {
   if (version) {
     const vRest = `${version}`.match(/(\d+).(\d+).(\d+)/)
     if (vRest) {
