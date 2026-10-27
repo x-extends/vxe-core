@@ -8,7 +8,7 @@ import type { VxeDBUtils, VxeDBStore, VxeDBOptions } from '../../types'
  * - 库名 = `${key}_${version}`，version 变化 => 换库
  */
 class IdbStore implements VxeDBStore {
-  private storeName = 'Storage'
+  private storeName = 'vxe_storage'
   private key: string
   private version: string | number
   private dbPromise: Promise<IDBDatabase> | null = null
