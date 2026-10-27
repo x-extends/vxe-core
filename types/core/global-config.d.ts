@@ -34,6 +34,10 @@ export interface VxeGlobalConfig {
    */
   zIndex?: number
   /**
+   * 全局版本号，对于某些带数据缓存的功能有用到，上升版本号可以用于重置组件保存的数据
+   */
+  version?: string | number
+  /**
    * 全局组件尺寸
    */
   size?: VxeComponentSizeType
@@ -55,12 +59,6 @@ export interface VxeGlobalConfig {
    * @returns string
    */
   i18n?:(key: string, args?: any) => string | number
-
-  /**
-   * 已废弃，请使用 VxeUI.tableVersion
-   * @deprecated
-   */
-  version?: string | number
   /**
    * 已废弃，请使用 VxeUI.setConfig({ table: { resizeInterval: 300 } })
    * @deprecated
