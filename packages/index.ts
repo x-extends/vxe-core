@@ -17,6 +17,7 @@ import { clipboard } from './src/clipboard'
 import { permission } from './src/permission'
 import { zIndex } from './src/z-index'
 import { baseUtils } from './src/base-utils'
+import { dbUtils } from './src/db-utils'
 import { domUtils } from './src/dom-utils'
 import { scrollbarUtils } from './src/scrollbar-utils'
 import { popperUtils } from './src/popper-utils'
@@ -113,6 +114,7 @@ export const VxeUI = Object.assign(VxeCore, {
   zIndex,
 
   baseUtils,
+  dbUtils,
   domUtils,
   scrollbarUtils,
   popperUtils,
@@ -154,6 +156,7 @@ export * from './src/permission'
 export * from './src/z-index'
 
 export * from './src/base-utils'
+export * from './src/db-utils'
 export * from './src/dom-utils'
 export * from './src/scrollbar-utils'
 export * from './src/popper-utils'

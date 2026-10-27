@@ -16,6 +16,7 @@ import { VxeGlobalClipboard } from './clipboard'
 import { VxeGlobalPermission } from './permission'
 import { VxeZIndex } from './z-index'
 import { VxeBaseUtils } from './base-utils'
+import { VxeDBUtils } from './db-utils'
 import { VxeDomUtils } from './dom-utils'
 import { VxeScrollbarUtils } from './scrollbar-utils'
 import { VxePopperUtils } from './popper-utils'
@@ -78,6 +79,7 @@ export const permission: VxeGlobalPermission
 export const zIndex: VxeZIndex
 
 export const baseUtils: VxeBaseUtils
+export const dbUtils: VxeDBUtils
 export const domUtils: VxeDomUtils
 export const scrollbarUtils: VxeScrollbarUtils
 export const popperUtils: VxePopperUtils
@@ -226,6 +228,10 @@ export interface VxeUIExport {
    */
   baseUtils: VxeBaseUtils
   /**
+   * 数据储存函数
+   */
+  dbUtils: VxeDBUtils
+  /**
    * Document 工具函数
    */
   domUtils: VxeDomUtils
@@ -323,6 +329,7 @@ export * from './permission'
 export * from './z-index'
 
 export * from './base-utils'
+export * from './db-utils'
 export * from './dom-utils'
 export * from './scrollbar-utils'
 export * from './popper-utils'
