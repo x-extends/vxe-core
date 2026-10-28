@@ -45,4 +45,5 @@ export interface VxeGlobalEvents {
   on(comp: VxeComponentBaseOptions, type: VxeGlobalEventType, cb: (evnt: any) => void): void
   off(comp: VxeComponentBaseOptions, type: VxeGlobalEventType): void
   hasKey(evnt: KeyboardEvent, targetKey: string): boolean
+  hasControlKey(evnt: KeyboardEvent | MouseEvent | DragEvent): boolean
 }

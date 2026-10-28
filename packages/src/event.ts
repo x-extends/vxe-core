@@ -141,6 +141,9 @@ export const globalEvents: VxeGlobalEvents = {
     const { key } = evnt
     targetKey = targetKey.toLowerCase()
     return key ? targetKey === key.toLowerCase() || !!(convertEventKeys[key] && convertEventKeys[key].toLowerCase() === targetKey) : false
+  },
+  hasControlKey(evnt) {
+    return evnt.ctrlKey || evnt.metaKey
   }
 }
 

@@ -74,38 +74,40 @@ class IdbStore implements VxeDBStore {
   }
 
   getById(id: string): Promise<{ id: string; data: any } | undefined> {
-    return this.openDB().then((db) =>
-      new Promise<{ id: string; data: any } | undefined>((resolve, reject) => {
-        const req = db.transaction(this.storeName, 'readonly').objectStore(this.storeName).get(id)
-        req.onsuccess = () => resolve(req.result)
-        req.onerror = () => reject(req.error)
-      })
+    return this.openDB().then(
+      (db) =>
+        new Promise<{ id: string; data: any } | undefined>((resolve, reject) => {
+          const req = db.transaction(this.storeName, 'readonly').objectStore(this.storeName).get(id)
+          req.onsuccess = () => resolve(req.result)
+          req.onerror = () => reject(req.error)
+        })
     )
   }
 
   getAll(): Promise<{ id: string; data: any }[]> {
-    return this.openDB().then((db) =>
-      new Promise<{ id: string; data: any }[]>((resolve, reject) => {
-        const store = db.transaction(this.storeName, 'readonly').objectStore(this.storeName)
-        if (XEUtils.isFunction(store.getAll)) {
-          const req = store.getAll()
-          req.onsuccess = () => resolve(req.result || [])
-          req.onerror = () => reject(req.error)
-          return
-        }
-        const list: { id: string; data: any }[] = []
-        const req = store.openCursor()
-        req.onsuccess = () => {
-          const cursor = req.result
-          if (cursor) {
-            list.push(cursor.value)
-            cursor.continue()
-          } else {
-            resolve(list)
+    return this.openDB().then(
+      (db) =>
+        new Promise<{ id: string; data: any }[]>((resolve, reject) => {
+          const store = db.transaction(this.storeName, 'readonly').objectStore(this.storeName)
+          if (XEUtils.isFunction(store.getAll)) {
+            const req = store.getAll()
+            req.onsuccess = () => resolve(req.result || [])
+            req.onerror = () => reject(req.error)
+            return
           }
-        }
-        req.onerror = () => reject(req.error)
-      })
+          const list: { id: string; data: any }[] = []
+          const req = store.openCursor()
+          req.onsuccess = () => {
+            const cursor = req.result
+            if (cursor) {
+              list.push(cursor.value)
+              cursor.continue()
+            } else {
+              resolve(list)
+            }
+          }
+          req.onerror = () => reject(req.error)
+        })
     )
   }
 
@@ -114,24 +116,26 @@ class IdbStore implements VxeDBStore {
     if (data == null) {
       return this.deleteById(id)
     }
-    return this.openDB().then((db) =>
-      new Promise<void>((resolve, reject) => {
-        const tx = db.transaction(this.storeName, 'readwrite')
-        tx.objectStore(this.storeName).put({ id, data })
-        tx.oncomplete = () => resolve()
-        tx.onerror = () => reject(tx.error)
-      })
+    return this.openDB().then(
+      (db) =>
+        new Promise<void>((resolve, reject) => {
+          const tx = db.transaction(this.storeName, 'readwrite')
+          tx.objectStore(this.storeName).put({ id, data })
+          tx.oncomplete = () => resolve()
+          tx.onerror = () => reject(tx.error)
+        })
     )
   }
 
   deleteById(id: string): Promise<void> {
-    return this.openDB().then((db) =>
-      new Promise<void>((resolve, reject) => {
-        const tx = db.transaction(this.storeName, 'readwrite')
-        tx.objectStore(this.storeName).delete(id)
-        tx.oncomplete = () => resolve()
-        tx.onerror = () => reject(tx.error)
-      })
+    return this.openDB().then(
+      (db) =>
+        new Promise<void>((resolve, reject) => {
+          const tx = db.transaction(this.storeName, 'readwrite')
+          tx.objectStore(this.storeName).delete(id)
+          tx.oncomplete = () => resolve()
+          tx.onerror = () => reject(tx.error)
+        })
     )
   }
 
@@ -139,13 +143,14 @@ class IdbStore implements VxeDBStore {
    * 清空当前库的数据
    */
   clear(): Promise<void> {
-    return this.openDB().then((db) =>
-      new Promise<void>((resolve, reject) => {
-        const tx = db.transaction(this.storeName, 'readwrite')
-        tx.objectStore(this.storeName).clear()
-        tx.oncomplete = () => resolve()
-        tx.onerror = () => reject(tx.error)
-      })
+    return this.openDB().then(
+      (db) =>
+        new Promise<void>((resolve, reject) => {
+          const tx = db.transaction(this.storeName, 'readwrite')
+          tx.objectStore(this.storeName).clear()
+          tx.oncomplete = () => resolve()
+          tx.onerror = () => reject(tx.error)
+        })
     )
   }
 
