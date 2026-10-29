@@ -5,8 +5,9 @@ import { VxeBaseUtils, VxeBaseEmptyValue } from '../../types'
 export const baseUtils: VxeBaseUtils = {
   /**
    * 转成字符串
+   * 如果是 (null | undefined) 为 ''
    */
-  toString(content) {
+  getStrVal(content) {
     if (XEUtils.eqNull(content)) {
       return ''
     }
@@ -15,7 +16,7 @@ export const baseUtils: VxeBaseUtils = {
   /**
    * 判断值为：'' | null | undefined 时都属于空值
    */
-  isEmpty(value): value is VxeBaseEmptyValue {
+  isEmptyVal(value): value is VxeBaseEmptyValue {
     return value === null || value === undefined || value === ''
   },
   /**
