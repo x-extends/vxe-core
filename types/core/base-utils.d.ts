@@ -27,7 +27,7 @@ export interface VxeBaseUtils {
    * 判断配置项是否启用
    * @param conf
    */
-  isEnabled(conf: EnableConfOptions): boolean
+  isEnabled(conf: EnableConfOptions | null | undefined): boolean
   /**
    * 用于判断开关类型的配置项
    * 局部启用规则：conf={}
@@ -36,5 +36,5 @@ export interface VxeBaseUtils {
    * @param conf
    * @param opts
    */
-  hasEnableConf(conf: EnableConfOptions, opts: EnableConfOptions): boolean
+  hasEnableConf(conf: EnableConfOptions | null | undefined, opts: EnableConfOptions | null | undefined): boolean
 }
