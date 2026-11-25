@@ -55,7 +55,7 @@ export const popperUtils: VxePopperUtils = {
     let arrowLeft: number | '' = ''
     const stys: Record<string, string> = {}
     if (panelElem && targetElem) {
-      const bodyEl = document.body
+      const domEl = document.documentElement
       const parentWrapperEl = getWrapperElement(teleportTo ? getAppendElement(appendTo) : panelElem)
       if (parentWrapperEl) {
         const targetWidth = targetElem.offsetWidth
@@ -66,8 +66,8 @@ export const popperUtils: VxePopperUtils = {
         const parentWrapperRect = parentWrapperEl.getBoundingClientRect()
         const panelRect = panelElem.getBoundingClientRect()
         const targetRect = targetElem.getBoundingClientRect()
-        const visibleHeight = bodyEl.clientHeight
-        const visibleWidth = bodyEl.clientWidth
+        const visibleHeight = domEl.clientHeight
+        const visibleWidth = domEl.clientWidth
 
         const parentWrapperScrollLeft = parentWrapperEl.scrollLeft
         const parentWrapperScrollTop = parentWrapperEl.scrollTop
@@ -79,8 +79,8 @@ export const popperUtils: VxePopperUtils = {
         minWidth = targetElem.offsetWidth
 
         if (teleportTo) {
-          left = (defaultLeft || targetLeft - (panelWidth - targetWidth) / 2) - parentWrapperScrollLeft
-          top = (defaultTop || targetTop + targetHeight) - parentWrapperScrollTop
+          left = (defaultLeft || (targetLeft - (panelWidth - targetWidth) / 2)) - parentWrapperScrollLeft
+          top = (defaultTop || (targetTop + targetHeight)) - parentWrapperScrollTop
           if (placement === 'top') {
             panelPlacement = 'top'
             top = targetTop - panelHeight
@@ -91,25 +91,25 @@ export const popperUtils: VxePopperUtils = {
                 top = targetTop - panelHeight
               }
               // 如果上面不够放，则向下
-              if (top < marginSize) {
+              if (top < (marginSize - parentWrapperScrollTop)) {
                 panelPlacement = 'bottom'
-                top = targetTop + targetHeight
+                top = targetTop + targetHeight - parentWrapperScrollTop
               }
               // 如果下面不够放，则向上（优先）
-              if (top + panelHeight + marginSize > visibleHeight) {
+              if (top + panelHeight + marginSize > (visibleHeight - parentWrapperScrollTop)) {
                 panelPlacement = 'top'
-                top = targetTop - panelHeight
+                top = targetTop - panelHeight - parentWrapperScrollTop
               }
             } else {
-              // 如果下面不够放，则向上
-              if (top + panelHeight + marginSize > visibleHeight) {
+            // 如果下面不够放，则向上
+              if (top + panelHeight + marginSize > (visibleHeight - parentWrapperScrollTop)) {
                 panelPlacement = 'top'
-                top = targetTop - panelHeight
+                top = targetTop - panelHeight - parentWrapperScrollTop
               }
               // 如果上面不够放，则向下（优先）
-              if (top < marginSize) {
+              if (top < (marginSize - parentWrapperScrollTop)) {
                 panelPlacement = 'bottom'
-                top = targetTop + targetHeight
+                top = targetTop + targetHeight - parentWrapperScrollTop
               }
             }
           }
@@ -130,10 +130,10 @@ export const popperUtils: VxePopperUtils = {
             panelPlacement = 'top'
             bottom = targetHeight
           } else if (!placement) {
-            // 如果下面不够放，则向上
+          // 如果下面不够放，则向上
             top = targetHeight
             if (targetTop + targetHeight + panelHeight + marginSize > visibleHeight) {
-              // 如果上面不够放，则向下（优先）
+            // 如果上面不够放，则向下（优先）
               if (targetTop - targetHeight - panelHeight > marginSize) {
                 panelPlacement = 'top'
                 top = ''
